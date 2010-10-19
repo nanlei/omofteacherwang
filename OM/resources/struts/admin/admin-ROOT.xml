@@ -7,5 +7,16 @@
 		<action name="index" class="neo.core.common.CommonAnonymousAction">
 			<result>login.ftl</result>
 		</action>
+
+		<action name="login" class="neo.app.action.admin.UserAction"
+			method="adminLogin">
+			<result type="redirect">${indexUrl}</result>
+			<result name="homepage" type="redirect">adminIndex.action</result>
+			<result name="error">login.ftl</result>
+		</action>
+
+		<action name="adminIndex" class="neo.core.common.CommonBaseAction">
+			<result>index.ftl</result>
+		</action>
 	</package>
 </struts>

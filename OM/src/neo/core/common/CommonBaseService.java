@@ -31,14 +31,6 @@ public class CommonBaseService {
 		this.npjt = namedParameterJdbcTemplate;
 	}
 
-	/* CallableStatementTemplate */
-	// protected CallableStatementTemplate cst;
-	//
-	// public void setCallableStatementTemplate(CallableStatementTemplate
-	// callableStatementTemplate) {
-	// this.cst = callableStatementTemplate;
-	// }
-
 	/* ValueStack */
 	public ValueStack getValueStack() {
 		return ActionContext.getContext().getValueStack();
@@ -68,4 +60,5 @@ public class CommonBaseService {
 				.intValue();
 		return new PagingList(sql, namedParams, pageNum, pageSize, npjt);
 	}
+
 }

@@ -15,9 +15,9 @@ import neo.core.util.CommonUtil;
 import neo.core.util.MapUtil;
 import neo.core.util.QueryUtil;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
 
 import com.opensymphony.xwork2.Action;
@@ -30,7 +30,7 @@ import freemarker.ext.dom.NodeModel;
  */
 public class CommonBaseAction implements Action {
 	/* 日志 */
-	protected final Log log = LogFactory.getLog(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	/* 默认返回SUCCESS */
 	public String execute() throws Exception {
@@ -128,7 +128,8 @@ public class CommonBaseAction implements Action {
 	}
 
 	public String getFullUrlWithoutPageNum() {
-		return getRequest().getServletPath() + "?" + getQueryStringWithoutPageNum();
+		return getRequest().getServletPath() + "?"
+				+ getQueryStringWithoutPageNum();
 	}
 
 	public String getQueryStringWithoutPageInfo() {
@@ -139,7 +140,8 @@ public class CommonBaseAction implements Action {
 	}
 
 	public String getFullUrlWithoutPageInfo() {
-		return getRequest().getServletPath() + "?" + getQueryStringWithoutPageInfo();
+		return getRequest().getServletPath() + "?"
+				+ getQueryStringWithoutPageInfo();
 	}
 
 	/* 记录当前页面作为返回地址 */
@@ -170,7 +172,8 @@ public class CommonBaseAction implements Action {
 		if (referUrlMap == null) {
 			return "";
 		}
-		return referUrlMap.get(key) == null ? "" : (String) referUrlMap.get(key);
+		return referUrlMap.get(key) == null ? "" : (String) referUrlMap
+				.get(key);
 	}
 
 	public String getFullReferUrl(String key) {
@@ -182,9 +185,10 @@ public class CommonBaseAction implements Action {
 		return new Date();
 	}
 
-	private static SimpleDateFormat fileFormatter = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+	private static SimpleDateFormat fileFormatter = new SimpleDateFormat(
+			"yyyyMMddHHmmssSSS");
 
-	//获取格式化后的日期（到毫秒）
+	// 获取格式化后的日期（到毫秒）
 	public String getNowString() {
 		return fileFormatter.format(getNow());
 	}
@@ -211,7 +215,7 @@ public class CommonBaseAction implements Action {
 
 	/* 通用JSON结果返回页 */
 	public static final String JSON_RESULT = Constants.JSON_RESULT;
-	
+
 	/* 非法请求结果返回页 */
-	public static final String BAD_REQUEST=Constants.BAD_REQUEST;
+	public static final String BAD_REQUEST = Constants.BAD_REQUEST;
 }
