@@ -249,6 +249,16 @@ function validateForm(theForm) {
 			}
 		}
 		
+		var emailInfo=field[i].getAttribute("emailInfo");
+		if(emailInfo!=null){
+			var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+			if(reg.test(value)==false){
+				alert(emailInfo);
+				field[i].select();
+				return false;
+			}
+		}
+		
 		var dateInfo=field[i].getAttribute("dateInfo");//
 		if (dateInfo!=null) {
 			if (value!="") {

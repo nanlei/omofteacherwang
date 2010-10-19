@@ -1,4 +1,4 @@
-<@p.page>
+<@admin.page>
 <script language="JavaScript">
 <!--
 function showDetail() {
@@ -29,4 +29,4 @@ function showDetail() {
 	</td>
 </tr>
 </table>
-</@p.page>
+</@admin.page>

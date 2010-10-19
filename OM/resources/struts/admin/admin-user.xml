@@ -8,5 +8,6 @@
 			method="list">
 			<result name="list">user_list.ftl</result>
 		</action>
+		<action name="addTeacher" class="neo.app.action.admin.UserAction" method="addTeacher" />
 	</package>
 </struts>
