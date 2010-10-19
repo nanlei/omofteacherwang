@@ -46,7 +46,7 @@
 
 	<filter-mapping>
 		<filter-name>struts2-cleanup</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
 
 	<filter-mapping>
@@ -61,7 +61,7 @@
 
 	<!-- Bean Manager Listener -->
 	<listener>
-		<listener-class>com.neo.core.bean.BeanManagerListener</listener-class>
+		<listener-class>neo.core.bean.BeanManagerListener</listener-class>
 	</listener>
 
 	<!-- FreeMarker Servlet -->
@@ -86,7 +86,7 @@
 	<!-- CKEditor Upload File Servlet -->
 	<servlet>
 		<servlet-name>SimpleUploader</servlet-name>
-		<servlet-class>oa.core.util.ckeditor.CKEditorUploadServlet</servlet-class>
+		<servlet-class>neo.core.util.CKEditorUploadServlet</servlet-class>
 		<init-param>
 			<param-name>baseDir</param-name>
 			<param-value>/UserUpload/</param-value>
@@ -132,6 +132,7 @@
 		<servlet-name>SimpleUploader</servlet-name>
 		<url-pattern>/ckeditor/uploader</url-pattern>
 	</servlet-mapping>
+	
 	<!-- Error Code Page -->
 	<error-page>
 		<error-code>404</error-code>

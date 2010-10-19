@@ -1,4 +1,4 @@
-package com.neo.core.bean;
+package neo.core.bean;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
