@@ -8,8 +8,8 @@
 			<result name="login" type="redirect">/index.action</result>
 		</global-results>
 	</package>
-
+	<!-- 后台管理配置文件 -->
 	<include file="struts/admin/*.xml" />
+	<!-- 前台配置文件 -->
 	<include file="struts/front/*.xml" />
-
 </struts>

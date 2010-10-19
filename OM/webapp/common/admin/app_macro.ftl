@@ -4,11 +4,11 @@
 <table cellspacing="0" cellpadding="0" border="0" class="navtab" width="100%">
 	<tr>
 		<td rowspan="2" class="tdnormal" width="380">
-		后台管理系统
+		<font size="5px">OM后台管理系统</font>
 		</td>
 		<td colspan="5">&nbsp;</td>
 		<td style="text-align:right;padding-right:10px">
-		当前用户：<span style="color:#ff6">${loginUser.userName} - ${loginUser.realName}</span> 【<a style="color:#fff" href="${base}/logout.action">退出</a>】
+		当前用户：<span style="color:#ff6">${loginUser.USERNAME} - ${loginUser.REALNAME}</span> 【<a style="color:#fff" href="${base}/admin/adminLogout.action">退出</a>】
 		</td>
 	</tr>
 	<tr>
@@ -22,7 +22,7 @@
 <table width="100%" height="100%" cellSpacing="0" cellPadding="0" border="0" align="center">
 	<tr style="background:#FFF">
 		<td width="200px" id="TreeTD" rowspan="2"><iframe style="width:100%;height:100%" src="${treeAction}" name="TreeFrame" id="TreeFrame" frameborder="0"></iframe></td>
-		<td width="8px" align="center" onclick="toggleTree()" style="cursor:pointer" rowspan="2" class="fbg"><img src="images/switch.gif" width="6" height="24" border="0" alt=""></td>
+		<td width="8px" align="center" onclick="toggleTree()" style="cursor:pointer" rowspan="2" class="fbg"><img src="${base}/images/switch.gif" width="6" height="24" border="0" alt=""></td>
 		<td width="*" id="navTD" height="30px"></td>
 	</tr>
 	<tr>
@@ -83,6 +83,6 @@ if (navTD) {
 <#-- Footer -->
 <#macro footer>
 <tr>
-	<td height="18px" align="center" style="padding-right:10px;font-size:12px">Ver 2C  Copyright &#169; www.ourpioneer.org All Rights Reserved,Powered By Nanlei</td>
+	<td height="18px" align="center" style="padding-right:10px;font-size:12px">Ver 0.1 Copyright &#169; All Rights Reserved,Powered By NanLei & ShenMaihan</td>
 </tr>
 </#macro>
