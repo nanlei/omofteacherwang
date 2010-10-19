@@ -3,4 +3,10 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+	<package name="admin-user" extends="app-default" namespace="/admin/user">
+		<action name="list" class="neo.app.action.admin.UserAction"
+			method="list">
+			<result name="list">usre_list.ftl</result>
+		</action>
+	</package>
 </struts>

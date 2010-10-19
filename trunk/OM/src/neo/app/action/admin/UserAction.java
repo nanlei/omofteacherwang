@@ -6,11 +6,7 @@ import neo.app.action.BaseAction;
 import neo.core.Constants;
 import neo.core.util.CommonUtil;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 public class UserAction extends BaseAction {
-	private static Log log = LogFactory.getLog(UserAction.class);// 日志记录器
 
 	private static final String NOT_EXISTS = "该用户不存在";// 用户不存在
 	private static final String WRONG_PASS = "密码错误";// 密码错误
@@ -68,7 +64,7 @@ public class UserAction extends BaseAction {
 				return ERROR;
 			}
 		} catch (Exception e) {
-			log.error(e);
+			e.printStackTrace();
 			errorInfo = LOGIN_ERROR;
 			return ERROR;
 		}
@@ -85,5 +81,14 @@ public class UserAction extends BaseAction {
 		getSession().remove(Constants.ORIGINAL_URL);
 		getSession().clear();
 		return SUCCESS;
+	}
+
+	/**
+	 * 用户列表
+	 * 
+	 * @return
+	 */
+	public String list() {
+		return "list";
 	}
 }
