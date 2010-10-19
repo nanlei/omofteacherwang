@@ -83,7 +83,7 @@ public class UserAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String adminLogout() {
+	public String adminLogout() throws Exception {
 		getSession().remove(Constants.LOGIN_USER);
 		getSession().remove(Constants.ORIGINAL_URL);
 		getSession().clear();
@@ -95,8 +95,27 @@ public class UserAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String list() {
+	public String list() throws Exception {
 		teacherList = getServMgr().getUserService().getAllTeachers();
 		return "list";
+	}
+
+	/**
+	 * 添加教师用户
+	 * 
+	 * @return
+	 */
+	public String addTeacher() {
+		try {
+			getServMgr().getUserService().addTeacher(getParameters());
+			addMessage("教师用户添加成功");
+			addRedirURL("返回列表", "list.action");
+		} catch (Exception e) {
+			e.printStackTrace();
+			setResult(ERROR);
+			addMessage("教师用户添加失败，请检查数据后继续");
+			addRedirURL("返回", "@back");
+		}
+		return EXECUTE_RESULT;
 	}
 }

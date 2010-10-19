@@ -3,6 +3,8 @@ package neo.app.service;
 import java.util.Map;
 
 import neo.core.common.PagingList;
+import neo.core.util.CommonUtil;
+import neo.core.util.MapUtil;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 
@@ -26,6 +28,7 @@ public class UserService extends BaseService {
 		}
 	}
 
+	// 获取所有教师信息
 	private static final String SQL_GET_ALL_TEACHERS = "select * from om_teacher";
 
 	/**
@@ -35,5 +38,22 @@ public class UserService extends BaseService {
 	 */
 	public PagingList getAllTeachers() {
 		return getPagingList(SQL_GET_ALL_TEACHERS);
+	}
+
+	// 添加教师用户信息
+	private static final String SQL_ADD_TEACHER = "insert into om_teacher(USERNAME,REALNAME,PASSWORD,EMAIL,MOBILE,ROLE) values(?,?,?,?,?,0)";
+
+	/**
+	 * 添加教师用户信息
+	 * 
+	 * @param parameterMap
+	 *            Map类型的参数
+	 */
+	public void addTeacher(Map parameterMap) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+				"userName,realName,password,email,mobile");
+		String md5Pwd = CommonUtil.getMD5ofStr((String) params[2]);
+		jt.update(SQL_ADD_TEACHER, params[0], params[1], md5Pwd, params[3],
+				params[4]);
 	}
 }

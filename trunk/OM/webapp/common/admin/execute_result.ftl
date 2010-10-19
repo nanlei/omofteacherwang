@@ -1,5 +1,5 @@
 <#include "config.ftl">
-<@p.page>
+<@admin.page>
 <#assign er = executeResult?if_exists>
 <#assign delay = 2>
 <#if er?has_content>
@@ -26,4 +26,4 @@
 </tr>
 </table>
 </#if>
-</@p.page>
+</@admin.page>

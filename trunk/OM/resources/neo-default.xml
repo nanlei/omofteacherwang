@@ -33,15 +33,15 @@
 		<global-results>
 			<result name="executeResult" type="redirect">execute_result.action
 			</result>
-			<result name="exception">/common/exception.ftl</result>
+			<result name="exception">/common/admin/exception.ftl</result>
 			<result name="jsonResult">
-				<param name="location">/common/json_result.ftl</param>
+				<param name="location">/common/admin/json_result.ftl</param>
 				<param name="contentType">text/plain</param>
 			</result>
 		</global-results>
 
 		<action name="execute_result" class="neo.core.common.CommonAnonymousAction">
-			<result name="success">/common/execute_result.ftl</result>
+			<result name="success">/common/admin/execute_result.ftl</result>
 		</action>
 	</package>
 </struts>
