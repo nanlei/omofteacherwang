@@ -4,6 +4,7 @@ import java.util.Map;
 
 import neo.app.action.BaseAction;
 import neo.core.Constants;
+import neo.core.common.PagingList;
 import neo.core.util.CommonUtil;
 
 public class UserAction extends BaseAction {
@@ -18,6 +19,8 @@ public class UserAction extends BaseAction {
 	// 登录用户的信息
 	private String userName;// 用户名
 	private String password;// 密码
+	// 显示信息
+	private PagingList teacherList;
 
 	public String getErrorInfo() {
 		return errorInfo;
@@ -29,6 +32,10 @@ public class UserAction extends BaseAction {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public PagingList getTeacherList() {
+		return teacherList;
 	}
 
 	/**
@@ -89,6 +96,7 @@ public class UserAction extends BaseAction {
 	 * @return
 	 */
 	public String list() {
+		teacherList = getServMgr().getUserService().getAllTeachers();
 		return "list";
 	}
 }

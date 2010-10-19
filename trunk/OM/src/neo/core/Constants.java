@@ -33,7 +33,7 @@ public interface Constants {
 	public static final String REFER_URL_DEFAULT_KEY = "_REFER_URL_DEFAULT_KEY_";
 
 	/* 登录后用户信息在Session中的Key */
-	public static final String LOGIN_USER = "_LOGIN_USER_";
+	public static final String LOGIN_USER = "loginUser";
 
 	/* 记录用户登录前想要访问的地址在Session中的Key */
 	public static final String ORIGINAL_URL = "_ORIGINAL_URL_";

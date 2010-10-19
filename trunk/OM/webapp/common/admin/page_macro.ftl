@@ -51,8 +51,8 @@
 
 <#-- 树形控件 tree -->
 <#macro tree root="" display="">
-<style type="text/css">@import url('components/dtree/dtree.css');</style>
-<script type="text/javascript">var dtreeIconBasePath = "components/dtree";</script>
+<style type="text/css">@import url('${base}/components/dtree/dtree.css');</style>
+<script type="text/javascript">var dtreeIconBasePath = "${base}/components/dtree";</script>
 <script language="javascript" src="${base}/components/dtree/dtree.js"></script>
 <#nested>
 <div style="display:${display};margin-bottom:5px;">菜单控制:【<a href="javascript:void(0)" onclick="tree.openAll();this.blur();return false;" style="color:#333333">展开</a>】【<a href="javascript:void(0)" onclick="tree.closeAll();this.blur();return false;" style="color:#333333">折叠</a>】</div>

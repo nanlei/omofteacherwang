@@ -4,19 +4,33 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="admin-ROOT" extends="app-default" namespace="/admin">
+		<!-- 后台登录首页 -->
 		<action name="index" class="neo.core.common.CommonAnonymousAction">
 			<result>login.ftl</result>
 		</action>
-
+		<!-- 后台登录 -->
 		<action name="login" class="neo.app.action.admin.UserAction"
 			method="adminLogin">
 			<result type="redirect">${indexUrl}</result>
 			<result name="homepage" type="redirect">adminIndex.action</result>
 			<result name="error">login.ftl</result>
 		</action>
-
+		<!-- 后台登出，退出系统 -->
+		<action name="adminLogout" class="neo.app.action.admin.UserAction"
+			method="adminLogout">
+			<result>login.ftl</result>	
+		</action>
+		<!-- 后台首页 -->
 		<action name="adminIndex" class="neo.core.common.CommonBaseAction">
 			<result>index.ftl</result>
+		</action>
+		<!-- 管理导航树 -->
+		<action name="tree" class="neo.core.common.CommonBaseAction">
+			<result>tree.ftl</result>
+		</action>
+		<!-- 后台首页主区 -->
+		<action name="mainpage" class="neo.core.common.CommonBaseAction">
+			<result>mainpage.ftl</result>
 		</action>
 	</package>
 </struts>
