@@ -56,4 +56,17 @@ public class UserService extends BaseService {
 		jt.update(SQL_ADD_TEACHER, params[0], params[1], md5Pwd, params[3],
 				params[4]);
 	}
+
+	// 根据ID获取用户信息
+	private static final String SQL_GET_TEACHER_BY_ID = "select * from om_teacher where ID=?";
+
+	/**
+	 * 根据ID获取用户信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Map getTeacherById(String id) {
+		return jt.queryForMap(SQL_GET_TEACHER_BY_ID, id);
+	}
 }
