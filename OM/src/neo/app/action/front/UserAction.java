@@ -1,4 +1,4 @@
-package neo.app.action.admin;
+package neo.app.action.front;
 
 import java.util.Map;
 
