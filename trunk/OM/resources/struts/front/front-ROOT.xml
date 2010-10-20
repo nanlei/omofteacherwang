@@ -20,7 +20,7 @@
 			method="frontLogout">
 			<result>index.ftl</result>	
 		</action>
-		<!-- 后台首页 -->
+		<!-- 前台首页 -->
 		<action name="frontIndex" class="neo.core.common.CommonBaseAction">
 			<result>index.ftl</result>
 		</action>

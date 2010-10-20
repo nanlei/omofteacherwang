@@ -3,7 +3,7 @@
 	 "charset" : "utf-8",
 	 "common_title" : "OM系统",
 	 "default_title" : "前台页面",
-	 "manage_path" : "/manage",
+	 "manage_path" : "/front",
 	 "css_path" : ["/css/featured_slide.css",
 	 			   "/css/forms.css",
 	 			   "/css/layout.css",
