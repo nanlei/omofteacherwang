@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="front-annym" extends="app-default" namespace="/">
+		
+		<action name="annym" class="neo.app.action.front.AnnymAction">
+			<result name="frontIndex">index.ftl</result>
+			<result name="viewUserRegister">register.ftl</result>
+		</action>
+	</package>
+</struts>
