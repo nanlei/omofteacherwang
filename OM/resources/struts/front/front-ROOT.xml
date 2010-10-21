@@ -3,9 +3,9 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<package name="front-ROOT" extends="app-default" namespace="/admin">
+	<package name="front-ROOT" extends="app-default" namespace="/">
 		<!-- 前台首页（包含登陆） -->
-		<action name="index" class="neo.core.common.CommonAnonymousAction">
+		<action name="frontIndex" class="neo.core.common.CommonAnonymousAction">
 			<result>index.ftl</result>
 		</action>
 		<!-- 前台首页（包含登陆） -->

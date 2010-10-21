@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/cglib-nodep-2.2.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-dbcp.jar"/>
@@ -32,5 +31,6 @@
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/log4j-1.2.14.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/slf4j-api-1.5.10.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/slf4j-log4j12-1.5.10.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk"/>
 	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
 </classpath>
