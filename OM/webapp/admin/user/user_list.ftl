@@ -64,8 +64,8 @@ function checkPassword(){
 		<td>序号</td>
 		<td>登录名</td>
 		<td>姓名</td>
-		<td>邮件</td>
-		<td>电话</td>
+		<td>电子邮件</td>
+		<td>电话号码</td>
 		<td>角色</td>
 		<td>操作</td>
 	</tr>
@@ -78,7 +78,7 @@ function checkPassword(){
 		<td>${teacher.EMAIL!'-'}</td>
 		<td>${teacher.MOBILE!'-'}</td>
 		<td><#if teacher.ROLE=1>管理员<#else>普通用户</#if></td>
-		<td><a href="update.action?id=${teacher.ID}">修改</a></td>
+		<td><a href="preUpdate.action?id=${teacher.ID}">修改信息</a></td>
 	</tr>
 	<#assign count=count+1 />
 	</#list>
