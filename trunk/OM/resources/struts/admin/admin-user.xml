@@ -9,5 +9,8 @@
 			<result name="list">user_list.ftl</result>
 		</action>
 		<action name="addTeacher" class="neo.app.action.admin.UserAction" method="addTeacher" />
+		<action name="preUpdate" class="neo.app.action.admin.UserAction" method="preUpdate">
+			<result name="preUpdate">user_info.ftl</result>
+		</action>
 	</package>
 </struts>
