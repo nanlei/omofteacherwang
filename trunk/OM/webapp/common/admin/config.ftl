@@ -6,7 +6,7 @@
 	 "manage_path" : "/manage",
 	 "css_path" : ["/css/default.css"],
 	 "js_path" : ["/js/common.js",
-	 			  "/js/jquery.js"
+	 			  "/js/jquery-1.4.1-min.js"
 	 			  ]
 }>
 
