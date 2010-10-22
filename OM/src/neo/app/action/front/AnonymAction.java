@@ -42,7 +42,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	/**
 	 * 网站首页
 	 */
-	public String frontIndex() throws Exception {
+	public String viewIndex() throws Exception {
 		locale = getLocaleFromBrowser();
 		actionName = getActionNameFromURL();
 		date = getTime();
@@ -50,7 +50,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		getSession().put("locale", locale);
 		getSession().put("actionName", actionName);
 		getSession().put("date", date);
-		return "frontIndex";
+		return "viewIndex";
 	}
 
 	/**
