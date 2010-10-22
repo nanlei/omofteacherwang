@@ -11,10 +11,10 @@
 	 			   "/css/navi.css",
 	 			   "/css/tables.css"],
 	 "js_path" : ["/js/common.js",
-	 			  "/js/jquery.cycle.min.js",
-	 			  "/js/jquery.cycle.setup.js",
+	 			  "/js/jquery-1.4.1.min.js",
 	 			  "/js/jquery.slidepanel.setup.js",
-	 			  "/js/jquery-1.4.1.min.js"
+	 			  "/js/jquery.cycle.min.js",
+	 			  "/js/jquery.cycle.setup.js"
 	 			  ]
 }>
 
