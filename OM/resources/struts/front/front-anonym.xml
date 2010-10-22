@@ -5,7 +5,7 @@
 <struts>
 	<package name="front-anonym" extends="app-default" namespace="/front">
 		
-		<action name="anonym" class="neo.app.action.front.AnonymAction">
+		<action name="Anonym" class="neo.app.action.front.AnonymAction">
 			<result name="viewIndex">index.ftl</result>
 		</action>
 	</package>
