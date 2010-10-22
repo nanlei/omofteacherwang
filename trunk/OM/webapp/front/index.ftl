@@ -84,35 +84,35 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper col2">
   <div id="featured_slide">
-    <div class="featured_box"><a href="#"><img src="images/demo/450x300.gif" alt="" /></a>
+    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
       <div class="floater">
         <h2>1. 工作室介绍</h2>
         <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
     </div>
-    <div class="featured_box"><a href="#"><img src="images/demo/450x300.gif" alt="" /></a>
+    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
       <div class="floater">
         <h2>2. 为什么要学奥数</h2>
         <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
     </div>
-    <div class="featured_box"><a href="#"><img src="images/demo/450x300.gif" alt="" /></a>
+    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
       <div class="floater">
         <h2>3. 奥数课程介绍</h2>
         <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
     </div>
-    <div class="featured_box"><a href="#"><img src="images/demo/450x300.gif" alt="" /></a>
+    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
       <div class="floater">
         <h2>4. 奥数教育心得</h2>
         <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
     </div>
-    <div class="featured_box"><a href="#"><img src="images/demo/450x300.gif" alt="" /></a>
+    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
       <div class="floater">
         <h2>5. 学生讨论</h2>
         <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
@@ -129,14 +129,14 @@
         <ul>
           <li>
             <h2>小升初咨询</h2>
-            <div class="imgholder"><img src="images/demo/240x130.gif" alt="" /></div>
+            <div class="imgholder"><img src="${base}/images/demo/240x130.gif" alt="" /></div>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p class="readmore"><a href="primary_consulting.html">更多信息 &raquo;</a></p>
           </li>
           <li class="last">
             <h2>待定</h2>
-            <div class="imgholder"><img src="images/demo/240x130.gif" alt="" /></div>
+            <div class="imgholder"><img src="${base}/images/demo/240x130.gif" alt="" /></div>
             <p></p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
@@ -147,7 +147,7 @@
       </div>
       <div class="column2">
         <h2>待定</h2>
-        <img class="imgl" src="images/demo/imgl.gif" alt="" />
+        <img class="imgl" src="${base}/images/demo/imgl.gif" alt="" />
         <p>This is a W3C standards compliant Open Source free CSS template from <a href="http://www.google.com/" title="Google">Google</a>.</p>
         <p>Morbitincidunt maurisque eros molest nunc anteget sed vel lacus mus semper. Anterdumnullam interdum eros dui urna consequam ac nisl nullam ligula vestassa.</p>
         <p>Morbitincidunt maurisque eros molest nunc anteget sed vel lacus mus semper. Anterdumnullam interdum eros dui urna consequam ac nisl nullam ligula vestassa.</p>
@@ -158,32 +158,32 @@
       <h2>项目列表</h2>
       <ul>
         <li>
-          <div class="imgholder"><a href="#"><img src="images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
           <p><strong><a href="#">全知识点评测</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
           <p><strong><a href="#">奥数方法认识</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
           <p><strong><a href="#">奥数教育心得</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
           <p><strong><a href="#">奥数资料分享</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li class="last">
-          <div class="imgholder"><a href="primary_consulting.html"><img src="images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="primary_consulting.html"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
           <p><strong><a href="primary_consulting.html">小升初咨询</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li class="last">
-          <div class="imgholder"><a href="#"><img src="images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
           <p><strong><a href="#">初中学习</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>

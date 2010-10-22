@@ -9,8 +9,9 @@
 		<#local title = navi?last>
 	</#if>
 </#if>
-<html>
-<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN" dir="ltr">
+<head profile="http://gmpg.org/xfn/11">
 	<#assign s=JspTaglibs["/WEB-INF/struts-tags.tld"]><#-- Struts2标签库定义 -->
 	<title>${macro_config.common_title} - ${title?html}</title>
 	<#list macro_config.css_path as css><#-- 系统CSS加载 -->
