@@ -75,7 +75,7 @@
       <ul>
         <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
         <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
-        <li class="active"><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+        <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="#">联系我们</a></li>
       </ul>
@@ -90,7 +90,9 @@
     <ul>
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
-      <li class="current"><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+      <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+      <li>&#187;</li>
+      <li class="current"><a href="#">分类信息</a></li>
     </ul>
   </div>
 </div>
@@ -100,7 +102,16 @@
   <div id="container">
   	<#-- 资料下载-->
     <div id="content">
-      <h5>最近上传共享文件 - 所有分类</h5>
+      <h1>奥数资料分享 - 
+      	<#if shareDataDivision?has_content>
+			<#list shareDataDivision as list>
+				${list.divisionName?default('-')?html}
+				<#break>
+			</#list>
+  		</#if>
+	  </h1>
+      
+      <h3>最近上传共享文件</h3>
       <table summary="Summary Here" cellpadding="0" cellspacing="0">
         <thead>
           <tr>
@@ -114,8 +125,8 @@
           </tr>
         </thead>
         <tbody>
-        <#if shareDataMap.shareData?has_content>
-			<#list shareDataMap.shareData.list as list>
+        <#if shareDataDivision?has_content>
+			<#list shareDataDivision as list>
           		<tr class="light">
             		<td>${list.title?default('-')?html}</td>
            			<td>${list.divisionName?default('-')?html}</td>
@@ -128,11 +139,6 @@
   		</#if>
         </tbody>
       </table>
-      <table align="center" width="100%">
-		<tr>
-			<td align="right"><@p.paging shareDataMap.shareData/></td>
-		</tr>
-	  </table>
     </div>
     <#-- /资料下载-->
     <div id="column">
@@ -140,8 +146,8 @@
       <div class="subnav">
         <h2>共享资料下载分类</h2>
         <ul>
-        <#if shareDataMap.shareDivision?has_content>
-			<#list shareDataMap.shareDivision as list>
+        <#if divisionList?has_content>
+			<#list divisionList as list>
           		<li><a href="${base}/front/Anonym!viewShareDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>

@@ -24,7 +24,8 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private Map knowladgeMap;
 	//奥数资料分享
 	private Map shareDataMap;
-
+	private List shareDataDivision;
+	private List divisionList;
 
 	/**
 	 * 网站首页
@@ -52,8 +53,18 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 * 奥数资料分享
 	 */
 	public String shareData() throws Exception{
+		this.setPageSize(20);
 		shareDataMap=getServMgr().getFrontService().getShareDataMap();
 		return "shareData";
+	}
+	
+	/**
+	 * 奥数资料分享分类具体信息
+	 */
+	public String viewShareDivision() throws Exception{
+		divisionList=getServMgr().getFrontService().getShareDivision();
+		shareDataDivision=getServMgr().getFrontService().getShareDataDivision(id);
+		return "viewShareDivision";
 	}
 	
 	
@@ -154,6 +165,14 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public Map getShareDataMap() {
 		return shareDataMap;
+	}
+
+	public List getShareDataDivision() {
+		return shareDataDivision;
+	}
+
+	public List getDivisionList() {
+		return divisionList;
 	}
 }
 
