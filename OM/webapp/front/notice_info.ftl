@@ -73,7 +73,7 @@
     </div>
     <div id="topnav">
       <ul>
-        <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
+        <li class="active"><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
         <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
