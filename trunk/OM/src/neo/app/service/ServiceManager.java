@@ -3,6 +3,7 @@ package neo.app.service;
 public class ServiceManager {
 	private UserService userService;
 	private HomePageService homePageService;
+	private AboutService aboutService;
 
 	private FrontService frontService;
 
@@ -28,6 +29,14 @@ public class ServiceManager {
 
 	public void setFrontService(FrontService frontService) {
 		this.frontService = frontService;
+	}
+
+	public AboutService getAboutService() {
+		return aboutService;
+	}
+
+	public void setAboutService(AboutService aboutService) {
+		this.aboutService = aboutService;
 	}
 
 }
