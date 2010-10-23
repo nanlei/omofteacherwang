@@ -37,12 +37,25 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	}
 	
 	/**
+	 * 全知识点评测
+	 */
+	public String viewKnowledge() throws Exception{
+		return "viewKnowledge";
+	}
+	
+	public String shareData() throws Exception{
+		return "shareData";
+	}
+	
+	/**
 	 * 显示公告详细内容
 	 */
 	public String viewNotice() throws Exception{
 		noticeInfo=getServMgr().getFrontService().getNoticeInfo(id);
 		return "viewNotice";
 	}
+	
+	
 
 	/**
 	 * 后台跳转
