@@ -3,6 +3,9 @@ package neo.app.action.front;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.struts2.ServletActionContext;
 
 import neo.app.action.BaseAction;
@@ -13,31 +16,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private String locale;
 	private String actionName;
 	private String date;
-
-
-	public String getLocale() {
-		return locale;
-	}
-
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
-
-	public String getActionName() {
-		return actionName;
-	}
-
-	public void setActionName(String actionName) {
-		this.actionName = actionName;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
+	//主页公告相关
+	private Map indexMap;
+	private String id;
+	private List noticeInfo;
 
 	/**
 	 * 网站首页
@@ -50,7 +32,16 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		getSession().put("locale", locale);
 		getSession().put("actionName", actionName);
 		getSession().put("date", date);
+		indexMap=getServMgr().getFrontService().getIndexMap();
 		return "viewIndex";
+	}
+	
+	/**
+	 * 显示公告详细内容
+	 */
+	public String viewNotice() throws Exception{
+		noticeInfo=getServMgr().getFrontService().getNoticeInfo(id);
+		return "viewNotice";
 	}
 
 	/**
@@ -90,6 +81,47 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String date = df.format(new Date());
 		return date.toString();
+	}
+
+
+	public String getLocale() {
+		return locale;
+	}
+
+	public void setLocale(String locale) {
+		this.locale = locale;
+	}
+
+	public String getActionName() {
+		return actionName;
+	}
+
+	public void setActionName(String actionName) {
+		this.actionName = actionName;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Map getIndexMap() {
+		return indexMap;
+	}
+
+	public List getNoticeInfo() {
+		return noticeInfo;
 	}
 }
 

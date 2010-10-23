@@ -1,4 +1,5 @@
 <@p.page>
+<#-- 用户登录-->
 <div class="wrapper col0">
   <div id="topbar">
     <div id="slidepanel">
@@ -62,7 +63,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /用户登录-->
+<#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
     <div id="logo">
@@ -81,47 +83,26 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /导航链接-->
+<#-- 公告区-->
 <div class="wrapper col2">
+
   <div id="featured_slide">
-    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
-      <div class="floater">
-        <h2>1. 工作室介绍</h2>
-        <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
-        <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
-      </div>
-    </div>
-    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
-      <div class="floater">
-        <h2>2. 为什么要学奥数</h2>
-        <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
-        <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
-      </div>
-    </div>
-    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
-      <div class="floater">
-        <h2>3. 奥数课程介绍</h2>
-        <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
-        <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
-      </div>
-    </div>
-    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
-      <div class="floater">
-        <h2>4. 奥数教育心得</h2>
-        <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
-        <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
-      </div>
-    </div>
-    <div class="featured_box"><a href="#"><img src="${base}/images/demo/450x300.gif" alt="" /></a>
-      <div class="floater">
-        <h2>5. 学生讨论</h2>
-        <p>此处可从后台发布信息，包括简介（普通编辑或截取详细介绍的内容）、详细介绍（用editor编辑）、左侧图片（在上传时由后台自动处理图片大小）</p>
-        <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
-      </div>
-    </div>
+  	<#if indexMap.notice?has_content>
+		<#list indexMap.notice as list>
+    	<div class="featured_box"><a href="#"><img src="${base}/${list.pic}" alt="" /></a>
+      		<div class="floater">
+       	 		<h2>${list.title?default('-')?html}</h2>
+        		<p>${cutText("${list.content}",100,"...")}</p>
+        		<p class="readmore"><a href="${base}/front/Anonym!viewNotice.action?id=${list.id}" target="_black"">更多信息 &raquo;</a></p>
+      		</div>
+    	</div>
+    	</#list>
+  	</#if>
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /公告区-->
+<#-- 项目链接-->
 <div class="wrapper col3">
   <div id="homecontent">
     <div class="fl_left">
@@ -192,7 +173,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /项目链接-->
+<#-- 超链接-->
 <div class="wrapper col4">
   <div id="footer">
    
@@ -200,7 +182,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /超链接-->
+<#-- CopyRight-->
 <div class="wrapper col5">
   <div id="copyright">
     <p class="fl_left">Copyright &copy; 2010 - All Rights Reserved - <a href="#">Domain Name</a></p>
@@ -208,4 +191,5 @@
     <br class="clear" />
   </div>
 </div>
+<#-- /CopyRight-->
 </@p.page>
