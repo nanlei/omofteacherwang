@@ -139,8 +139,12 @@
       <h2>项目列表</h2>
       <ul>
         <li>
-          <div class="imgholder"><a href="#"><img src="${base}/images/knowledge.png" alt="" /></a></div>
-          <p><strong><a href="#">全知识点评测</a></strong></p>
+          <div class="imgholder">
+          	<a href="${base}/front/Anonym!viewKnowledge.action">
+          		<img src="${base}/images/knowledge.png" alt="全知识点评测" />
+          	</a>
+          </div>
+          <p><strong><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
@@ -154,8 +158,12 @@
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="${base}/images/share.png" alt="" /></a></div>
-          <p><strong><a href="#">奥数资料分享</a></strong></p>
+          <div class="imgholder">
+          	<a href="${base}/front/Anonym!shareData.action">
+          		<img src="${base}/images/share.png" alt="奥数资料分享" />
+          	</a>
+          </div>
+          <p><strong><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li class="last">

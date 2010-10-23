@@ -90,7 +90,7 @@
     <ul>
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
-      <li class="current"><a href="#">全知识点评测</a></li>
+      <li class="current"><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
     </ul>
   </div>
 </div>
@@ -98,11 +98,11 @@
 <div class="wrapper col3">
   <div id="container">
     <div id="content">
-      <h1>&lt;h1&gt; to &lt;h6&gt; - 小学奥数知识体系大纲</h1>
-      <img class="imgr" src="${base}/images/demo/imgr.gif" alt="" width="125" height="125" />
+      <h1>小学奥数知识体系大纲</h1>
+      <img class="imgr" src="${base}/images/Mathematics_right.png" alt="" width="125" height="125" />
       <p>小学奥数知识体系大纲</p>
       <p>结合小学课本各年级学校应掌握数学知识，在此基础上相应拓展，利于学生接受。</p>
-      <img class="imgl" src="${base}/images/demo/imgl.gif" alt="" width="125" height="125" />
+      <img class="imgl" src="${base}/images/Mathematics_left.png" alt="" width="125" height="125" />
       <p>3~5年级是学习奥数核心时段，在此时间内有效掌握各知识板块基础方法。</p>
       <p>6年级综合提高，备战各校小升初考试。</p>
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片</p>
