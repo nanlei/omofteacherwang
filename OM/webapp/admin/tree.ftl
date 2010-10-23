@@ -4,7 +4,8 @@
 <script type="text/javascript"> 
 var treeMenu = [
 	{ level:1, name:"密码修改", ico:"${base}/images/tico_way.gif", link:"${base}/admin/password.action"},
-	{ level:1, name:"教师管理", ico:"${base}/images/tico_way.gif", link:"${base}/admin/user/list.action"}
+	{ level:1, name:"教师管理", ico:"${base}/images/tico_way.gif", link:"${base}/admin/user/list.action"},
+	{ level:1, name:"首页管理", ico:"${base}/images/tico_way.gif", link:"${base}/admin/homepage/list.action"}
 ];
 </script>
 </@admin.tree>

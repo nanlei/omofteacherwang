@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="admin-homepage" extends="app-default" namespace="/admin/homepage">
+		<action name="list" class="neo.app.action.admin.HomePageAction"
+			method="list">
+			<result name="list">homepage_list.ftl</result>
+		</action>
+		<action name="addHomepage" class="neo.app.action.admin.HomePageAction"
+			method="addHomepage">
+			<interceptor-ref name="fileUploadStack" />
+		</action>
+	</package>
+</struts>
