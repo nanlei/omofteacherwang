@@ -42,7 +42,7 @@ function checkPassword(){
 			<td>手机号码<@admin.mustMark/></td>
 			<td><input type="text" name="mobile" emptyInfo="请输入手机号码" numberInfo="手机号码应该为数字"></td>
 			<td>E-Mail<@admin.mustMark/></td>
-			<td><input type="text" name="email" emailInfo="请输入合法的Email地址"></td>
+			<td><input type="text" name="email" emptyInfo="请输入E-Mail地址" emailInfo="请输入合法的E-mail地址"></td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center">

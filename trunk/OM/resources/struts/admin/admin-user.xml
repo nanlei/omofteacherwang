@@ -8,9 +8,26 @@
 			method="list">
 			<result name="list">user_list.ftl</result>
 		</action>
-		<action name="addTeacher" class="neo.app.action.admin.UserAction" method="addTeacher" />
-		<action name="preUpdate" class="neo.app.action.admin.UserAction" method="preUpdate">
+		<action name="addTeacher" class="neo.app.action.admin.UserAction"
+			method="addTeacher" />
+		<action name="preUpdate" class="neo.app.action.admin.UserAction"
+			method="preUpdate">
 			<result name="preUpdate">user_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.UserAction"
+			method="update" />
+
+		<action name="checkPassword" class="neo.app.action.admin.UserAction"
+			method="checkPassword">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
+		</action>
+		
+		<action name="updatePassword" class="neo.app.action.admin.UserAction" method="updatePassword">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
 		</action>
 	</package>
 </struts>

@@ -6,6 +6,7 @@ import neo.core.common.PagingList;
 import neo.core.util.CommonUtil;
 import neo.core.util.MapUtil;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 public class UserService extends BaseService {
@@ -68,5 +69,34 @@ public class UserService extends BaseService {
 	 */
 	public Map getTeacherById(String id) {
 		return jt.queryForMap(SQL_GET_TEACHER_BY_ID, id);
+	}
+
+	// 更新用户信息
+	private static final String SQL_UPDATE_TEACHER_PWD_BY_ID = "update om_teacher set PASSWORD=?,EMAIL=?,MOBILE=?,ROLE=? where ID=?";
+	private static final String SQL_UPDATE_TEACHER_BY_ID = "update om_teacher set EMAIL=?,MOBILE=?,ROLE=? where ID=?";
+
+	/**
+	 * 根据ID更新用户信息
+	 * 
+	 * @param parameterMap
+	 */
+	public void updateTeacherById(Map parameterMap) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+				"password,email,mobile,role,id");
+		if (StringUtils.isEmpty((String) params[0])) {// 不修改密码
+			jt.update(SQL_UPDATE_TEACHER_BY_ID, params[1], params[2],
+					params[3], params[4]);
+		} else {
+			String password = CommonUtil.getMD5ofStr((String) params[0]);
+			jt.update(SQL_UPDATE_TEACHER_PWD_BY_ID, password, params[1],
+					params[2], params[3], params[4]);
+		}
+	}
+
+	// 更新密码
+	private static final String SQL_UPDATE_PWD_BY_ID = "update om_teacher set PASSWORD=? where ID=?";
+
+	public void updatePasswordById(String password, String id) {
+		jt.update(SQL_UPDATE_PWD_BY_ID, password, id);
 	}
 }

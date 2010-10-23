@@ -44,7 +44,7 @@ public class BaseAction extends CommonBaseAction {
 	public String getLoginUserId() {
 		Map user = getLoginUser();
 		if (user != null) {
-			return user.get("USERID").toString();
+			return user.get("ID").toString();
 		}
 		return null;
 	}

@@ -34,7 +34,7 @@
 		</action>
 		<!-- 密码修改页跳转  -->
 		<action name="password" class="neo.core.common.CommonBaseAction">
-			<result>/user/password.ftl</result>
+			<result>user/password.ftl</result>
 		</action>
 	</package>
 </struts>
