@@ -110,7 +110,7 @@
         <ul>
           <li>
             <h2>小升初咨询</h2>
-            <div class="imgholder"><img src="${base}/images/demo/240x130.gif" alt="" /></div>
+            <div class="imgholder"><img src="${base}/images/primary_consulting.png" alt="" /></div>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p class="readmore"><a href="primary_consulting.html">更多信息 &raquo;</a></p>
@@ -139,32 +139,32 @@
       <h2>项目列表</h2>
       <ul>
         <li>
-          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/knowledge.png" alt="" /></a></div>
           <p><strong><a href="#">全知识点评测</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/method.png" alt="" /></a></div>
           <p><strong><a href="#">奥数方法认识</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/experience.png" alt="" /></a></div>
           <p><strong><a href="#">奥数教育心得</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li>
-          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/share.png" alt="" /></a></div>
           <p><strong><a href="#">奥数资料分享</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li class="last">
-          <div class="imgholder"><a href="primary_consulting.html"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="primary_consulting.html"><img src="${base}/images/question.png" alt="" /></a></div>
           <p><strong><a href="primary_consulting.html">小升初咨询</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li class="last">
-          <div class="imgholder"><a href="#"><img src="${base}/images/demo/80x80.gif" alt="" /></a></div>
+          <div class="imgholder"><a href="#"><img src="${base}/images/study.png" alt="" /></a></div>
           <p><strong><a href="#">初中学习</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
