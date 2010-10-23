@@ -160,8 +160,12 @@ if (selNum != -1) {
 </#macro>
 
 <#-- CKEditor编辑器 -->
-<#macro ckeditor id upload=true>
+<#macro ckeditor id content="" upload=true>
+<#if content??>
+<textarea id="${id}" name="${id}">${content}</textarea>
+<#else>
 <textarea id="${id}" name="${id}"></textarea>
+</#if>
 ${importJS("/components/ckeditor/ckeditor.js")}
 <#if upload>
 <script type="text/javascript">
