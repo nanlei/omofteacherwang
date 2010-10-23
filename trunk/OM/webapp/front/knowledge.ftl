@@ -116,98 +116,39 @@
             <th>所属板块</th>
             <th>所属年级</th>
             <th>更新时间</th>
+            <th>操作</th>
             
           </tr>
         </thead>
-        <tbody>
-          <tr class="light">
-            <td>平方根算法</td>
-            <td>应用题板块</td>
-            <td>4年级</td>
-            <td>2010-10-20</td>
-          </tr>
-          <tr class="light">
-            <td>求多边形面积</td>
-            <td>平面板块</td>
-            <td>6年级</td>
-            <td>2010-10-19</td>
-          </tr>
-          <tr class="light">
-            <td>1+1=?</td>
-            <td>数字猜谜板块</td>
-            <td>5年级</td>
-            <td>2010-10-18</td>
-          </tr>
-          <tr class="light">
-            <td>平方根算法</td>
-            <td>应用题板块</td>
-            <td>4年级</td>
-            <td>2010-10-20</td>
-          </tr>
-          <tr class="light">
-            <td>求多边形面积</td>
-            <td>平面板块</td>
-            <td>6年级</td>
-            <td>2010-10-19</td>
-          </tr>
-          <tr class="light">
-            <td>1+1=?</td>
-            <td>数字猜谜板块</td>
-            <td>5年级</td>
-            <td>2010-10-18</td>
-          </tr>
-          <tr class="light">
-            <td>平方根算法</td>
-            <td>应用题板块</td>
-            <td>4年级</td>
-            <td>2010-10-20</td>
-          </tr>
-          <tr class="light">
-            <td>求多边形面积</td>
-            <td>平面板块</td>
-            <td>6年级</td>
-            <td>2010-10-19</td>
-          </tr>
-          <tr class="light">
-            <td>1+1=?</td>
-            <td>数字猜谜板块</td>
-            <td>5年级</td>
-            <td>2010-10-18</td>
-          </tr>
-          <tr class="light">
-            <td>平方根算法</td>
-            <td>应用题板块</td>
-            <td>4年级</td>
-            <td>2010-10-20</td>
-          </tr>
-          <tr class="light">
-            <td>求多边形面积</td>
-            <td>平面板块</td>
-            <td>6年级</td>
-            <td>2010-10-19</td>
-          </tr>
-          <tr class="light">
-            <td>1+1=?</td>
-            <td>数字猜谜板块</td>
-            <td>5年级</td>
-            <td>2010-10-18</td>
-          </tr>
-        </tbody>
+        <#if knowladgeMap.knowLedgeList?has_content>
+			<#list knowladgeMap.knowLedgeList.list as list>
+       			<tbody>
+          			<tr class="light">
+            			<td>${list.title?default('-')?html}</td>
+            			<td>${list.divisionName?default('-')?html}</td>
+            			<td>${list.grade?default('-')?html}</td>
+            			<td>${list.postTime?date}</td>
+            			<td><a href="${base}/front/Anonym!viewKnowledgeDetial.action?id=${list.Id}">查看</a></td>	
+          			</tr>
+        		</tbody>
+        	</#list>
+  		</#if>
       </table>
+      <table align="center" width="100%">
+		<tr>
+			<td align="right"><@p.paging knowladgeMap.knowLedgeList/></td>
+		</tr>
+	  </table>
     </div>
     <div id="column">
       <div class="subnav">
         <h2>知识点评测导航</h2>
         <ul>
-          <li class="first"><a href="#">计算版块</a></li>
-          <li><a href="#">应用题板块</a></li>
-          <li><a href="#">行程工程板块</a> </li>
-          <li><a href="#">计数板块</a></li>
-          <li><a href="#">数字迷板块</a></li>
-          <li><a href="#">数论板块</a></li>
-          <li><a href="#">平面板块</a></li>
-          <li><a href="#">立体与圆板块</a></li>
-          <li><a href="#">初中板块</a></li> 
+        <#if knowladgeMap.knowLedgeDivision?has_content>
+			<#list knowladgeMap.knowLedgeDivision as list>
+          		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
+         	</#list>
+  		</#if>
         </ul>
       </div>
       <div class="holder">

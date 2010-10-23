@@ -49,7 +49,7 @@ public class FrontService extends BaseService {
 	}
 
 	/**
-	 * 分类奥数分享资料
+	 * 奥数分享资料分类
 	 */
 	private static final String SQL_GET_SHARE_DIVISION="select id, name from om_data_division";
 	public List getShareDivision() {
@@ -68,7 +68,7 @@ public class FrontService extends BaseService {
 	}
 
 	/**
-	 * 得到分类奥数分享资料
+	 * 依据ID得到奥数分享资料分类
 	 */
 	private static final String SQL_GET_SHARE_DATA_DIVISION_BY_ID="select om_data.id, om_data.title, om_data_division.name as divisionName, " +
 	"om_teacher.realName as teacherName, om_data.url, om_data.downloadTimes, om_data.postTime from om_data join " +
@@ -77,6 +77,50 @@ public class FrontService extends BaseService {
 	public List getShareDataDivision(String id) {
 		return jt.queryForList(SQL_GET_SHARE_DATA_DIVISION_BY_ID,id);
 	}
+
+	/**
+	 * 从数据库里取得全知识点评测显示的内容，将shareDataMap作为各个信息的容器
+	 */
+	public Map getKnowladgeMap() {
+		HashMap map = new HashMap();
+		PagingList knowLedgeList = getKnowLedgeList();
+		map.put("knowLedgeList", knowLedgeList);
+		List knowLedgeDivision = getKnowLedgeDivision();
+		map.put("knowLedgeDivision", knowLedgeDivision);
+		return map;
+	}
+
+	/**
+	 * 全知识点评测分类
+	 */
+	private static final String SQL_GET_KNOWLEGDE_DIVISION="select id, name from om_knowledge_division";
+	private List getKnowLedgeDivision() {
+		return jt.queryForList(SQL_GET_KNOWLEGDE_DIVISION);
+	}
+
+	/**
+	 * 得到所有全知识点评测资料
+	 */
+	private static final String SQL_GET_KNOWLEGDE_LIST="select om_knowledge.id, om_knowledge.title, " +
+			"om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
+			"om_knowledge_division.grade from om_knowledge join om_knowledge_division on " +
+			"om_knowledge.knowledgeDivId = om_knowledge_division.id order by om_knowledge.postTime DESC";
+	private PagingList getKnowLedgeList() {
+		return getPagingList(SQL_GET_KNOWLEGDE_LIST);
+	}
+
+	/**
+	 * 依据ID得到指定全知识点评测信息
+	 */
+	private static final String SQL_GET_KNOWLEGDE_DETAIL="select om_knowledge.id, om_knowledge.title, " +
+	"om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
+	"om_knowledge_division.grade from om_knowledge join om_knowledge_division on " +
+	"om_knowledge.knowledgeDivId = om_knowledge_division.id where om_knowledge_division.id=? order by om_knowledge.postTime DESC";
+	public List getKnowledgeDetial(String id) {
+		return jt.queryForList(SQL_GET_KNOWLEGDE_DETAIL,id);
+	}
+
+
 
 
 

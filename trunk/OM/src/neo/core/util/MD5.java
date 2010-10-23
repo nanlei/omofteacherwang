@@ -75,7 +75,7 @@ public class MD5 {
 	 * 提供一个测试的主函数
 	 */
 	public static void main(String[] args) {
-		System.out.println("123:" + getMD5ofStr("123"));
+		System.out.println("112233:" + getMD5ofStr("112233"));
 		System.out.println("123456789:" + getMD5ofStr("123456789"));
 		System.out.println("pioneer:" + getMD5ofStr("pioneer"));
 		System.out.println("123:" + getMD5ofStr("123", 4));
