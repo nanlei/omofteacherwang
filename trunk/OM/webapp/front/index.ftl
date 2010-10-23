@@ -127,12 +127,10 @@
         <br class="clear" />
       </div>
       <div class="column2">
-        <h2>待定</h2>
-        <img class="imgl" src="${base}/images/demo/imgl.gif" alt="" />
-        <p>This is a W3C standards compliant Open Source free CSS template from <a href="http://www.google.com/" title="Google">Google</a>.</p>
-        <p>Morbitincidunt maurisque eros molest nunc anteget sed vel lacus mus semper. Anterdumnullam interdum eros dui urna consequam ac nisl nullam ligula vestassa.</p>
-        <p>Morbitincidunt maurisque eros molest nunc anteget sed vel lacus mus semper. Anterdumnullam interdum eros dui urna consequam ac nisl nullam ligula vestassa.</p>
-        <p>Condimentumfelis et amet tellent quisquet a leo lacus nec augue accumsan. Sagittislaorem dolor ipsum at urna et pharetium malesuada nis consectus odio.</p>
+        <h2>王炳禹老师简介</h2>
+        <img class="imgl" src="${base}/images/wby.png" alt="" />
+        <p>自幼学习奥数，多次在全国联赛及各大杯赛中获一等奖。以竞赛优异成绩考入 北京西城实验中学 全国理科实验班。之后保送至北京大学，获理学、经济学双学位。自龙校成立，王炳禹老师就参与至龙校教学活动中，第一批培养出的孩子多数已被各重点校接收录取。王炳禹老师现担任龙校教学总监，全面负责龙校教学工作。其理念在于传授学生们解题的思想及方法，对题目的掌握要从“怎么做”深入到“怎么想”，主动培养学生思考分析问题的能力。</p>
+        <p>……</p>
       </div>
     </div>
     <div class="fl_right">
