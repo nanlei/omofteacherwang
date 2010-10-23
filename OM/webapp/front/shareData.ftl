@@ -1,4 +1,5 @@
 <@p.page>
+<#-- 用户登录-->
 <div class="wrapper col0">
   <div id="topbar">
     <div id="slidepanel">
@@ -62,7 +63,7 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /用户登录-->
 <div class="wrapper col1">
   <div id="header">
     <div id="logo">
@@ -71,9 +72,9 @@
     </div>
     <div id="topnav">
       <ul>
-        <li><a href="index.html">主页</a></li>
-        <li><a href="knowledge.html">全知识点评测</a><a href="style-demo.html"></a></li>
-        <li class="active"><a href="data.html">奥数资料分享</a></li>
+        <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
+        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+        <li class="active"><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="#">联系我们</a></li>
       </ul>
@@ -170,7 +171,7 @@
         </ul>
       </div>
       <div class="holder">
-        <h2 class="title"><img src="images/demo/60x60.gif" alt="" />王炳禹老师简介</h2>
+        <h2 class="title"><img src="${base}/images/demo/60x60.gif" alt="" />王炳禹老师简介</h2>
         <p>此处内容由王老师编写，在页面开发时完成，不提供后台更新功能，左边为王老师头衔图片。更多信息链接到工作室介绍</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
@@ -178,7 +179,7 @@
         <ul>
           <li>
             <h2>Indonectetus facilis leonib</h2>
-            <p class="imgholder"><img src="images/demo/240x90.gif" alt="" /></p>
+            <p class="imgholder"><img src="${base}/images/demo/240x90.gif" alt="" /></p>
             <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
             <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
           </li>

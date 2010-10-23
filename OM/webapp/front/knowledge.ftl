@@ -1,4 +1,5 @@
 <@p.page>
+<#-- 用户登录-->
 <div class="wrapper col0">
   <div id="topbar">
     <div id="slidepanel">
@@ -62,7 +63,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /用户登录-->
+<#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
     <div id="logo">
@@ -71,9 +73,9 @@
     </div>
     <div id="topnav">
       <ul>
-        <li><a href="index.html">主页</a></li>
-        <li class="active"><a href="knowledge.html">全知识点评测</a><a href="style-demo.html"></a></li>
-        <li><a href="data.html">奥数资料分享</a></li>
+        <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
+        <li class="active"><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="#">联系我们</a></li>
       </ul>
@@ -81,7 +83,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /导航链接-->
+<#-- 当前位置-->
 <div class="wrapper col2">
   <div id="breadcrumb">
     <ul>
@@ -91,15 +94,15 @@
     </ul>
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /当前位置-->
 <div class="wrapper col3">
   <div id="container">
     <div id="content">
       <h1>&lt;h1&gt; to &lt;h6&gt; - 小学奥数知识体系大纲</h1>
-      <img class="imgr" src="images/demo/imgr.gif" alt="" width="125" height="125" />
+      <img class="imgr" src="${base}/images/demo/imgr.gif" alt="" width="125" height="125" />
       <p>小学奥数知识体系大纲</p>
       <p>结合小学课本各年级学校应掌握数学知识，在此基础上相应拓展，利于学生接受。</p>
-      <img class="imgl" src="images/demo/imgl.gif" alt="" width="125" height="125" />
+      <img class="imgl" src="${base}/images/demo/imgl.gif" alt="" width="125" height="125" />
       <p>3~5年级是学习奥数核心时段，在此时间内有效掌握各知识板块基础方法。</p>
       <p>6年级综合提高，备战各校小升初考试。</p>
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片</p>
@@ -208,7 +211,7 @@
         </ul>
       </div>
       <div class="holder">
-        <h2 class="title"><img src="images/demo/60x60.gif" alt="" />王炳禹老师简介</h2>
+        <h2 class="title"><img src="${base}/images/demo/60x60.gif" alt="" />王炳禹老师简介</h2>
         <p>此处内容由王老师编写，在页面开发时完成，不提供后台更新功能，左边为王老师头衔图片。更多信息链接到工作室介绍</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
@@ -216,7 +219,7 @@
         <ul>
           <li>
             <h2>Indonectetus facilis leonib</h2>
-            <p class="imgholder"><img src="images/demo/240x90.gif" alt="" /></p>
+            <p class="imgholder"><img src="${base}/images/demo/240x90.gif" alt="" /></p>
             <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
             <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
           </li>
@@ -237,14 +240,16 @@
     <div class="clear"></div>
   </div>
 </div>
-<!-- ####################################################################################################### -->
+
+<#-- 超链接-->
 <div class="wrapper col4">
   <div id="footer">
     
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /超链接-->
+<#-- CopyRight-->
 <div class="wrapper col5">
   <div id="copyright">
     <p class="fl_left">Copyright &copy; 2010 - All Rights Reserved - <a href="#">Domain Name</a></p>
@@ -252,4 +257,5 @@
     <br class="clear" />
   </div>
 </div>
+<#-- /CopyRight-->
 </@p.page>

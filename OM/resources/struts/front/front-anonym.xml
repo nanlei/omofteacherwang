@@ -8,7 +8,8 @@
 		<action name="Anonym" class="neo.app.action.front.AnonymAction">
 			<result name="viewIndex">index.ftl</result>
 			<result name="viewNotice">notice_info.ftl</result>
-			
+			<result name="viewKnowledge">knowledge.ftl</result>
+			<result name="shareData">shareData.ftl</result>
 		</action>
 	</package>
 </struts>

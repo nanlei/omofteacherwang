@@ -73,9 +73,9 @@
     </div>
     <div id="topnav">
       <ul>
-        <li class="active"><a href="index.html">主页</a></li>
-        <li><a href="knowledge.html">全知识点评测</a><a href="style-demo.html"></a></li>
-        <li><a href="data.html">奥数资料分享</a></li>
+        <li class="active"><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
+        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="#">联系我们</a></li>
       </ul>
