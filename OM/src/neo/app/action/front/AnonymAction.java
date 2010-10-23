@@ -19,9 +19,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private String id; //公用数据库查询ID
 	//主页公告相关
 	private Map indexMap;
-	private List noticeInfo;
+	private List noticeDetail;
 	//全知识点
 	private Map knowladgeMap;
+	private List knowledgeDetial;
 	//奥数资料分享
 	private Map shareDataMap;
 	private List shareDataDivision;
@@ -46,7 +47,13 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 * 全知识点评测
 	 */
 	public String viewKnowledge() throws Exception{
+		knowladgeMap=getServMgr().getFrontService().getKnowladgeMap();
 		return "viewKnowledge";
+	}
+	
+	public String viewKnowledgeDetial() throws Exception{
+		knowledgeDetial=getServMgr().getFrontService().getKnowledgeDetial(id);
+		return "viewKnowledgeDetial";
 	}
 	
 	/**
@@ -72,7 +79,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 * 显示公告详细内容
 	 */
 	public String viewNotice() throws Exception{
-		noticeInfo=getServMgr().getFrontService().getNoticeInfo(id);
+		noticeDetail=getServMgr().getFrontService().getNoticeInfo(id);
 		return "viewNotice";
 	}
 
@@ -155,8 +162,8 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return indexMap;
 	}
 
-	public List getNoticeInfo() {
-		return noticeInfo;
+	public List getNoticeDetail() {
+		return noticeDetail;
 	}
 
 	public Map getKnowladgeMap() {
@@ -173,6 +180,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public List getDivisionList() {
 		return divisionList;
+	}
+
+	public List getKnowledgeDetial() {
+		return knowledgeDetial;
 	}
 }
 

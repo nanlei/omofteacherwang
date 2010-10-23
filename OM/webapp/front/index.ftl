@@ -93,7 +93,7 @@
     	<div class="featured_box"><a href="#"><img src="${base}/${list.pic}" alt="" /></a>
       		<div class="floater">
        	 		<h2>${list.title?default('-')?html}</h2>
-        		<p>${cutText("${list.content}",100,"...")}</p>
+        		<p>${cutText("${list.content}",200,"...")}</p>
         		<p class="readmore"><a href="${base}/front/Anonym!viewNotice.action?id=${list.id}" target="_black"">更多信息 &raquo;</a></p>
       		</div>
     	</div>

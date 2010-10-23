@@ -90,26 +90,33 @@
     <ul>
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
-      <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
+      <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
       <li>&#187;</li>
-      <li class="current"><a href="#">公告详细内容</a></li>
+      <li class="current"><a href="#">评测答案</a></li>
     </ul>
   </div>
 </div>
 <#-- /当前位置-->
-<#-- 公告详细内容-->
+<#-- 全知识点评测详细内容-->
 <div class="wrapper col3">
   <div id="container">
-  	<#if noticeDetail?has_content>
-		<#list noticeDetail as list>
-    		<h1>${list.title?default('-')?html} - ${list.updateTime?date}</h1>
-    		<div class="imgholder"><img src="${base}/${list.pic}" alt="" align="absmiddle" /></div>
+  
+  	<h1>
+  		<#if knowledgeDetial?has_content>
+			<#list knowledgeDetial as list>
+				${list.divisionName?default('-')?html} - ${list.grade?default('-')?html}
+				<#break>
+			</#list>
+  		</#if>
+	</h1>
+  	<#if knowledgeDetial?has_content>
+		<#list knowledgeDetial as list>
     		<p>${list.content?default('-')?html}</p>
 		</#list>
   	</#if>
   </div>
 </div>
-<#-- /公告详细内容-->
+<#-- /全知识点评测详细内容-->
 <#-- 超链接-->
 <div class="wrapper col4">
   <div id="footer">
