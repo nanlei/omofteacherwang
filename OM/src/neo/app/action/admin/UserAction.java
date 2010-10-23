@@ -6,6 +6,11 @@ import neo.app.action.BaseAction;
 import neo.core.Constants;
 import neo.core.common.PagingList;
 import neo.core.util.CommonUtil;
+import neo.core.util.MapUtil;
+import neo.core.util.json.JsonView;
+
+import org.apache.commons.lang.StringUtils;
+import org.json.simple.JSONObject;
 
 public class UserAction extends BaseAction {
 
@@ -19,8 +24,14 @@ public class UserAction extends BaseAction {
 	// 登录用户的信息
 	private String userName;// 用户名
 	private String password;// 密码
+	// 查找相关信息
+	private String id;// 主键ID
 	// 显示信息
-	private PagingList teacherList;
+	private PagingList teacherList;// 分页的列表
+	private Map teacherInfo;// 一条记录的Map
+
+	// AJAX请求返回内容
+	private JsonView json;
 
 	public String getErrorInfo() {
 		return errorInfo;
@@ -36,6 +47,18 @@ public class UserAction extends BaseAction {
 
 	public PagingList getTeacherList() {
 		return teacherList;
+	}
+
+	public Map getTeacherInfo() {
+		return teacherInfo;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public JsonView getJson() {
+		return json;
 	}
 
 	/**
@@ -108,14 +131,84 @@ public class UserAction extends BaseAction {
 	public String addTeacher() {
 		try {
 			getServMgr().getUserService().addTeacher(getParameters());
-			addMessage("教师用户添加成功");
+			addMessage("用户添加成功");
 			addRedirURL("返回列表", "list.action");
 		} catch (Exception e) {
-			e.printStackTrace();
 			setResult(ERROR);
-			addMessage("教师用户添加失败，请检查数据后继续");
+			addMessage("用户添加失败，请检查数据后继续");
 			addRedirURL("返回", "@back");
 		}
 		return EXECUTE_RESULT;
+	}
+
+	/**
+	 * 根据ID获取用户信息
+	 * 
+	 * @return
+	 */
+	public String preUpdate() throws Exception {
+		teacherInfo = getServMgr().getUserService().getTeacherById(id);
+		return "preUpdate";
+	}
+
+	/**
+	 * 更新用户信息
+	 * 
+	 * @return
+	 */
+	public String update() {
+		try {
+			getServMgr().getUserService().updateTeacherById(getParameters());
+			addMessage("用户信息修改成功");
+			addRedirURL("返回列表", "list.action");
+		} catch (Exception e) {
+			setResult(ERROR);
+			addMessage("用户信息修改失败，请检查数据后继续");
+			addRedirURL("返回", "@back");
+		}
+		return EXECUTE_RESULT;
+	}
+
+	/**
+	 * 检查用户原密码
+	 * 
+	 * @return
+	 */
+	public String checkPassword() throws Exception {
+		boolean status = true;
+		String now = MapUtil.getStringFromMap(getParameters(), "now");
+		if (getLoginUserPassword().equals(CommonUtil.getMD5ofStr(now))) {
+			status = true;
+		} else {
+			status = false;
+		}
+		JSONObject result = new JSONObject();
+		result.put("status", status);
+		json = new JsonView(result);
+		return SUCCESS;
+	}
+
+	/**
+	 * 修改密码
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String updatePassword() throws Exception {
+		String password = MapUtil.getStringFromMap(getParameters(), "password");
+		String password2 = MapUtil.getStringFromMap(getParameters(),
+				"password2");
+		JSONObject result = new JSONObject();
+		boolean status = true;
+		if (StringUtils.isNotEmpty(password) && password.equals(password2)) {// 更新
+			getServMgr().getUserService().updatePasswordById(
+					CommonUtil.getMD5ofStr(password), getLoginUserId());
+			status = true;
+		} else {
+			status = false;
+		}
+		result.put("status", status);
+		json = new JsonView(result);
+		return SUCCESS;
 	}
 }
