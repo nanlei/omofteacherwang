@@ -35,7 +35,7 @@ public class FrontService extends BaseService {
 	}
 	
 	/**
-	 * 从数据库里取得奥数资料分享要显示的内容，将knowladgeMap作为各个信息的容器
+	 * 从数据库里取得奥数资料分享要显示的内容，将shareDataMap作为各个信息的容器
 	 */
 	public Map getShareDataMap() {
 		HashMap map = new HashMap();
