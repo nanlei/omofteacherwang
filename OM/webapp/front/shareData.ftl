@@ -64,6 +64,7 @@
   </div>
 </div>
 <#-- /用户登录-->
+<#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
     <div id="logo">
@@ -82,7 +83,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /导航链接-->
+<#-- 当前位置-->
 <div class="wrapper col2">
   <div id="breadcrumb">
     <ul>
@@ -92,9 +94,11 @@
     </ul>
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /当前位置-->
+
 <div class="wrapper col3">
   <div id="container">
+  	<#-- 资料下载-->
     <div id="content">
       <h1>&lt;h1&gt; to &lt;h6&gt; - 奥数资料分享</h1>
       
@@ -104,57 +108,30 @@
           <tr>
             <th>资料名称</th>
             <th>所属区域</th>
+            <th>教师</th>
             <th>更新时间</th>
             <th>下载次数</th>
+            <th>操作</th>
             
           </tr>
         </thead>
         <tbody>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
-          <tr class="light">
-            <td>计数部分题目</td>
-            <td>小学奥数知识点总结区</td>
-            <td>2010-10-20</td>
-            <td>134次</td>
-          </tr>
+        <#if shareDataMap.shareData?has_content>
+			<#list shareDataMap.shareData as list>
+          		<tr class="light">
+            		<td>${list.title?default('-')?html}</td>
+           			<td>${list.divisionName?default('-')?html}</td>
+           			<td>${list.teacherName?default('-')?html}</td>
+            		<td>${list.postTime?date}</td>
+            		<td>${list.downloadTimes?default('-')?html}/td>
+            		<td><a href="#">下载</a></td>
+          		</tr>
+         	</#list>
+  		</#if>
         </tbody>
       </table>
     </div>
+    <#-- /资料下载-->
     <div id="column">
       <div class="subnav">
         <h2>共享资料下载分类</h2>
@@ -200,14 +177,15 @@
     <div class="clear"></div>
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- 超链接-->
 <div class="wrapper col4">
   <div id="footer">
     
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /超链接-->
+<#-- CopyRight-->
 <div class="wrapper col5">
   <div id="copyright">
     <p class="fl_left">Copyright &copy; 2010 - All Rights Reserved - <a href="#">Domain Name</a></p>
@@ -215,4 +193,5 @@
     <br class="clear" />
   </div>
 </div>
+<#-- /CopyRight-->
 </@p.page>

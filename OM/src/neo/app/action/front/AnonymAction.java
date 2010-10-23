@@ -16,10 +16,15 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private String locale;
 	private String actionName;
 	private String date;
+	private String id; //公用数据库查询ID
 	//主页公告相关
 	private Map indexMap;
-	private String id;
 	private List noticeInfo;
+	//全知识点
+	private Map knowladgeMap;
+	//奥数资料分享
+	private Map shareDataMap;
+
 
 	/**
 	 * 网站首页
@@ -43,9 +48,14 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return "viewKnowledge";
 	}
 	
+	/**
+	 * 奥数资料分享
+	 */
 	public String shareData() throws Exception{
+		shareDataMap=getServMgr().getFrontService().getShareDataMap();
 		return "shareData";
 	}
+	
 	
 	/**
 	 * 显示公告详细内容
@@ -54,6 +64,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		noticeInfo=getServMgr().getFrontService().getNoticeInfo(id);
 		return "viewNotice";
 	}
+
 	
 	
 
@@ -135,6 +146,14 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public List getNoticeInfo() {
 		return noticeInfo;
+	}
+
+	public Map getKnowladgeMap() {
+		return knowladgeMap;
+	}
+
+	public Map getShareDataMap() {
+		return shareDataMap;
 	}
 }
 
