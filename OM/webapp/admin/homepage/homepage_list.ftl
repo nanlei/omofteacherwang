@@ -7,7 +7,7 @@
 首页信息一共可设置5个，您已经设置${count}个，还剩${5-count}个可以设置
 </div>
 <div id="newHomepage" style="display:none">
-<form name="homepageForm" action="addHomepage.action" method="post" enctype="multipart/form-data">
+<form name="homepageForm" action="addHomepage.action" method="post" enctype="multipart/form-data" onsubmit="return validateForm(this)">
 	<table width="100%" class="default">
 		<col width="20%" align="center">
 		<col width="30%" align="center">
@@ -31,7 +31,7 @@
 		</tr>
 		<tr>
 			<td>图片</td>
-			<td colspan="3"><input type="file" name="pic" class="fbtn" size="40"></td>
+			<td colspan="3"><input type="file" name="pic" class="fbtn" size="40" emptyInfo="请选择图片"></td>
 		</tr>
 		<tr>
 			<td colspan="4">
@@ -40,7 +40,7 @@
 		</tr>
 		<tr>
 			<td colspan="4">
-				<input type="submit" value="添加">&nbsp;&nbsp;<input type="reset" value="重置">
+				<input type="submit" class="btn" value="添加">&nbsp;&nbsp;<input type="reset" class="btn" value="重置">
 			</td>
 		</tr>
 	</table>
@@ -74,7 +74,7 @@
 		<td>${homepage.UPDATETIME?datetime}</td>
 		<td>${homepage.UPDATEIP}</td>
 		<td><#if homepage.STATE=1>是<#else>否</#if></td>
-		<td><a href="homepageInfo.action?id=${homepage.ID}">详细信息</a> | <a href="deleteHomepage.action?id=${homepage.ID}">删除<a></td>
+		<td><a href="preUpdate.action?id=${homepage.ID}">修改</a> | <a href="delete.action?id=${homepage.ID}" onclick="return confirm('确定要删除吗？')">删除<a></td>
 	</tr>
 	<#assign count2=count2+1 />
 	</#list>
