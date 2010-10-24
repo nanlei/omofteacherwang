@@ -146,7 +146,7 @@
         <ul>
         <#if knowledgeMap.knowLedgeDivision?has_content>
 			<#list knowledgeMap.knowLedgeDivision as list>
-          		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
+          		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>
         </ul>
