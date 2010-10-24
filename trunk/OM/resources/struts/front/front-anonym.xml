@@ -11,6 +11,7 @@
 			<result name="viewKnowledge">knowledge.ftl</result>
 			<result name="shareData">shareData.ftl</result>
 			<result name="viewKnowledgeDivision">knowledge_division.ftl</result>
+			<result name="viewKnowledgeDetial">knowledge_detail.ftl</result>
 		</action>
 	</package>
 </struts>

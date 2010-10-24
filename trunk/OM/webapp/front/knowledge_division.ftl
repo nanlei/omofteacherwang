@@ -136,6 +136,7 @@
         		</tbody>
         	</#list>
   		</#if>
+  		
       </table>
       <table align="center" width="100%">
 		<tr>
@@ -151,7 +152,7 @@
         <ul>
         <#if divisionList?has_content>
 			<#list divisionList as list>
-          		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
+          		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>
         </ul>
