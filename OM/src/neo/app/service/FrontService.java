@@ -113,7 +113,7 @@ public class FrontService extends BaseService {
 	 * 依据单位ID得到指定全知识点评测信息
 	 */
 	private static final String SQL_GET_KNOWLEGDE_DETAIL="select om_knowledge.id, om_knowledge.title, om_knowledge.content, " +
-	"om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
+	"om_knowledge.url, om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
 	"om_knowledge_division.grade from om_knowledge join om_knowledge_division on " +
 	"om_knowledge.knowledgeDivId = om_knowledge_division.id where om_knowledge.id=? order by om_knowledge.postTime DESC";
 	public List getKnowledgeDetial(String id) {
