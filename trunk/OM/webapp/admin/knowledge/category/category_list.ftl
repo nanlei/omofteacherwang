@@ -4,7 +4,7 @@
 	<a href="javascript:void(0)" class="navlink" onclick="$('#newCategory').toggle();this.blur();return false;">新建分类</a>
 	</@adminApp.naviInfo>
 <div id="newCategory" style="display:none">
-<form name="categoryForm" action="addCategory.action" method="post">
+<form name="categoryForm" action="addCategory.action" method="post" onsubmit="return validateForm(this)">
 <table width="100%" class="default">
 	<col width="40%" align="center">
 	<col width="60%" align="center">
@@ -47,7 +47,7 @@
 		<td>分类名称</td>
 		<td>年级</td>
 		<td>描述</td>
-		<td>文章数目</td>
+		<td>信息条数</td>
 		<td>发布时间</td>
 		<td>最后修改时间</td>
 		<td>最后修改IP</td>
@@ -64,7 +64,7 @@
 		<td>${category.POSTTIME?datetime}</td>
 		<td>${category.UPDATETIME?datetime}</td>
 		<td>${category.UPDATEIP}</td>
-		<td><a href="update.action?id=${category.ID}">修改</a><#if (category.ARTICLENUM<=0)> | <a href="delete.action?id=${category.ID}&articleNum=${category.ARTICLENUM}">删除<a><#else></#if></td>
+		<td><a href="preUpdate.action?categoryId=${category.ID}">修改</a><#if (category.ARTICLENUM<=0)> | <a href="delete.action?categoryId=${category.ID}" onclick="return confirm('确定删除吗？')">删除<a><#else></#if></td>
 	</tr>
 	<#assign count=count+1 />
 	</#list>
