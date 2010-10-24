@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="admin-knowledge" extends="app-default"
+		namespace="/admin/knowledge">
+	</package>
+
+	<package name="admin-knowledge-category" extends="app-default"
+		namespace="/admin/knowledge/category">
+		<action name="list" class="neo.app.action.admin.KnowledgeAction"
+			method="categoryList">
+			<result name="categoryList">category_list.ftl</result>
+		</action>
+		<action name="addCategory" class="neo.app.action.admin.KnowledgeAction"
+			method="addCategory" />
+	</package>
+</struts>

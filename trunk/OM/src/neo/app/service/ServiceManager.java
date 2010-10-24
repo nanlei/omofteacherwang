@@ -4,6 +4,7 @@ public class ServiceManager {
 	private UserService userService;
 	private HomePageService homePageService;
 	private AboutService aboutService;
+	private KnowledgeService knowledgeService;
 
 	private FrontService frontService;
 
@@ -37,6 +38,14 @@ public class ServiceManager {
 
 	public void setAboutService(AboutService aboutService) {
 		this.aboutService = aboutService;
+	}
+
+	public KnowledgeService getKnowledgeService() {
+		return knowledgeService;
+	}
+
+	public void setKnowledgeService(KnowledgeService knowledgeService) {
+		this.knowledgeService = knowledgeService;
 	}
 
 }
