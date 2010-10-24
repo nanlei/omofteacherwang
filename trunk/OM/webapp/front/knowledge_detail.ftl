@@ -111,7 +111,7 @@
 	</h1>
   	<#if knowledgeDetial?has_content>
 		<#list knowledgeDetial as list>
-    		<p>${list.content?default('-')?html}</p>
+    		<p>${list.content?default('-')}</p>
 		</#list>
   	</#if>
   </div>

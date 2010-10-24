@@ -94,7 +94,7 @@
       		<div class="floater">
        	 		<h2>${list.title?default('-')?html}</h2>
         		<p>${cutText("${list.content}",260,"......")}</p>
-        		<p class="readmore"><a href="${base}/front/Anonym!viewNotice.action?id=${list.id}" target="_black"">更多信息 &raquo;</a></p>
+        		<p class="readmore"><a href="${base}/front/Anonym!viewNotice.action?id=${list.id}" target="_black">更多信息 &raquo;</a></p>
       		</div>
     	</div>
     	</#list>
