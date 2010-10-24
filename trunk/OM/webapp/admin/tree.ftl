@@ -9,6 +9,7 @@ var treeMenu = [
 	{ level:1, name:"知识点评测"},
 	{ level:2, name:"分类管理", ico:"${base}/images/tico_way.gif", link:"${base}/admin/knowledge/category/list.action"},
 	{ level:2, name:"信息管理", ico:"${base}/images/tico_way.gif", link:"${base}/admin/knowledge/list.action"},
+	{ level:1, name:"小升初咨询", ico:"${base}/images/tico_way.gif", link:"${base}/admin/primary/list.action"},
 	{ level:1, name:"关于工作室", ico:"${base}/images/tico_way.gif", link:"${base}/admin/about/index.action"}
 ];
 </script>

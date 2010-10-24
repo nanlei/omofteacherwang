@@ -21,6 +21,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.spri
 	<!-- Knowledge Service -->
 	<bean id="knowledgeService" class="neo.app.service.KnowledgeService"
 		parent="baseService" />
+	<!-- Primary Service -->
+	<bean id="primaryService" class="neo.app.service.PrimaryService"
+		parent="baseService" />
 	<!-- Front Service -->
 	<bean id="frontService" class="neo.app.service.FrontService"
 		parent="baseService" />
