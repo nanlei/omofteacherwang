@@ -5,6 +5,30 @@
 <struts>
 	<package name="admin-knowledge" extends="app-default"
 		namespace="/admin/knowledge">
+		<action name="list" class="neo.app.action.admin.KnowledgeAction"
+			method="list">
+			<result name="list">knowledge_list.ftl</result>
+		</action>
+		<action name="addKnowledge" class="neo.app.action.admin.KnowledgeAction"
+			method="addKnowledge">
+			<interceptor-ref name="fileUploadStack" />
+		</action>
+		<action name="preUpdate" class="neo.app.action.admin.KnowledgeAction"
+			method="preUpdate">
+			<result name="preUpdate">knowledge_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.KnowledgeAction"
+			method="update">
+			<interceptor-ref name="fileUploadStack" />
+		</action>
+		<action name="deleteAttachment" class="neo.app.action.admin.KnowledgeAction"
+			method="deleteAttachment" />
+		<action name="delete" class="neo.app.action.admin.KnowledgeAction"
+			method="delete" />
+		<action name="searchKnowledge" class="neo.app.action.admin.KnowledgeAction"
+			method="searchKnowledge">
+			<result name="searchKnowledge">knowledge_list.ftl</result>
+		</action>
 	</package>
 
 	<package name="admin-knowledge-category" extends="app-default"
@@ -21,6 +45,7 @@
 		</action>
 		<action name="update" class="neo.app.action.admin.KnowledgeAction"
 			method="updateCategory" />
-			<action name="delete" class="neo.app.action.admin.KnowledgeAction" method="deleteCategory"/>
+		<action name="delete" class="neo.app.action.admin.KnowledgeAction"
+			method="deleteCategory" />
 	</package>
 </struts>

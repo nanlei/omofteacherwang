@@ -1,5 +1,6 @@
 package neo.app.service;
 
+import java.util.List;
 import java.util.Map;
 
 import neo.core.common.PagingList;
@@ -88,5 +89,108 @@ public class KnowledgeService extends BaseService {
 	 */
 	public void deleteCategoryById(String id) {
 		jt.update(SQL_DELETE_CATEGORY_BY_ID, id);
+	}
+
+	// 获取信息列表
+	private static final String SQL_GET_ALL_KNOWLEDGES = "select k.*,kd.NAME as NAME,kd.GRADE as GRADE from om_knowledge k join om_knowledge_division kd on k.KNOWLEDGEDIVID=kd.ID order by k.ID desc";
+
+	/**
+	 * 获取信息列表
+	 * 
+	 * @return
+	 */
+	public PagingList getAllKnowledges() {
+		return getPagingList(SQL_GET_ALL_KNOWLEDGES);
+	}
+
+	// 获取分类列表，不分页
+	private static final String SQL_GET_ALL_CATEGORYS_FOR_SELECT = "select ID,NAME,GRADE from om_knowledge_division";
+
+	/**
+	 * 获取分类列表，不分页
+	 * 
+	 * @return
+	 */
+	public List getAllCategoryForSelect() {
+		return jt.queryForList(SQL_GET_ALL_CATEGORYS_FOR_SELECT);
+	}
+
+	// 添加知识
+	private static final String SQL_ADD_KNOWLEDGE = "insert into om_knowledge(KNOWLEDGEDIVID,TITLE,CONTENT,URL,POSTTIME,UPDATETIME,UPDATEIP) values(?,?,?,?,now(),now(),?)";
+
+	/**
+	 * 添加知识
+	 * 
+	 * @param parameterMap
+	 * @param url
+	 * @param ip
+	 */
+	public void addKnowledge(Map parameterMap, String url, String ip) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+				"categoryId,title,content");
+		jt.update(SQL_ADD_KNOWLEDGE, params[0], params[1], params[2], url, ip);
+	}
+
+	// 根据ID获取知识点
+	private static final String SQL_GET_KNOWLEDGE_BY_ID = "select k.*,kd.NAME as NAME,kd.GRADE as GRADE from om_knowledge k join om_knowledge_division kd on k.KNOWLEDGEDIVID=kd.ID where k.ID=?";
+
+	/**
+	 * 根据ID获取知识点
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Map getKnowledgeById(String id) {
+		return jt.queryForMap(SQL_GET_KNOWLEDGE_BY_ID, id);
+	}
+
+	// 更新知识点信息
+	private static final String SQL_UPDATE_KNOWLEDGE_BY_ID = "update om_knowledge set KNOWLEDGEDIVID=?,TITLE=?,CONTENT=?,URL=?,UPDATETIME=now(),UPDATEIP=? where ID=?";
+
+	/**
+	 * 更新知识点信息
+	 * 
+	 * @param parameterMap
+	 * @param url
+	 * @param ip
+	 * @param id
+	 */
+	public void updateKnowledgeById(Map parameterMap, String url, String ip,
+			String id) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+				"categoryId,title,content");
+		jt.update(SQL_UPDATE_KNOWLEDGE_BY_ID, params[0], params[1], params[2],
+				url, ip, id);
+	}
+
+	// 删除附件
+	private static final String SQL_DELETE_ATTACHMENT_BY_ID = "update om_knowledge set URL='' where ID=?";
+
+	/**
+	 * 删除附件
+	 * 
+	 * @param id
+	 */
+	public void deleteAttachmentById(String id) {
+		jt.update(SQL_DELETE_ATTACHMENT_BY_ID, id);
+	}
+
+	// 删除知识点
+	private static final String SQL_DELETE_KNOWLEDGE_BY_ID = "delete from om_knowledge where ID=?";
+
+	/**
+	 * 删除知识点
+	 * 
+	 * @param id
+	 */
+	public void deleteKnowledgeById(String id) {
+		jt.update(SQL_DELETE_KNOWLEDGE_BY_ID, id);
+	}
+	
+	//搜索知识点
+	private static final String SQL_SEARCH_KNOWLEDGE_BY_CATEGORY_ID="select k.*,kd.NAME as NAME,kd.GRADE as GRADE from om_knowledge k join om_knowledge_division kd on k.KNOWLEDGEDIVID=kd.ID where k.KNOWLEDGEDIVID=? order by k.ID desc";
+	
+	public PagingList getKnowledgeByCategoryId(String categoryId){
+		return getPagingList(SQL_SEARCH_KNOWLEDGE_BY_CATEGORY_ID, new Object[]{categoryId});
 	}
 }
