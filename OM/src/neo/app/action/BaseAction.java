@@ -11,7 +11,12 @@ import neo.core.util.CommonUtil;
 import org.apache.struts2.ServletActionContext;
 
 public class BaseAction extends CommonBaseAction {
-
+	/**
+	 * 获取MD5加密结果
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public String getMD5Code(String str) {
 		return CommonUtil.getMD5ofStr(str);
 	}
@@ -80,6 +85,15 @@ public class BaseAction extends CommonBaseAction {
 			return (String) user.get("PASSWORD");
 		}
 		return null;
+	}
+
+	/**
+	 * 获取IP
+	 * 
+	 * @return
+	 */
+	public String getIP() {
+		return getRequest().getRemoteAddr();
 	}
 
 	/**
