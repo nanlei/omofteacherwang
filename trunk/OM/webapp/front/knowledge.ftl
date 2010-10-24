@@ -120,8 +120,8 @@
             
           </tr>
         </thead>
-        <#if knowladgeMap.knowLedgeList?has_content>
-			<#list knowladgeMap.knowLedgeList.list as list>
+        <#if knowledgeMap.knowLedgeList?has_content>
+			<#list knowledgeMap.knowLedgeList.list as list>
        			<tbody>
           			<tr class="light">
             			<td>${list.title?default('-')?html}</td>
@@ -136,7 +136,7 @@
       </table>
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging knowladgeMap.knowLedgeList/></td>
+			<td align="right"><@p.paging knowledgeMap.knowLedgeList/></td>
 		</tr>
 	  </table>
     </div>
@@ -144,8 +144,8 @@
       <div class="subnav">
         <h2>知识点评测导航</h2>
         <ul>
-        <#if knowladgeMap.knowLedgeDivision?has_content>
-			<#list knowladgeMap.knowLedgeDivision as list>
+        <#if knowledgeMap.knowLedgeDivision?has_content>
+			<#list knowledgeMap.knowLedgeDivision as list>
           		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>

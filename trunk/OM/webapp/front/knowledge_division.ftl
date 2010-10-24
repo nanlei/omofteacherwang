@@ -74,8 +74,8 @@
     <div id="topnav">
       <ul>
         <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
-        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
-        <li class="active"><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+        <li class="active"><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="#">联系我们</a></li>
       </ul>
@@ -90,7 +90,9 @@
     <ul>
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
-      <li class="current"><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+      <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+      <li>&#187;</li>
+      <li class="current"><a href="#">分类信息</a></li>
     </ul>
   </div>
 </div>
@@ -98,56 +100,63 @@
 
 <div class="wrapper col3">
   <div id="container">
-  	<#-- 资料下载-->
+  	<#-- 资料-->
     <div id="content">
-      <h5>最近上传共享文件 - 所有分类</h5>
+      <h1>全知识点评测 - 
+      	<#if konwledgeDivedList?has_content>
+			<#list konwledgeDivedList.list as list>
+				${list.divisionName?default('-')?html}
+				<#break>
+			</#list>
+  		</#if>
+	  </h1>
+      
+      <h2>最近上传知识点评测</h2>
       <table summary="Summary Here" cellpadding="0" cellspacing="0">
         <thead>
           <tr>
-            <th>资料名称</th>
-            <th>所属区域</th>
-            <th>教师</th>
+            <th>题目名称</th>
+            <th>所属板块</th>
+            <th>所属年级</th>
             <th>更新时间</th>
-            <th>下载次数</th>
             <th>操作</th>
             
           </tr>
         </thead>
-        <tbody>
-        <#if shareDataMap.shareData?has_content>
-			<#list shareDataMap.shareData.list as list>
-          		<tr class="light">
-            		<td>${list.title?default('-')?html}</td>
-           			<td>${list.divisionName?default('-')?html}</td>
-           			<td>${list.teacherName?default('-')?html}</td>
-            		<td>${list.postTime?date}</td>
-            		<td>${list.downloadTimes?default('-')?html}/td>
-            		<td><a href="#">下载</a></td>
-          		</tr>
-         	</#list>
+        <#if konwledgeDivedList?has_content>
+			<#list konwledgeDivedList.list as list>
+       			<tbody>
+          			<tr class="light">
+            			<td>${list.title?default('-')?html}</td>
+            			<td>${list.divisionName?default('-')?html}</td>
+            			<td>${list.grade?default('-')?html}</td>
+            			<td>${list.postTime?date}</td>
+            			<td><a href="${base}/front/Anonym!viewKnowledgeDetial.action?id=${list.Id}">查看</a></td>	
+          			</tr>
+        		</tbody>
+        	</#list>
   		</#if>
-        </tbody>
       </table>
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging shareDataMap.shareData/></td>
+			<td align="right"><@p.paging konwledgeDivedList/></td>
 		</tr>
 	  </table>
     </div>
-    <#-- /资料下载-->
+    <#-- /资料-->
     <div id="column">
-      <#-- 资料下载分类-->
+      <#-- 资料分类-->
       <div class="subnav">
         <h2>共享资料下载分类</h2>
         <ul>
-        <#if shareDataMap.shareDataDivedList?has_content>
-			<#list shareDataMap.shareDataDivedList.list as list>
-          		<li><a href="${base}/front/Anonym!viewShareDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
+        <#if divisionList?has_content>
+			<#list divisionList as list>
+          		<li><a href="${base}/front/Anonym!viewKnowledgeDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>
         </ul>
       </div>
-      <#-- /资料下载分类-->
+      <#-- /资料分类-->
       <div class="holder">
         <h2 class="title"><img src="${base}/images/wby_small.png" alt="" />王炳禹老师简介</h2>
         <p>自幼学习奥数，多次在全国联赛及各大杯赛中获一等奖。以竞赛优异成绩考入 北京西城实验中学 全国理科实验班。之后保送至北京大学，获理学、经济学双学位。自龙校成立，王炳禹老师就参与至龙校教学活动中，第一批培养出的孩子多数已被各重点校接收录取。王炳禹老师现担任龙校教学总监，全面负责龙校教学工作。其理念在于传授学生们解题的思想及方法，对题目的掌握要从“怎么做”深入到“怎么想”，主动培养学生思考分析问题的能力。</p>

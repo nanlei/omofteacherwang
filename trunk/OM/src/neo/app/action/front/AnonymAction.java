@@ -10,6 +10,7 @@ import org.apache.struts2.ServletActionContext;
 
 import neo.app.action.BaseAction;
 import neo.core.common.Anonymous;
+import neo.core.common.PagingList;
 
 public class AnonymAction extends BaseAction implements Anonymous {
 	//获取客户端浏览器语言，用户请求action和系统时间
@@ -17,16 +18,18 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private String actionName;
 	private String date;
 	private String id; //公用数据库查询ID
+	private List divisionList;//公用seconday导航分类
 	//主页公告相关
 	private Map indexMap;
 	private List noticeDetail;
 	//全知识点
-	private Map knowladgeMap;
+	private Map knowledgeMap;
+	private PagingList konwledgeDivedList;
 	private List knowledgeDetial;
 	//奥数资料分享
 	private Map shareDataMap;
-	private List shareDataDivision;
-	private List divisionList;
+	private PagingList shareDataDivedList;
+	
 
 	/**
 	 * 网站首页
@@ -44,20 +47,29 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	}
 	
 	/**
-	 * 全知识点评测
+	 * 全知识点评测-主页
 	 */
 	public String viewKnowledge() throws Exception{
-		knowladgeMap=getServMgr().getFrontService().getKnowladgeMap();
+		knowledgeMap=getServMgr().getFrontService().getKnowladgeMap();
 		return "viewKnowledge";
 	}
 	
+	/**
+	 * 全知识点评测-具体项信息
+	 */
 	public String viewKnowledgeDetial() throws Exception{
 		knowledgeDetial=getServMgr().getFrontService().getKnowledgeDetial(id);
 		return "viewKnowledgeDetial";
 	}
 	
+	public String viewKnowledgeDivision() throws Exception{
+		divisionList=getServMgr().getFrontService().getKnowLedgeDivision();
+		konwledgeDivedList=getServMgr().getFrontService().getKonwledgeDivedList(id);
+		return "viewKnowledgeDivision";
+	}
+	
 	/**
-	 * 奥数资料分享
+	 * 奥数资料分享-主页
 	 */
 	public String shareData() throws Exception{
 		this.setPageSize(20);
@@ -70,7 +82,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 */
 	public String viewShareDivision() throws Exception{
 		divisionList=getServMgr().getFrontService().getShareDivision();
-		shareDataDivision=getServMgr().getFrontService().getShareDataDivision(id);
+		shareDataDivedList=getServMgr().getFrontService().getShareDataDivedList(id);
 		return "viewShareDivision";
 	}
 	
@@ -166,16 +178,12 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return noticeDetail;
 	}
 
-	public Map getKnowladgeMap() {
-		return knowladgeMap;
+	public Map getKnowledgeMap() {
+		return knowledgeMap;
 	}
 
 	public Map getShareDataMap() {
 		return shareDataMap;
-	}
-
-	public List getShareDataDivision() {
-		return shareDataDivision;
 	}
 
 	public List getDivisionList() {
@@ -185,5 +193,15 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	public List getKnowledgeDetial() {
 		return knowledgeDetial;
 	}
+
+	public PagingList getShareDataDivedList() {
+		return shareDataDivedList;
+	}
+
+	public PagingList getKonwledgeDivedList() {
+		return konwledgeDivedList;
+	}
+
+
 }
 

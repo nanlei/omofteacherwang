@@ -103,8 +103,8 @@
   	<#-- 资料下载-->
     <div id="content">
       <h1>奥数资料分享 - 
-      	<#if shareDataDivision?has_content>
-			<#list shareDataDivision as list>
+      	<#if shareDataDivedList?has_content>
+			<#list shareDataDivedList.list as list>
 				${list.divisionName?default('-')?html}
 				<#break>
 			</#list>
@@ -125,8 +125,8 @@
           </tr>
         </thead>
         <tbody>
-        <#if shareDataDivision?has_content>
-			<#list shareDataDivision as list>
+        <#if shareDataDivedList?has_content>
+			<#list shareDataDivedList.list as list>
           		<tr class="light">
             		<td>${list.title?default('-')?html}</td>
            			<td>${list.divisionName?default('-')?html}</td>
@@ -139,6 +139,13 @@
   		</#if>
         </tbody>
       </table>
+      
+      <table align="center" width="100%">
+		<tr>
+			<td align="right"><@p.paging shareDataDivedList/></td>
+		</tr>
+	  </table>
+      
     </div>
     <#-- /资料下载-->
     <div id="column">
