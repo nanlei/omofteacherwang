@@ -74,8 +74,8 @@ public class FrontService extends BaseService {
 	"om_teacher.realName as teacherName, om_data.url, om_data.downloadTimes, om_data.postTime from om_data join " +
 	"om_data_division on om_data.dataDivId = om_data_division.id " +
 	"join om_teacher on om_data.teacherId = om_teacher.id where om_data_division.id=? order by om_data.postTime DESC;";
-	public List getShareDataDivision(String id) {
-		return jt.queryForList(SQL_GET_SHARE_DATA_DIVISION_BY_ID,id);
+	public PagingList getShareDataDivedList(String id) {
+		return getPagingList(SQL_GET_SHARE_DATA_DIVISION_BY_ID, new Object[]{id});
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class FrontService extends BaseService {
 	 * 全知识点评测分类
 	 */
 	private static final String SQL_GET_KNOWLEGDE_DIVISION="select id, name from om_knowledge_division";
-	private List getKnowLedgeDivision() {
+	public List getKnowLedgeDivision() {
 		return jt.queryForList(SQL_GET_KNOWLEGDE_DIVISION);
 	}
 
@@ -105,19 +105,30 @@ public class FrontService extends BaseService {
 			"om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
 			"om_knowledge_division.grade from om_knowledge join om_knowledge_division on " +
 			"om_knowledge.knowledgeDivId = om_knowledge_division.id order by om_knowledge.postTime DESC";
-	private PagingList getKnowLedgeList() {
+	public PagingList getKnowLedgeList() {
 		return getPagingList(SQL_GET_KNOWLEGDE_LIST);
 	}
 
 	/**
-	 * 依据ID得到指定全知识点评测信息
+	 * 依据单位ID得到指定全知识点评测信息
 	 */
 	private static final String SQL_GET_KNOWLEGDE_DETAIL="select om_knowledge.id, om_knowledge.title, " +
 	"om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
 	"om_knowledge_division.grade from om_knowledge join om_knowledge_division on " +
-	"om_knowledge.knowledgeDivId = om_knowledge_division.id where om_knowledge_division.id=? order by om_knowledge.postTime DESC";
+	"om_knowledge.knowledgeDivId = om_knowledge_division.id where om_knowledge.id=? order by om_knowledge.postTime DESC";
 	public List getKnowledgeDetial(String id) {
 		return jt.queryForList(SQL_GET_KNOWLEGDE_DETAIL,id);
+	}
+
+	/**
+	 * 依据单位项目ID得到指定全知识点评测某一类的信息
+	 */
+	private static final String SQL_GET_KNOWLEGDE_DIVED_LIST="select om_knowledge.id, om_knowledge.title, " +
+	"om_knowledge.postTime, om_knowledge_division.name as divisionName, " +
+	"om_knowledge_division.grade from om_knowledge join om_knowledge_division on " +
+	"om_knowledge.knowledgeDivId = om_knowledge_division.id where om_knowledge_division.id=? order by om_knowledge.postTime DESC";
+	public PagingList getKonwledgeDivedList(String id) {
+		return getPagingList(SQL_GET_KNOWLEGDE_DIVED_LIST, new Object[]{id});
 	}
 
 
