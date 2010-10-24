@@ -101,14 +101,17 @@
 <div class="wrapper col3">
   <div id="container">
   
-  	<h1>
+  	
   		<#if knowledgeDetial?has_content>
 			<#list knowledgeDetial as list>
-				${list.divisionName?default('-')?html} - ${list.grade?default('-')?html}
+				<h1>${list.divisionName?default('-')?html} - ${list.grade?default('-')?html}</h1>
+				<#if list.url?has_content>
+					<a href="${base}${list.url}">下载附件</a></td>
+				</#if>
 				<#break>
 			</#list>
   		</#if>
-	</h1>
+	
   	<#if knowledgeDetial?has_content>
 		<#list knowledgeDetial as list>
     		<p>${list.content?default('-')}</p>
