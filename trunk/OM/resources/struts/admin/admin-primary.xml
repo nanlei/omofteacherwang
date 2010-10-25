@@ -10,5 +10,13 @@
 		</action>
 		<action name="addConsulting" class="neo.app.action.admin.PrimaryAction"
 			method="addConsulting" />
+		<action name="info" class="neo.app.action.admin.PrimaryAction"
+			method="info">
+			<result name="info">primary_info.ftl</result>
+		</action>
+		<action name="addPost" class="neo.app.action.admin.PrimaryAction"
+			method="addPost" />
+		<action name="deletePost" class="neo.app.action.admin.PrimaryAction"
+			method="deletePost" />
 	</package>
 </struts>
