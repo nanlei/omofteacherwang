@@ -18,5 +18,13 @@
 			method="addPost" />
 		<action name="deletePost" class="neo.app.action.admin.PrimaryAction"
 			method="deletePost" />
+		<action name="preUpdate" class="neo.app.action.admin.PrimaryAction"
+			method="preUpdate">
+			<result name="preUpdate">primary_update.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.PrimaryAction"
+			method="update" />
+		<action name="delete" class="neo.app.action.admin.PrimaryAction"
+			method="delete" />
 	</package>
 </struts>

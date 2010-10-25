@@ -90,4 +90,31 @@ public class PrimaryService extends BaseService {
 	public void deletePostById(String postId) {
 		jt.update(SQL_DELETE_POST_BY_ID, postId);
 	}
+
+	// 更新咨询信息
+	private static final String SQL_UPDATE_CONSULTING_BY_ID = "update om_primary_consulting set TITLE=?,CONTENT=?,STATE=?,PRI=? where ID=?";
+
+	/**
+	 * 更新咨询信息
+	 * 
+	 * @param parameterMap
+	 * @param id
+	 */
+	public void updateConsultingById(Map parameterMap, String id) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+				"title,content,state,pri");
+		jt.update(SQL_UPDATE_CONSULTING_BY_ID, params[0], params[1], params[2],
+				params[3], id);
+	}
+
+	// 删除咨询
+	private static final String SQL_DELETE_CONSULTING_BY_ID = "delete from om_primary_consulting where ID=?";
+
+	// 根据咨询ID删除回复
+	private static final String SQL_DELETE_POST_BY_CONSULTING_ID = "delete from om_primary_consulting_post where CONSULTINGID=?";
+
+	public void deleteConsultingAndPostById(String id) {
+		jt.update(SQL_DELETE_POST_BY_CONSULTING_ID, id);
+		jt.update(SQL_DELETE_CONSULTING_BY_ID, id);
+	}
 }
