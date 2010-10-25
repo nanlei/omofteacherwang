@@ -111,4 +111,52 @@ public class PrimaryAction extends BaseAction {
 		return EXECUTE_RESULT;
 	}
 
+	/**
+	 * 获取咨询详情供修改
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String preUpdate() throws Exception {
+		primaryMap = getServMgr().getPrimaryService().getConsultingById(id);
+		return "preUpdate";
+	}
+
+	/**
+	 * 修改咨询信息
+	 * 
+	 * @return
+	 */
+	public String update() {
+		try {
+			getServMgr().getPrimaryService().updateConsultingById(
+					getParameters(), id);
+			addMessage("咨询更新成功");
+			addRedirURL("返回", "list.action");
+		} catch (Exception e) {
+			setResult(ERROR);
+			addMessage("咨询更新失败");
+			addRedirURL("返回", "@back");
+		}
+		return EXECUTE_RESULT;
+	}
+
+	/**
+	 * 删除咨询信息
+	 * 
+	 * @return
+	 */
+	public String delete() {
+		try {
+			getServMgr().getPrimaryService().deleteConsultingAndPostById(id);
+			addMessage("咨询删除成功");
+			addRedirURL("返回", "list.action");
+		} catch (Exception e) {
+			setResult(ERROR);
+			addMessage("咨询删除失败");
+			addRedirURL("返回", "@back");
+		}
+		return EXECUTE_RESULT;
+	}
+
 }
