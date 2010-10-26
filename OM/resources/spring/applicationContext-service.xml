@@ -24,6 +24,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.spri
 	<!-- Primary Service -->
 	<bean id="primaryService" class="neo.app.service.PrimaryService"
 		parent="baseService" />
+	<!-- Method Service -->
+	<bean id="methodService" class="neo.app.service.MethodService"
+		parent="baseService" />
 	<!-- Front Service -->
 	<bean id="frontService" class="neo.app.service.FrontService"
 		parent="baseService" />
