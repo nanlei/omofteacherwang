@@ -10,5 +10,13 @@
 		</action>
 		<action name="addMethod" class="neo.app.action.admin.MethodAction"
 			method="addMethod" />
+		<action name="preUpdate" class="neo.app.action.admin.MethodAction"
+			method="preUpdate">
+			<result name="preUpdate">method_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.MethodAction"
+			method="update" />
+		<action name="delete" class="neo.app.action.admin.MethodAction"
+			method="delete" />
 	</package>
 </struts>
