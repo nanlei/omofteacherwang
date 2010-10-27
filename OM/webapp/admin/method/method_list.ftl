@@ -15,7 +15,7 @@
 		<td>标题</td><td><input type="text" name="title" size="60" emptyInfo="请填写标题"></td>
 	</tr>
 	<tr>
-		<td>顺序（填写数字，升序显示）</td><td><input type="text" name="order" size="60" numberInfo="请填写数字"></td>
+		<td>顺序（填写数字，升序显示）</td><td><input type="text" name="orders" size="60" numberInfo="请填写数字"></td>
 	</tr>
 	<tr>
 		<td colspan="2"><@admin.ckeditor id="content" content="请填写内容"/></td>
