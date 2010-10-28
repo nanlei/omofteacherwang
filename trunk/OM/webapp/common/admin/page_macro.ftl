@@ -130,16 +130,30 @@ if (selNum != -1) {
 <#local pageSize=pagingList.pageSize>
 <#if rowCount == 0>
 	<#if useFlag?exists>
-	<div style="border:1px solid #666;padding:2 5 2 5;background:#efefef;color:#333">没有相关记录</div>
+	<div class="pager-top moretopmargin"><span>没有相关记录</span></div>
 	<#else>
 	<#assign useFlag = 1>
 	</#if>
 <#else>
-<table>
-<tr>
-	<td style="line-height:150%">
-	共 ${rowCount} 条记录 ${pageCount} 页 <#if pageCount gt 1 && pageSize!=maxPageSize><span class="selectedPage" style="padding:2px 3px 0 3px"><a class="page" href="${getPageUrlResize(maxPageSize)}">全部显示</a></span><#elseif pageSize==maxPageSize><span class="selectedPage" style="padding:2px 3px 0 3px"><a class="page" href="${getPageUrlResize(defaultPageSize)}">分页显示</a></span></#if>
-	<#if (pageCount <= 11)>
+    <#if (pageNum !=1)>
+      <#if (pageNum != pageCount )>
+	         <span>当前显示${((pageNum -1) * pageSize +1)}-${pageNum * pageSize}条/ ${rowCount} 条记录</span>
+	  <#else>
+	         <#if ((pageNum -1) * pageSize +1)=(rowCount)>
+	              <span>当前显示 第${rowCount}条/ 共${rowCount} 条记录</span>
+	         <#else>     
+	              <span>当前显示${((pageNum -1) * pageSize +1)}-${rowCount}条/ ${rowCount} 条记录</span>
+	         </#if>     
+	  </#if>
+	<#else>
+	  <#if (pageNum != pageCount )>
+	         <span>当前显示1-${pageSize}条/ ${rowCount} 条记录</span>
+	  <#else> 
+	         <span>当前显示1-${rowCount}条/ ${rowCount} 条记录</span>       
+	  </#if>        
+	</#if>
+	<ol class="pagerpro">
+	<#if (pageCount <= 5)>
 		<#local startPage = 1>
 		<#local endPage = pageCount>
 	<#elseif (pageNum + 5 > pageCount)>
@@ -147,16 +161,30 @@ if (selNum != -1) {
 		<#local endPage = pageCount>
 	<#elseif (pageNum - 5 < 1)>
 		<#local startPage = 1>
-		<#local endPage = 11>
+		<#local endPage = 5>
 	<#else>
 		<#local startPage = pageNum - 5>
 		<#local endPage = pageNum + 5>
 	</#if>
-	<#if (pageCount > 1)><#if (pageNum != 1)><#if (pageCount > 11)><a class="page" href="${getPageUrl(1)}" style="font-family:Webdings" title="首页">9</a></#if><a class="page" href="${getPageUrl(pageNum-1)}" style="font-family:Webdings" title="上页">3</a><#else><#if (pageCount > 11)><span style="font-family:Webdings;color:#999">9</span></#if><span style="font-family:Webdings;color:#999">3</span></#if><#list startPage..endPage as x><#if x=pageNum><span class="selectedPage">${x}</span><#else><span class="noSelectedPage"><a class="page" href="${getPageUrl(x)}">${x}</a></span></#if></#list><#if (pageCount != pageNum)><a class="page" href="${getPageUrl(pageNum+1)}" style="font-family:Webdings" title="下页">4</a><#if (pageCount > 11)><a class="page" href="${getPageUrl(pageCount)}" style="font-family:Webdings" title="尾页">:</a></#if><#else><span style="font-family:Webdings;color:#999">4</span><#if (pageCount > 11)><span style="font-family:Webdings;color:#999">:</span></#if></#if></#if>
+	<#if (pageCount > 1)>
+	  <#if (pageNum != 1)>
+	     <li><a class="chn" href="${getPageUrl(1)}" title="第一页">首页</a></li>
+	     <li><a class="chn" href="${getPageUrl(pageNum-1)}" title="上页">上一页</a></li>
+	  </#if>
+	  <#list startPage..endPage as x>
+	     <#if x=pageNum>
+	        <li class="current"><a href="#">${x}</a></li>
+	     <#else>
+	        <li><a class="chn" href="${getPageUrl(x)}">${x}</a></li>
+	     </#if>
+	  </#list>
+	  <#if (pageCount != pageNum)>
+	     <li><a class="chn" href="${getPageUrl(pageNum+1)}" title="下页">下一页</a></li>
+	     <li><a class="chn" href="${getPageUrl(pageCount + 1)}" title="最后一页">尾页</a></li>
+	   </#if> 
 	</#if>
-	</td>
-</tr>
-</table>
+	</#if>
+	</ol>
 </#macro>
 
 <#-- CKEditor编辑器 -->

@@ -394,3 +394,66 @@ td.indent {
 	height:30px;
 	padding-top:6px;
 }
+/*--------分页样式-----------*/
+.pager-top {
+    overflow:hidden;
+    padding:5px 10px 0;
+    color:#333333;
+    font-family:Tahoma,Verdana,sans-serif,simsun;
+    font-size:12px;
+    margin-top:10px;
+    border-bottom:1px solid #D8DFEA;
+}
+.pager-top span {
+    float:left;
+    padding-bottom:6px;
+}
+.pagerpro {
+    float:right;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none; 
+    margin:0;
+    padding:0;
+}
+.pagerpro li {
+    display:inline;
+    float:left;
+}
+.pagerpro li a.chn {
+    font-size:12px;
+}
+.pagerpro li a {
+    display:block;
+    font-size:11px;
+    padding:3px 3px 2px;
+    color:#005EAC;
+    text-decoration:none;
+}
+.pagerpro li a.chn:hover {
+    border-bottom:1px solid #005EAC;
+}
+.pagerpro li a:hover {
+    background:#005EAC none repeat scroll 0 0;
+    border-bottom:2px solid #005EAC;
+    border-color:#D8DFEA #D8DFEA #005EAC;
+    color:#FFFFFF;
+    text-decoration:none;
+}
+.pagerpro li.current a, .pagerpro li.current a:hover {
+    background:transparent none repeat scroll 0 0;
+    border-bottom:2px solid #005EAC;
+    border-color:#005EAC;
+    color:#005EAC;
+    font-weight:700;
+    padding-left:2px;
+    padding-right:2px;
+}
+.marquee_txt{
+	font-size:12px;
+	font-family:"微软雅黑";
+	margin-top:5px;
+	margin-left:auto;
+    margin-right:auto; 
+    width:222px;
+}
