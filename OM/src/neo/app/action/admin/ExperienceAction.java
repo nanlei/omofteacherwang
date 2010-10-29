@@ -6,6 +6,8 @@ import neo.app.action.BaseAction;
 import neo.core.common.PagingList;
 
 public class ExperienceAction extends BaseAction {
+	//教育心得相关
+	private PagingList experienceList;
 	// 分类相关
 	private PagingList categoryList;
 	private Map categoryMap;
@@ -21,6 +23,11 @@ public class ExperienceAction extends BaseAction {
 
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
+	}
+	
+	public String list() throws Exception{
+		
+		return "list";
 	}
 
 	/**
@@ -58,7 +65,7 @@ public class ExperienceAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String preUpdateCategory() {
+	public String preUpdateCategory() throws Exception{
 		categoryMap = getServMgr().getExperienceService().getCategoryById(
 				categoryId);
 		return "preUpdate";

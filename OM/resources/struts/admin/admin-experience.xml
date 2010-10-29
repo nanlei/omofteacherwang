@@ -4,7 +4,12 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="admin-experience" extends="app-default"
-		namespace="/admin/experience"></package>
+		namespace="/admin/experience">
+		<action name="list" class="neo.app.action.admin.ExperienceAction"
+			method="list">
+			<result name="list">experience_list.ftl</result>
+		</action>
+	</package>
 
 	<package name="admin-experience-category" extends="app-default"
 		namespace="/admin/experience/category">
