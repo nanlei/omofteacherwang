@@ -1,11 +1,19 @@
 package neo.app.service;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Map;
+
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import neo.core.common.PagingList;
 import neo.core.util.MapUtil;
 
 public class ExperienceService extends BaseService {
+	// 获取
 	// 获取所有教育心得分类
 	private static final String SQL_GET_ALL_CATEGORY = "select * from om_experience_division";
 
@@ -27,10 +35,24 @@ public class ExperienceService extends BaseService {
 	 * @param parameterMap
 	 * @param ip
 	 */
-	public void addCategory(Map parameterMap, String ip) {
-		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+	public void addCategory(Map parameterMap, final String ip) {
+		final Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
 				"name,description");
 		jt.update(SQL_ADD_CATEGORY, params[0], params[1], ip);
+		// 以下是插入并获得ID的做法
+		// KeyHolder keyHolder=new GeneratedKeyHolder();
+		// jt.update(new PreparedStatementCreator() {
+		// public PreparedStatement createPreparedStatement(Connection conn)
+		// throws SQLException {
+		// PreparedStatement ps=conn.prepareStatement(SQL_ADD_CATEGORY,new
+		// String[]{"NAME","DESCRIPTION","UPDATEIP"});
+		// ps.setString(1, (String)params[0]);
+		// ps.setString(2, (String)params[1]);
+		// ps.setString(3, ip);
+		// return ps;
+		// }
+		// },keyHolder);
+		// System.out.println(keyHolder.getKey().intValue());
 	}
 
 	// 根据ID查找教育心得分类
