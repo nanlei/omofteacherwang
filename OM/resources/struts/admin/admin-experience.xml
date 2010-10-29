@@ -14,5 +14,13 @@
 		</action>
 		<action name="addCategory" class="neo.app.action.admin.ExperienceAction"
 			method="addCategory" />
+		<action name="preUpdate" class="neo.app.action.admin.ExperienceAction"
+			method="preUpdateCategory">
+			<result name="preUpdate">category_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.ExperienceAction"
+			method="updateCategory" />
+		<action name="delete" class="neo.app.action.admin.ExperienceAction"
+			method="deleteCategory" />
 	</package>
 </struts>
