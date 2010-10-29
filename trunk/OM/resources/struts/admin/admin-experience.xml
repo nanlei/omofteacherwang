@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="admin-experience" extends="app-default"
+		namespace="/admin/experience"></package>
+
+	<package name="admin-experience-category" extends="app-default"
+		namespace="/admin/experience/category">
+		<action name="list" class="neo.app.action.admin.ExperienceAction"
+			method="categoryList">
+			<result name="list">category_list.ftl</result>
+		</action>
+		<action name="addCategory" class="neo.app.action.admin.ExperienceAction"
+			method="addCategory" />
+	</package>
+</struts>

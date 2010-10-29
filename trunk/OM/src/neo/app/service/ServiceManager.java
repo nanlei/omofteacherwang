@@ -7,6 +7,7 @@ public class ServiceManager {
 	private KnowledgeService knowledgeService;
 	private PrimaryService primaryService;
 	private MethodService methodService;
+	private ExperienceService experienceService;
 
 	private FrontService frontService;
 
@@ -64,6 +65,14 @@ public class ServiceManager {
 
 	public void setMethodService(MethodService methodService) {
 		this.methodService = methodService;
+	}
+
+	public ExperienceService getExperienceService() {
+		return experienceService;
+	}
+
+	public void setExperienceService(ExperienceService experienceService) {
+		this.experienceService = experienceService;
 	}
 
 }
