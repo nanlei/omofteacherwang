@@ -112,35 +112,9 @@
             <p>${list.postContent?default('-')?html}</p>
           	
           	<td align="center" width="80px" style="padding-top:5px">
-          		<a href="#" style="cursor:pointer" onclick="$('#page_explain').toggle();this.blur();return false;">看看其他用户的评论 (共 ${list.size?html} 条评论)</a>
+          		<a href="#" style="cursor:pointer" onclick="$('#page_explain').toggle();this.blur();return false;">看看其他用户的评论 (共  条评论)</a>
           	</td>
-          	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain" style="display:none">
-				<tr>
-					<td>
-    					<div id="respond">
-    						<p><textarea name="respondComment" id="comment" cols="100%" rows="3"></textarea></p>
-    						<p><input type="submit" id="submit" value="回帖"></p>
-    					</div>
-    				</td>
-				</tr>
-				
-				<#if respondList?has_content>
-				<#list respondList as list>
-				<tr>
-					<td>
-						<li class="comment_odd">
-            				<div class="author">
-            					<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
-            					<span class="name"><a href="#">${list.respondUserName?default('-')?html}</a></span> 
-            				</div>
-            				<p>${list.respondContent?default('-')?html}</p>
-          					<div class="submitdate"><a href="#">${list.respondTime?default('-')?datetime}</a></div>
-          				</li>	
-          			</td>
-				</tr>
-				</#list>
-				</#if>
-			</table>
+          	
           </li>
         </form>  
         </#list>
