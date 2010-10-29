@@ -100,8 +100,6 @@
 <#-- 全知识点评测详细内容-->
 <div class="wrapper col3">
   <div id="container">
-  
-  	
   		<#if knowledgeDetial?has_content>
 			<#list knowledgeDetial as list>
 				<h1>${list.divisionName?default('-')?html} - ${list.grade?default('-')?html}</h1>
@@ -111,7 +109,7 @@
 				<#break>
 			</#list>
   		</#if>
-	
+	<br class="clear" />
   	<#if knowledgeDetial?has_content>
 		<#list knowledgeDetial as list>
     		<p>${list.content?default('-')}</p>

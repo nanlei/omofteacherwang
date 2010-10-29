@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import neo.core.common.PagingList;
+import neo.core.util.MapUtil;
 
 public class FrontService extends BaseService {
 
@@ -129,6 +130,42 @@ public class FrontService extends BaseService {
 	"om_knowledge.knowledgeDivId = om_knowledge_division.id where om_knowledge_division.id=? order by om_knowledge.postTime DESC";
 	public PagingList getKonwledgeDivedList(String id) {
 		return getPagingList(SQL_GET_KNOWLEGDE_DIVED_LIST, new Object[]{id});
+	}
+
+	/**
+	 * 发表新的帖子
+	 */
+	private static final String SQL_WRITE_NEW_POST="insert into om_primary_consulting(id, title, content, postTime, postIp, " +
+			"userName, state, pri, vote1, vote2, vote3) values(null, ?, ?, now(), ?, ?, 1, 0, 0, 0, 0)";
+	public void writeNewPost(Map parameters, String ip) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameters, "title,postContent,userName");
+		jt.update(SQL_WRITE_NEW_POST, params[0], params[1],ip, params[2]);
+		
+	}
+
+	/**
+	 * 得到所有帖子
+	 */
+	public Map getPriConMap() {
+		HashMap map = new HashMap();
+		PagingList postList = getPostList();
+		map.put("postList", postList);
+		return map;
+	}
+	
+	private static final String SQL_GET_PRI_CON_LIST="select id, title, content as postContent, userName as postUserName, " +
+			"postTime, vote1, vote2, vote3 from om_primary_consulting where state=1 order by postTime DESC";
+	private PagingList getPostList() {
+		return getPagingList(SQL_GET_PRI_CON_LIST);
+	}
+
+	/**
+	 * 依据ID得到相对应所有回帖帖
+	 */
+	private static final String SQL_GET_RESPOND_POSTS_BY_ID = "select userName as respondUserName, content as respondContent, postTime as respondTime" +
+			" from om_primary_consulting_post where CONSULTINGID=?";
+	public List getResopndPostById(String id) {
+		return jt.queryForList(SQL_GET_RESPOND_POSTS_BY_ID,id);	
 	}
 
 
