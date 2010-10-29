@@ -52,7 +52,7 @@
 		<td>${category.POSTTIME?datetime}</td>
 		<td>${category.UPDATETIME?datetime}</td>
 		<td>${category.UPDATEIP}</td>
-		<td><a href="preUpdate.action?id=${category.ID}">修改</a> | <a href="delete.action?id=${category.ID}">删除</a></td>
+		<td><a href="preUpdate.action?categoryId=${category.ID}">修改</a> | <a href="delete.action?categoryId=${category.ID}" onclick="return confirm('确定要删除吗？')">删除</a></td>
 	</tr>
 	<#assign count=count+1 />
 	</#list>

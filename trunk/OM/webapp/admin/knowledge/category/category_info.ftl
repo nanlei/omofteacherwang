@@ -1,6 +1,6 @@
 <@admin.page>
 	<@adminApp.naviBar navi="系统管理,知识点评测,知识点分类管理,修改,首页" />
-	<@adminApp.naviInfo helpInfoTitle="查看页面说明" helpInfoContent="这里是知识点信息页面，您可以维护这些信息<br>">
+	<@adminApp.naviInfo helpInfoTitle="查看页面说明" helpInfoContent="这里是知识点分类信息页面，您可以维护这些信息<br>">
 	<a href="javascript:history.go(-1)" class="navlink">返回</a>
 	</@adminApp.naviInfo>
 <form name="knowledgeForm" action="update.action?categoryId=${categoryMap.ID}" method="post" onsubmit="return validateForm(this)">
