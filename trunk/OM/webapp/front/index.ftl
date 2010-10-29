@@ -10,14 +10,14 @@
       </div>
       <div class="topbox">
         <h2>教师登录</h2>
-        <form action="#" method="post">
+        <form action="teacherLogin.action" method="post">
           <fieldset>
             <legend>Teachers Login Form</legend>
             <label for="teachername">用户名:
-              <input type="text" name="teachername" id="teachername" value="" />
+              <input type="text" name="userName" id="teachername" value="" />
             </label>
             <label for="teacherpass">密码:
-              <input type="password" name="teacherpass" id="teacherpass" value="" />
+              <input type="password" name="password" id="teacherpass" value="" />
             </label>
             <label for="teacherremember">
               <input class="checkbox" type="checkbox" name="teacherremember" id="teacherremember" checked="checked" />
@@ -32,14 +32,14 @@
       </div>
       <div class="topbox last">
         <h2>学生登录</h2>
-        <form action="#" method="post">
+        <form action="studentLogin.action" method="post">
           <fieldset>
             <legend>Pupils Login Form</legend>
             <label for="pupilname">用户名:
-              <input type="text" name="pupilname" id="pupilname" value="" />
+              <input type="text" name="userName" id="pupilname" value="" />
             </label>
             <label for="pupilpass">密码:
-              <input type="password" name="pupilpass" id="pupilpass" value="" />
+              <input type="password" name="password" id="pupilpass" value="" />
             </label>
             <label for="pupilremember">
               <input class="checkbox" type="checkbox" name="pupilremember" id="pupilremember" checked="checked" />
@@ -113,7 +113,7 @@
             <div class="imgholder"><img src="${base}/images/primary_consulting.png" alt="" /></div>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p class="readmore"><a href="primary_consulting.html">更多信息 &raquo;</a></p>
+            <p class="readmore"><a href="${base}/front/Anonym!viewPrimaryConsulting.action">更多信息 &raquo;</a></p>
           </li>
           <li class="last">
             <h2>待定</h2>
@@ -165,7 +165,7 @@
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         <li class="last">
-          <div class="imgholder"><a href="primary_consulting.html"><img src="${base}/images/question.png" alt="" /></a></div>
+          <div class="imgholder"><a href="viewPrimaryConsulting"><img src="${base}/images/question.png" alt="" /></a></div>
           <p><strong><a href="primary_consulting.html">小升初咨询</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>

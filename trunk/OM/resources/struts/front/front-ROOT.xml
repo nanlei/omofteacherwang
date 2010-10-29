@@ -9,7 +9,7 @@
 			<result>index.ftl</result>
 		</action>
 		<!-- 前台首页（包含登陆） -->
-		<action name="login" class="neo.app.action.front.UserAction"
+		<action name="studentLogin" class="neo.app.action.front.UserAction"
 			method="frontLogin">
 			<result type="redirect">${indexUrl}</result>
 			<result name="homepage" type="redirect">frontIndex.action</result>

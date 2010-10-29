@@ -12,6 +12,8 @@
 			<result name="shareData">shareData.ftl</result>
 			<result name="viewKnowledgeDivision">knowledge_division.ftl</result>
 			<result name="viewKnowledgeDetial">knowledge_detail.ftl</result>
+			<result name="viewPrimaryConsulting">primary_consulting.ftl</result>
+			<result name="postSuccess" type="redirect">Anonym!viewPrimaryConsulting.action</result>
 		</action>
 	</package>
 </struts>

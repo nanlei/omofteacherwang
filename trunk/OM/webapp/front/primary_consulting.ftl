@@ -1,4 +1,5 @@
-<@p.page>>
+<@p.page>
+<#-- 用户登录-->
 <div class="wrapper col0">
   <div id="topbar">
     <div id="slidepanel">
@@ -62,7 +63,8 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /用户登录-->
+<#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
     <div id="logo">
@@ -71,9 +73,9 @@
     </div>
     <div id="topnav">
       <ul>
-        <li><a href="index.html">主页</a></li>
-        <li><a href="knowledge.html">全知识点评测</a><a href="style-demo.html"></a></li>
-        <li><a href="data.html">奥数资料分享</a></li>
+        <li class="active"><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
+        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="#">联系我们</a></li>
       </ul>
@@ -81,24 +83,12 @@
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
-<div class="wrapper col2">
-  <div id="breadcrumb">
-    <ul>
-      <li class="first">您的当前位置</li>
-      <li>&#187;</li>
-      <li> <a href="#">主页</a></li>
-      <li>&#187;</li>
-      <li class="current"><a href="#">小升初咨询</a></li>
-    </ul>
-  </div>
-</div>
-<!-- ####################################################################################################### -->
+<#-- /导航链接-->
 <div class="wrapper col3">
   <div id="container">
     <div id="content">
       <h1>&lt;h1&gt; to &lt;h6&gt; - 小升初的重要性</h1>
-      <img class="imgr" src="images/demo/imgr.gif" alt="" width="125" height="125" />
+      <img class="imgr" src="${base}/images/primary.png" alt="" width="125" height="125" />
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括右侧图片；</p>
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；</p>
       
@@ -109,42 +99,71 @@
       <div id="comments">
         <h2>咨询留言</h2>
         <ul class="commentlist">
-          <li class="comment_odd">
-            <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-            <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
-            <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-          </li>
+        <#if primaryConsultingMap.postList?has_content>
+		<#list primaryConsultingMap.postList.list as list>
+        <form action="Anonym!respondPost.action"  method="post" >
           <li class="comment_even">
-            <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-            <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
-            <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+            <div class="author">
+            	<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
+            	<span class="name"><a href="#">${list.postUserName?default('-')?html}</a></span> 
+            	<span class="wrote">发表:${list.postTitle?default('-')?html}</span>
+            </div>
+            <div class="submitdate"><a href="#">${list.postTime?default('-')?datetime}</a></div>
+            <p>${list.postContent?default('-')?html}</p>
+          	
+          	<td align="center" width="80px" style="padding-top:5px">
+          		<a href="#" style="cursor:pointer" onclick="$('#page_explain').toggle();this.blur();return false;">看看其他用户的评论 (共 ${list.size?html} 条评论)</a>
+          	</td>
+          	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain" style="display:none">
+				<tr>
+					<td>
+    					<div id="respond">
+    						<p><textarea name="respondComment" id="comment" cols="100%" rows="3"></textarea></p>
+    						<p><input type="submit" id="submit" value="回帖"></p>
+    					</div>
+    				</td>
+				</tr>
+				
+				<#if respondList?has_content>
+				<#list respondList as list>
+				<tr>
+					<td>
+						<li class="comment_odd">
+            				<div class="author">
+            					<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
+            					<span class="name"><a href="#">${list.respondUserName?default('-')?html}</a></span> 
+            				</div>
+            				<p>${list.respondContent?default('-')?html}</p>
+          					<div class="submitdate"><a href="#">${list.respondTime?default('-')?datetime}</a></div>
+          				</li>	
+          			</td>
+				</tr>
+				</#list>
+				</#if>
+			</table>
           </li>
-          <li class="comment_odd">
-            <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-            <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
-            <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-          </li>
+        </form>  
+        </#list>
+  		</#if>
         </ul>
       </div>
-      <h2>留言给王炳禹老师</h2>
+      <h2>发表咨询</h2>
       <div id="respond">
-        <form action="#" method="post">
+        <form action="Anonym!writePost.action" method="post" onsubmit="return validateForm(this)">
           <p>
-            <input type="text" name="name" id="name" value="" size="22" />
-            <label for="name"><small>您的名字 (必填)</small></label>
+            <input type="text" name="title"  value="" size="22" emptyInfo="请输入标题" maxLen="22" lengthInfo="标题不得大于22个汉字"/>
+            <label for="name"><small>标题 (必填)</small></label>
           </p>
           <p>
-            <input type="text" name="email" id="email" value="" size="22" />
-            <label for="email"><small>邮件或联系方式 (必填)</small></label>
-          </p>
-          <p>
-            <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
+            <textarea name="postContent" id="content" cols="100%" rows="5" emptyInfo="请输入内容" maxLen="1000" lengthInfo="内容不得大于500个汉字"></textarea>
             <label for="comment" style="display:none;"><small>咨询内容 (必填)</small></label>
           </p>
           <p>
+          	<input type="hidden" name="userName" value="游客" />
             <input name="submit" type="submit" id="submit" value="提交咨询" />
             &nbsp;
             <input name="reset" type="reset" id="reset" tabindex="5" value="重置留言" />
+            
           </p>
         </form>
       </div>
@@ -152,15 +171,15 @@
     <div id="column">
       
       <div class="holder">
-        <h2 class="title"><img src="images/demo/60x60.gif" alt="" />王炳禹老师简介</h2>
-        <p>此处内容由王老师编写，在页面开发时完成，不提供后台更新功能，左边为王老师头衔图片。更多信息链接到工作室介绍</p>
+        <h2 class="title"><img src="${base}/images/wby_small.png" alt="" />王炳禹老师简介</h2>
+        <p>自幼学习奥数，多次在全国联赛及各大杯赛中获一等奖。以竞赛优异成绩考入 北京西城实验中学 全国理科实验班。之后保送至北京大学，获理学、经济学双学位。自龙校成立，王炳禹老师就参与至龙校教学活动中，第一批培养出的孩子多数已被各重点校接收录取。王炳禹老师现担任龙校教学总监，全面负责龙校教学工作。其理念在于传授学生们解题的思想及方法，对题目的掌握要从“怎么做”深入到“怎么想”，主动培养学生思考分析问题的能力。</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
       <div id="featured">
         <ul>
           <li>
             <h2>Indonectetus facilis leonib</h2>
-            <p class="imgholder"><img src="images/demo/240x90.gif" alt="" /></p>
+            <p class="imgholder"><img src="${base}/images/demo/240x90.gif" alt="" /></p>
             <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
             <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
           </li>
@@ -181,14 +200,15 @@
     <div class="clear"></div>
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- 超链接-->
 <div class="wrapper col4">
   <div id="footer">
     
     <br class="clear" />
   </div>
 </div>
-<!-- ####################################################################################################### -->
+<#-- /超链接-->
+<#-- CopyRight-->
 <div class="wrapper col5">
   <div id="copyright">
     <p class="fl_left">Copyright &copy; 2010 - All Rights Reserved - <a href="#">Domain Name</a></p>
@@ -196,4 +216,5 @@
     <br class="clear" />
   </div>
 </div>
+<#-- /CopyRight-->
 </@p.page>>

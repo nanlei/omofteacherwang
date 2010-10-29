@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import neo.app.action.BaseAction;
 import neo.core.common.Anonymous;
@@ -29,6 +30,9 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	//奥数资料分享
 	private Map shareDataMap;
 	private PagingList shareDataDivedList;
+	//小升初咨询
+	private Map primaryConsultingMap;
+	private List respondList;
 	
 
 	/**
@@ -95,6 +99,39 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return "viewNotice";
 	}
 
+	/**
+	 * 主页-小升初咨询
+	 */
+	public String viewPrimaryConsulting() throws Exception{
+		primaryConsultingMap=getServMgr().getFrontService().getPriConMap();
+		return "viewPrimaryConsulting";
+	}
+	
+	/**
+	 * 发帖
+	 */
+	public String writePost() throws Exception{
+		try {
+			String ip = getRequest().getRemoteAddr();
+			getServMgr().getFrontService().writeNewPost(this.getParameters(),ip);
+			return "postSuccess";
+		} catch (Exception e) {
+			System.out.println(e);
+			setResult(ERROR);
+			addMessage("发帖发生异常");
+			addRedirURL("返回", "javascript:history.go(-1)");
+		}
+		return EXECUTE_RESULT;
+	}
+	
+	/**
+	 * 依据发帖ID List多有回帖
+	 */
+	public String viewRespondPost() throws Exception{
+		respondList=getServMgr().getFrontService().getResopndPostById(id);
+		return "viewRespondPost";
+	}
+	
 	
 	
 
@@ -200,6 +237,14 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public PagingList getKonwledgeDivedList() {
 		return konwledgeDivedList;
+	}
+
+	public Map getPrimaryConsultingMap() {
+		return primaryConsultingMap;
+	}
+
+	public List getRespondList() {
+		return respondList;
 	}
 
 
