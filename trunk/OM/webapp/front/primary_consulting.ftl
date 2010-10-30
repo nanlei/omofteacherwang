@@ -112,9 +112,9 @@
             <p>${list.postContent?default('-')?html}</p>
           	
           	<td align="center" width="80px" style="padding-top:5px">
-          		<a href="#" style="cursor:pointer" onclick="$('#page_explain').toggle();this.blur();return false;">看看其他用户的评论 (共${primaryConsultingMap.postCount?html}  条评论)</a>
+          		<a href="#" style="cursor:pointer" onclick="$('#page_explain${list.id}').toggle();this.blur();return false;">看看其他用户的评论 (共${primaryConsultingMap.postCount?html}  条评论)</a>
           	</td>
-          	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain" style="display:none">
+          	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain${list.id}" style="display:none">
 				<tr>
 					<td>
     					<div id="respond">
