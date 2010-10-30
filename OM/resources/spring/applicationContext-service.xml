@@ -30,6 +30,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.spri
 	<!-- Experience Service -->
 	<bean id="experienceService" class="neo.app.service.ExperienceService"
 		parent="baseService" />
+	<!-- Data Service-->
+	<bean id="dataService" class="neo.app.service.DataService" parent="baseService" />
+
 	<!-- Front Service -->
 	<bean id="frontService" class="neo.app.service.FrontService"
 		parent="baseService" />
