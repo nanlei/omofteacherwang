@@ -8,6 +8,7 @@ public class ServiceManager {
 	private PrimaryService primaryService;
 	private MethodService methodService;
 	private ExperienceService experienceService;
+	private DataService dataService;
 
 	private FrontService frontService;
 
@@ -73,6 +74,14 @@ public class ServiceManager {
 
 	public void setExperienceService(ExperienceService experienceService) {
 		this.experienceService = experienceService;
+	}
+
+	public DataService getDataService() {
+		return dataService;
+	}
+
+	public void setDataService(DataService dataService) {
+		this.dataService = dataService;
 	}
 
 }
