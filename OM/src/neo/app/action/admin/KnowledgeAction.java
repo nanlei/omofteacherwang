@@ -332,7 +332,7 @@ public class KnowledgeAction extends BaseAction {
 					categoryId);
 			if (num > 0) {
 				setResult(ERROR);
-				addMessage("知识分类含有信息，不能删除");
+				addMessage("分类含有信息，不能删除");
 				addRedirURL("返回", "@back");
 			} else {
 				getServMgr().getKnowledgeService().deleteCategoryById(
