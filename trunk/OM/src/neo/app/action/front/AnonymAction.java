@@ -63,6 +63,9 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return "viewKnowledgeDetial";
 	}
 	
+	/**
+	 * 全知识点评测-分类信息
+	 */
 	public String viewKnowledgeDivision() throws Exception{
 		divisionList=getServMgr().getFrontService().getKnowLedgeDivision();
 		konwledgeDivedList=getServMgr().getFrontService().getKonwledgeDivedList(id);
@@ -127,6 +130,20 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	public String viewRespondPost() throws Exception{
 		respondList=getServMgr().getFrontService().getResopndPostById(id);
 		return "viewRespondPost";
+	}
+	
+	public String respondPost() throws Exception{
+		try {
+			String ip = getRequest().getRemoteAddr();
+			getServMgr().getFrontService().respondNewPost(this.getParameters(),ip);
+			return "respondSuccess";
+		} catch (Exception e) {
+			System.out.println(e);
+			setResult(ERROR);
+			addMessage("回帖发生异常");
+			addRedirURL("返回", "javascript:history.go(-1)");
+		}
+		return EXECUTE_RESULT;
 	}
 	
 	
