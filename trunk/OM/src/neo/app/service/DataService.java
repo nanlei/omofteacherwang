@@ -42,4 +42,60 @@ public class DataService extends BaseService {
 				"name,description");
 		jt.update(SQL_ADD_CATEGORY, params[0], params[1], ip);
 	}
+
+	// 获取分类信息供修改
+	private static final String SQL_GET_CATEGORY_BY_ID = "select * from om_data_division where ID=?";
+
+	/**
+	 * 获取分类信息供修改
+	 * 
+	 * @param categoryId
+	 * @return
+	 */
+	public Map getCategoryById(String categoryId) {
+		return jt.queryForMap(SQL_GET_CATEGORY_BY_ID, categoryId);
+	}
+
+	// 修改分类信息
+	private static final String SQL_UPDATE_CATEGORY_BY_ID = "update om_data_division set NAME=?,DESCRIPTION=?,UPDATETIME=now(),UPDATEIP=? where ID=?";
+
+	/**
+	 * 修改分类信息
+	 * 
+	 * @param parameterMap
+	 * @param ip
+	 * @param categoryId
+	 */
+	public void updateCategoryById(Map parameterMap, String ip,
+			String categoryId) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameterMap,
+				"name,description");
+		jt.update(SQL_UPDATE_CATEGORY_BY_ID, params[0], params[1], ip,
+				categoryId);
+	}
+
+	// 获取分类下信息的条数
+	private static final String SQL_GET_NUM_BY_CATEGORY_ID = "select count(*) from om_data where DATADIVID=?";
+
+	/**
+	 * 获取分类下的信息条数
+	 * 
+	 * @param categoryId
+	 * @return
+	 */
+	public int getNumByCategoryId(String categoryId) {
+		return jt.queryForInt(SQL_GET_NUM_BY_CATEGORY_ID, categoryId);
+	}
+
+	// 删除分类
+	private static final String SQL_DELETE_CATEGORY_BY_ID = "delete from om_data_division where ID=?";
+
+	/**
+	 * 删除分类
+	 * 
+	 * @param categoryId
+	 */
+	public void deleteCategoryById(String categoryId) {
+		jt.update(SQL_DELETE_CATEGORY_BY_ID, categoryId);
+	}
 }
