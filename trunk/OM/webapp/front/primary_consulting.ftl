@@ -112,7 +112,14 @@
             <p>${list.postContent?default('-')?html}</p>
           	
           	<td align="center" width="80px" style="padding-top:5px">
-          		<a href="#" style="cursor:pointer" onclick="$('#page_explain${list.id}').toggle();this.blur();return false;">看看其他用户的评论 (共${primaryConsultingMap.postCount?html}  条评论)</a>
+          		<#assign getPostCount=servMgr.frontService.getPostCountById('${list.id}')?default("")/>
+          		<a href="#" style="cursor:pointer" onclick="$('#page_explain${list.id}').toggle();this.blur();return false;">
+          			<#if getPostCount?has_content>
+						
+          					看看其他用户的评论 (共${getPostCount?html}  条评论)
+          				
+  					</#if>
+          		</a>
           	</td>
           	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain${list.id}" style="display:none">
 				<tr>

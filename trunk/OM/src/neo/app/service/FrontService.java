@@ -172,19 +172,22 @@ public class FrontService extends BaseService {
 		HashMap map = new HashMap();
 		PagingList postList = getPostList();
 		map.put("postList", postList);
-		int postCount = getPostCount();
-		map.put("postCount", postCount);
+		//int postCount = getPostCountById();
+		//map.put("postCount", postCount);
 		return map;
 	}
 	
 	/**
 	 * 统计回帖数量
 	 */
-	private static final String SQL_COUNT_RESPOND_POST="select count(id) from om_primary_consulting_post";
-	private int getPostCount() {
-		return jt.queryForInt(SQL_COUNT_RESPOND_POST);
+	private static final String SQL_COUNT_RESPOND_POST="select count(id) as countNum from om_primary_consulting_post where consultingId=?";
+	public int getPostCountById(String id) {
+		return jt.queryForInt(SQL_COUNT_RESPOND_POST, id);
 	}
 
+	/**
+	 * 得到所有咨询帖（发帖）
+	 */
 	private static final String SQL_GET_POST_LIST="select id, title, content as postContent, userName as postUserName, " +
 			"postTime, vote1, vote2, vote3 from om_primary_consulting where state=1";
 	public PagingList getPostList() {
