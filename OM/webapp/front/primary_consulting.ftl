@@ -106,38 +106,43 @@
             <div class="author">
             	<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
             	<span class="name"><a href="#">${list.postUserName?default('-')?html}</a></span> 
-            	<span class="wrote">发表:${list.postTitle?default('-')?html}</span>
+            	<span class="wrote">发表: ${list.title?default('-')?html}</span>
             </div>
             <div class="submitdate"><a href="#">${list.postTime?default('-')?datetime}</a></div>
             <p>${list.postContent?default('-')?html}</p>
           	
           	<td align="center" width="80px" style="padding-top:5px">
-          		<a href="#" style="cursor:pointer" onclick="$('#page_explain').toggle();this.blur();return false;">看看其他用户的评论 (共  条评论)</a>
+          		<a href="#" style="cursor:pointer" onclick="$('#page_explain').toggle();this.blur();return false;">看看其他用户的评论 (共${primaryConsultingMap.postCount?html}  条评论)</a>
           	</td>
           	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain" style="display:none">
 				<tr>
 					<td>
     					<div id="respond">
-    						<p><textarea name="respondComment" id="comment" cols="100%" rows="3"></textarea></p>
+    						<input type="hidden" name="id" value="${list.id}" />
+    						<input type="hidden" name="userName" value="游客" />
+    						<p><textarea name="respondContent" id="comment" cols="100%" rows="3"></textarea></p>
     						<p><input type="submit" id="submit" value="回帖"></p>
     					</div>
     				</td>
 				</tr>
 				
-				
+				<#assign respondList=servMgr.frontService.getResopndPostById('${list.id}')?default("")/>
+				<#if respondList?has_content>
+				<#list respondList as list>
 				<tr>
 					<td>
 						<li class="comment_odd">
             				<div class="author">
             					<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
-            					<span class="name"><a href="#">${list.respondUserName?default('-')?html}</a></span> 
+            					<span class="name"><a href="#">${list.respondUserName?default('-')?html}</a> 回复:</span> 
             				</div>
             				<p>${list.respondContent?default('-')?html}</p>
           					<div class="submitdate"><a href="#">${list.respondTime?default('-')?datetime}</a></div>
           				</li>	
           			</td>
 				</tr>
-				
+				</#list>
+  				</#if>
 			</table>
           </li>
         </form>  

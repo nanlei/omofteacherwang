@@ -159,8 +159,7 @@ public class FrontService extends BaseService {
 				return ps;
 			}
 		},keyHolder);
-		System.out.println(keyHolder.getKey().intValue());
-		newRespondPost(keyHolder.getKey().intValue());
+		//systemRespondPost(keyHolder.getKey().intValue());用于做系统自动回复
 	}
 
 	
@@ -173,14 +172,21 @@ public class FrontService extends BaseService {
 		HashMap map = new HashMap();
 		PagingList postList = getPostList();
 		map.put("postList", postList);
+		int postCount = getPostCount();
+		map.put("postCount", postCount);
 		return map;
 	}
 	
-	
-	private static final String SQL_GET_POST_LIST="select post.title, post.content as postContent, post.userName as postUserName, " +
-			"post.postTime as postTime, post.vote1, post.vote2, post.vote3, respond.content as respondContent, " +
-			"respond.userName as respondUserName, respond.postTime as respondTime from om_primary_consulting as post join " +
-			"om_primary_consulting_post as respond on post.id = respond.consultingId where post.state=1";
+	/**
+	 * 统计回帖数量
+	 */
+	private static final String SQL_COUNT_RESPOND_POST="select count(id) from om_primary_consulting_post";
+	private int getPostCount() {
+		return jt.queryForInt(SQL_COUNT_RESPOND_POST);
+	}
+
+	private static final String SQL_GET_POST_LIST="select id, title, content as postContent, userName as postUserName, " +
+			"postTime, vote1, vote2, vote3 from om_primary_consulting where state=1";
 	public PagingList getPostList() {
 		return getPagingList(SQL_GET_POST_LIST);
 	}
@@ -189,7 +195,7 @@ public class FrontService extends BaseService {
 	 * 发帖后系统自动回帖
 	 */
 	private static final String SQL_NEW_RESPOND_POST="insert into om_primary_consulting_post(consultingId,content,postTime,postIp,userName) values(?,'系统信息-王老师会在最快时间内回复您的咨询',now(),'10000','system')";
-	public void newRespondPost(int cid) {
+	public void systemRespondPost(int cid) {
 		jt.update(SQL_NEW_RESPOND_POST, cid);
 	}
 
@@ -200,6 +206,15 @@ public class FrontService extends BaseService {
 			" from om_primary_consulting_post where CONSULTINGID=?";
 	public List getResopndPostById(String id) {
 		return jt.queryForList(SQL_GET_RESPOND_POSTS_BY_ID,id);	
+	}
+
+	/**
+	 * 依据ID回帖
+	 */
+	private static final String SQL_RESPOND_NEW_POST="insert into om_primary_consulting_post(consultingId,content,postTime,postIp,userName) values(?, ?, now(), ?, ?)";
+	public void respondNewPost(Map parameters, String ip) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameters, "id, respondContent, userName");
+		jt.update(SQL_RESPOND_NEW_POST, params[0], params[1], ip, params[2] );
 	}
 
 
