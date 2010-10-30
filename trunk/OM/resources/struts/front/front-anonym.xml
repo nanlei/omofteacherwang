@@ -10,6 +10,7 @@
 			<result name="viewNotice">notice_info.ftl</result>
 			<result name="viewKnowledge">knowledge.ftl</result>
 			<result name="shareData">shareData.ftl</result>
+			<result name="viewShareDivision">shareData_division.ftl</result>
 			<result name="viewKnowledgeDivision">knowledge_division.ftl</result>
 			<result name="viewKnowledgeDetail">knowledge_detail.ftl</result>
 			<result name="viewPrimaryConsulting">primary_consulting.ftl</result>

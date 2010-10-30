@@ -150,7 +150,7 @@
         <ul>
         <#if shareDataMap.shareDivision?has_content>
 			<#list shareDataMap.shareDivision as list>
-          		<li><a href="${base}/front/Anonym!viewShareDivision.action?id=?${list.id}">${list.name?default('-')?html}</a></li>
+          		<li><a href="${base}/front/Anonym!viewShareDivision.action?id=${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>
         </ul>

@@ -82,7 +82,7 @@ public class FrontService extends BaseService {
 	private static final String SQL_GET_SHARE_DATA_DIVISION_BY_ID="select om_data.id, om_data.title, om_data_division.name as divisionName, " +
 	"om_teacher.realName as teacherName, om_data.url, om_data.downloadTimes, om_data.postTime from om_data join " +
 	"om_data_division on om_data.dataDivId = om_data_division.id " +
-	"join om_teacher on om_data.teacherId = om_teacher.id where om_data_division.id=? order by om_data.postTime DESC;";
+	"join om_teacher on om_data.teacherId = om_teacher.id where om_data_division.id=? order by om_data.postTime DESC";
 	public PagingList getShareDataDivedList(String id) {
 		return getPagingList(SQL_GET_SHARE_DATA_DIVISION_BY_ID, new Object[]{id});
 	}
