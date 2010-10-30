@@ -30,6 +30,12 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	//小升初咨询
 	private Map primaryConsultingMap;
 	private List respondList;
+	//奥数方法认识
+	private Map methodMap;
+	private List methodDetial;
+	//初中学习
+	private Map juniorStudyMap;
+
 	
 
 	/**
@@ -58,9 +64,9 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	/**
 	 * 全知识点评测-具体项信息
 	 */
-	public String viewKnowledgeDetial() throws Exception{
+	public String viewKnowledgeDetail() throws Exception{
 		knowledgeDetial=getServMgr().getFrontService().getKnowledgeDetial(id);
-		return "viewKnowledgeDetial";
+		return "viewKnowledgeDetail";
 	}
 	
 	/**
@@ -108,7 +114,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	}
 	
 	/**
-	 * 发帖
+	 * 小升初咨询-发帖
 	 */
 	public String writePost() throws Exception{
 		try {
@@ -125,13 +131,16 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	}
 	
 	/**
-	 * 依据发帖ID List多有回帖
+	 * 小升初咨询-依据发帖ID List多有回帖
 	 */
 	public String viewRespondPost() throws Exception{
 		respondList=getServMgr().getFrontService().getResopndPostById(id);
 		return "viewRespondPost";
 	}
 	
+	/**
+	 * 小升初咨询-依据ID回帖
+	 */
 	public String respondPost() throws Exception{
 		try {
 			String ip = getRequest().getRemoteAddr();
@@ -146,6 +155,29 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return EXECUTE_RESULT;
 	}
 	
+	/**
+	 * 奥数方法认识
+	 */
+	public String viewMethod() throws Exception{
+		methodMap=getServMgr().getFrontService().getMethodMap();
+		return "viewMethod";
+	}
+	
+	/**
+	 * 奥数方法认识-依据ID得到详细信息
+	 */
+	public String viewMethodDetail() throws Exception{
+		methodDetial=getServMgr().getFrontService().getMethodDetial(id);
+		return "viewMethodDetail";
+	}
+	
+	/**
+	 * 初中学习
+	 */
+	public String viewJuniorStudy() throws Exception{
+		juniorStudyMap=getServMgr().getFrontService().getJuniorStudyMap();
+		return "viewJuniorStudy";
+	}
 	
 	
 
@@ -259,6 +291,18 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public List getRespondList() {
 		return respondList;
+	}
+
+	public Map getMethodMap() {
+		return methodMap;
+	}
+
+	public List getMethodDetial() {
+		return methodDetial;
+	}
+
+	public Map getJuniorStudyMap() {
+		return juniorStudyMap;
 	}
 
 
