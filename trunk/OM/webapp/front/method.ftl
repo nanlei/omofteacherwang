@@ -83,7 +83,6 @@
     <br class="clear" />
   </div>
 </div>
-
 <#-- /导航链接-->
 <#-- 当前位置-->
 <div class="wrapper col2">
@@ -91,9 +90,7 @@
     <ul>
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
-      <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
-      <li>&#187;</li>
-      <li class="current"><a href="${base}/front/Anonym!viewPrimaryConsulting.action">小升初咨询</a></li>
+      <li class="current"><a href="${base}/front/Anonym!viewMethod.action">奥数方法认识</a></li>
     </ul>
   </div>
 </div>
@@ -101,107 +98,48 @@
 <div class="wrapper col3">
   <div id="container">
     <div id="content">
-      <h1>&lt;h1&gt; to &lt;h6&gt; - 小升初的重要性</h1>
-      <img class="imgr" src="${base}/images/primary.png" alt="" width="125" height="125" />
-      <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括右侧图片；</p>
-      <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；</p>
-      <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；</p>
-      <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；</p>
-      <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；</p>
+      <h1>奥数方法认识</h1>
+      <img class="imgr" src="${base}/images/method_right.png" alt="" width="125" height="125" />
+      <p>奥数方法认识</p>
+      <p>结合小学课本各年级学校应掌握数学知识，在此基础上相应拓展，利于学生接受。</p>
+      <img class="imgl" src="${base}/images/method_left.png" alt="" width="125" height="125" />
+      <p>3~5年级是学习奥数核心时段，在此时间内有效掌握各知识板块基础方法。</p>
+      <p>6年级综合提高，备战各校小升初考试。</p>
+      <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片</p>
+ <br class="clear" />      
       
-      <#-- POST列表-->
-      <div id="comments">
-        <h2>咨询留言</h2>
-        <ul class="commentlist">
-        <#if primaryConsultingMap.postList?has_content>
-			<#list primaryConsultingMap.postList.list as list>
-        		<form action="Anonym!respondPost.action"  method="post" >
-          			<li class="comment_even">
-            			<div class="author">
-            				<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
-            				<span class="name"><a href="#">${list.postUserName?default('-')?html}</a></span> 
-            				<span class="wrote">发表: ${list.title?default('-')?html}</span>
-           				</div>
-            			<div class="submitdate">
-            				<a href="#">${list.postTime?default('-')?datetime}</a>
-            			</div>
-            			<p>${list.postContent?default('-')?html}</p>
-          	
-          				<td align="center" width="80px" style="padding-top:5px">
-          					<#assign getPostCount=servMgr.frontService.getPostCountById('${list.id}')?default("")/>
-          					<a href="#" style="cursor:pointer" onclick="$('#page_explain${list.id}').toggle();this.blur();return false;">
-          						<#if getPostCount?has_content>
-          							看看其他用户的评论 (共 ${getPostCount?html}  条评论)
-  								</#if>
-          					</a>
-          				</td>
-          				<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain${list.id}" style="display:none">
-							<tr>
-								<td>
-    								<div id="respond">
-    									<input type="hidden" name="id" value="${list.id}" />
-    									<input type="hidden" name="userName" value="游客" />
-    									<p><textarea name="respondContent" id="comment" cols="100%" rows="3"></textarea></p>
-    									<p><input type="submit" id="submit" value="回帖"></p>
-    								</div>
-    							</td>
-							</tr>
-							<#assign respondList=servMgr.frontService.getResopndPostById('${list.id}')?default("")/>
-							<#if respondList?has_content>
-								<#list respondList as list>
-									<tr>
-										<td>
-											<li class="comment_odd">
-            									<div class="author">
-            										<img class="avatar" src="${base}/images/demo/avatar.gif" width="32" height="32" alt="" />
-            										<span class="name"><a href="#">${list.respondUserName?default('-')?html}</a> 回复:</span> 
-            									</div>
-            									<p>${list.respondContent?default('-')?html}</p>
-          										<div class="submitdate">
-          											<a href="#">${list.respondTime?default('-')?datetime}</a>
-          										</div>
-          									</li>	
-          								</td>
-									</tr>
-								</#list>
-  							</#if>
-						</table>
-          			</li>
-       			</form>  
+      <h2>最近更新奥数方法认识</h2>
+      <table summary="Summary Here" cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>更新时间</th>
+            <th>教师名字</th>
+            <th>发布时间</th>
+            <th>操作</th>
+            
+          </tr>
+        </thead>
+        <#if methodMap.methodList?has_content>
+			<#list methodMap.methodList.list as list>
+       			<tbody>
+          			<tr class="light">
+            			<td>${list.title?default('-')?html}</td>
+            			<td>${list.updateTime?date}</td>
+            			<td>${list.teacherName?default('-')?html}</td>
+            			<td>${list.postTime?date}</td>
+            			<td><a href="${base}/front/Anonym!viewMethodDetail.action?id=${list.Id}" target="_black">查看</a></td>	
+          			</tr>
+        		</tbody>
         	</#list>
   		</#if>
-  		<table align="center" width="100%">
-			<tr>
-				<@p.paging primaryConsultingMap.postList />
-			</tr>
-	  	</table>
-        </ul>
-      </div>
-      <#-- /POST列表-->
-      <#-- 发表咨询-->
-      <h2>发表咨询</h2>
-      <div id="respond">
-        <form action="Anonym!writePost.action" method="post" onsubmit="return validateForm(this)">
-          <p>
-            <input type="text" name="title"  value="" size="22" emptyInfo="请输入标题" maxLen="22" lengthInfo="标题不得大于22个汉字"/>
-            <label for="name"><small>标题 (必填)</small></label>
-          </p>
-          <p>
-            <textarea name="postContent" id="content" cols="100%" rows="5" emptyInfo="请输入内容" maxLen="1000" lengthInfo="内容不得大于500个汉字"></textarea>
-            <label for="comment" style="display:none;"><small>咨询内容 (必填)</small></label>
-          </p>
-          <p>
-          	<input type="hidden" name="userName" value="游客" />
-            <input name="submit" type="submit" id="submit" value="提交咨询" />
-            &nbsp;
-            <input name="reset" type="reset" id="reset" tabindex="5" value="重置留言" />
-            
-          </p>
-        </form>
-      </div>
-      <#-- /发表咨询-->
+      </table>
+      <table align="center" width="100%">
+		<tr>
+			<td align="right"><@p.paging methodMap.methodList/></td>
+		</tr>
+	  </table>
     </div>
-    
     <div id="column">
       <div class="holder">
         <h2 class="title"><img src="${base}/images/wby_small.png" alt="" />王炳禹老师简介</h2>
@@ -233,6 +171,7 @@
     <div class="clear"></div>
   </div>
 </div>
+
 <#-- 超链接-->
 <div class="wrapper col4">
   <div id="footer">
@@ -250,4 +189,4 @@
   </div>
 </div>
 <#-- /CopyRight-->
-</@p.page>>
+</@p.page>

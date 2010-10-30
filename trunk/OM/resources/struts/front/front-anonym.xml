@@ -11,10 +11,14 @@
 			<result name="viewKnowledge">knowledge.ftl</result>
 			<result name="shareData">shareData.ftl</result>
 			<result name="viewKnowledgeDivision">knowledge_division.ftl</result>
-			<result name="viewKnowledgeDetial">knowledge_detail.ftl</result>
+			<result name="viewKnowledgeDetail">knowledge_detail.ftl</result>
 			<result name="viewPrimaryConsulting">primary_consulting.ftl</result>
 			<result name="postSuccess" type="redirect">Anonym!viewPrimaryConsulting.action</result>
 			<result name="respondSuccess" type="redirect">Anonym!viewPrimaryConsulting.action</result>
+			<result name="viewMethod">method.ftl</result>
+			<result name="viewMethodDetail">method_detail.ftl</result>
+			<result name="viewJuniorStudy">junior_study.ftl</result>
+			
 		</action>
 	</package>
 </struts>

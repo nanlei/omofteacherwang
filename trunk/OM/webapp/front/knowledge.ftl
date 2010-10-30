@@ -128,7 +128,7 @@
             			<td>${list.divisionName?default('-')?html}</td>
             			<td>${list.grade?default('-')?html}</td>
             			<td>${list.postTime?date}</td>
-            			<td><a href="${base}/front/Anonym!viewKnowledgeDetial.action?id=${list.Id}" target="_black">查看</a></td>	
+            			<td><a href="${base}/front/Anonym!viewKnowledgeDetail.action?id=${list.Id}" target="_black">查看</a></td>	
           			</tr>
         		</tbody>
         	</#list>

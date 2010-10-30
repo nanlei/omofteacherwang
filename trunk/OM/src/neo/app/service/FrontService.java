@@ -141,7 +141,7 @@ public class FrontService extends BaseService {
 	}
 
 	/**
-	 * 发表新的帖子并自动创建一个系统回帖
+	 * 发表新的帖子 //并自动创建一个系统回帖
 	 */
 	private static final String SQL_WRITE_NEW_POST="insert into om_primary_consulting(id, title, content, postTime, postIp, " +
 			"userName, state, pri, vote1, vote2, vote3) values(null, ?, ?, now(), ?, ?, 1, 0, 0, 0, 0)";
@@ -189,7 +189,7 @@ public class FrontService extends BaseService {
 	 * 得到所有咨询帖（发帖）
 	 */
 	private static final String SQL_GET_POST_LIST="select id, title, content as postContent, userName as postUserName, " +
-			"postTime, vote1, vote2, vote3 from om_primary_consulting where state=1";
+			"postTime, vote1, vote2, vote3 from om_primary_consulting where state=1 order by pri asc";
 	public PagingList getPostList() {
 		return getPagingList(SQL_GET_POST_LIST);
 	}
@@ -218,6 +218,50 @@ public class FrontService extends BaseService {
 	public void respondNewPost(Map parameters, String ip) {
 		Object[] params = MapUtil.getObjectArrayFromMap(parameters, "id, respondContent, userName");
 		jt.update(SQL_RESPOND_NEW_POST, params[0], params[1], ip, params[2] );
+	}
+
+	/**
+	 * 从数据库里取得奥数知识认知内容，将methodMap作为各个信息的容器
+	 */
+	public Map getMethodMap() {
+		HashMap map = new HashMap();
+		PagingList methodList = getMethodList();
+		map.put("methodList", methodList);
+		return map;
+	}
+
+	/**
+	 * 得到奥数认识LIST
+	 */
+	private static final String SQL_GET_METHOD_LIST="select om_method.id, om_method.title, om_method.postTime, om_method.updateTime, " +
+			"om_teacher.realName as teacherName from om_method join om_teacher on om_method.teacherId=om_teacher.id order by orders";
+	private PagingList getMethodList() {
+		return getPagingList(SQL_GET_METHOD_LIST);
+	}
+
+	/**
+	 * 依据ID得到奥数认识方法具体内容
+	 */
+	private static final String SQL_GET_METHOD_DETAIL="select om_method.title, om_method.content, om_method.updateTime, " +
+	"om_teacher.realName as teacherName from om_method join om_teacher on om_method.teacherId=om_teacher.id where om_method.id=?";
+	public List getMethodDetial(String id) {
+		return jt.queryForList(SQL_GET_METHOD_DETAIL, id);
+	}
+
+	/**
+	 * 从数据库里取得初中学习内容，将methodMap作为各个信息的容器
+	 */
+	public Map getJuniorStudyMap() {
+		HashMap map = new HashMap();
+		PagingList juniorStudyList = getJuniorStudyList();
+		map.put("juniorStudyList", juniorStudyList);
+		return map;
+	}
+
+	private static final String SQL_GET_JUNIOR_STUDY_LIST="select om_junior.id, om_junior.title, om_junior.content, om_junior.postTime, " +
+			"om_teacher.realName as teacherName from om_junior join om_teacher on om_junior.teacherId = om_teacher.id";
+	public PagingList getJuniorStudyList() {
+		return getPagingList(SQL_GET_JUNIOR_STUDY_LIST);
 	}
 
 
