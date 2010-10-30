@@ -327,9 +327,9 @@ public class KnowledgeAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteCategory() {
-		int num = getServMgr().getKnowledgeService().getNumByCategoryId(
-				categoryId);
 		try {
+			int num = getServMgr().getKnowledgeService().getNumByCategoryId(
+					categoryId);
 			if (num > 0) {
 				setResult(ERROR);
 				addMessage("知识分类含有信息，不能删除");

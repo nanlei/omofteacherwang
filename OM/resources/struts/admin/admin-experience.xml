@@ -9,6 +9,16 @@
 			method="list">
 			<result name="list">experience_list.ftl</result>
 		</action>
+		<action name="addExperience" class="neo.app.action.admin.ExperienceAction"
+			method="addExperience" />
+		<action name="preUpdate" class="neo.app.action.admin.ExperienceAction"
+			method="preUpdate">
+			<result name="preUpdate">experience_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.ExperienceAction"
+			method="update" />
+		<action name="delete" class="neo.app.action.admin.ExperienceAction"
+			method="delete" />
 	</package>
 
 	<package name="admin-experience-category" extends="app-default"
