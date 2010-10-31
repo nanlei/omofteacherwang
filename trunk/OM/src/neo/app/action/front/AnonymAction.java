@@ -35,7 +35,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private List methodDetial;
 	//初中学习
 	private Map juniorStudyMap;
-
+	//奥数教育心得
+	private Map experienceMap;
+	private PagingList experienceDivedList;
+	private List experienceDetial;
 	
 
 	/**
@@ -77,6 +80,32 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		konwledgeDivedList=getServMgr().getFrontService().getKonwledgeDivedList(id);
 		return "viewKnowledgeDivision";
 	}
+	
+	/**
+	 * 奥数教育心得-主页
+	 */
+	public String viewExperience() throws Exception{
+		experienceMap=getServMgr().getFrontService().getExperienceMap();
+		return "viewExperience";
+	}
+	
+	/**
+	 * 奥数教育心得-具体项信息
+	 */
+	public String viewExperienceDetail() throws Exception{
+		experienceDetial=getServMgr().getFrontService().getExperienceDetial(id);
+		return "viewExperienceDetail";
+	}
+	
+	/**
+	 * 奥数教育心得-分类信息
+	 */
+	public String viewExperienceDivision() throws Exception{
+		divisionList=getServMgr().getFrontService().getExperienceDivision();
+		experienceDivedList=getServMgr().getFrontService().getExperienceDivedList(id);
+		return "viewExperienceDivision";
+	}
+	
 	
 	/**
 	 * 奥数资料分享-主页
@@ -303,6 +332,18 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public Map getJuniorStudyMap() {
 		return juniorStudyMap;
+	}
+
+	public Map getExperienceMap() {
+		return experienceMap;
+	}
+
+	public PagingList getExperienceDivedList() {
+		return experienceDivedList;
+	}
+
+	public List getExperienceDetial() {
+		return experienceDetial;
 	}
 
 

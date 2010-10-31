@@ -4,13 +4,12 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="front-anonym" extends="app-default" namespace="/front">
-		
 		<action name="Anonym" class="neo.app.action.front.AnonymAction">
 			<result name="viewIndex">index.ftl</result>
 			<result name="viewNotice">notice_info.ftl</result>
-			<result name="viewKnowledge">knowledge.ftl</result>
 			<result name="shareData">shareData.ftl</result>
 			<result name="viewShareDivision">shareData_division.ftl</result>
+			<result name="viewKnowledge">knowledge.ftl</result>
 			<result name="viewKnowledgeDivision">knowledge_division.ftl</result>
 			<result name="viewKnowledgeDetail">knowledge_detail.ftl</result>
 			<result name="viewPrimaryConsulting">primary_consulting.ftl</result>
@@ -19,7 +18,9 @@
 			<result name="viewMethod">method.ftl</result>
 			<result name="viewMethodDetail">method_detail.ftl</result>
 			<result name="viewJuniorStudy">junior_study.ftl</result>
-			
+			<result name="viewExperience">experience.ftl</result>
+			<result name="viewExperienceDivision">experience_division.ftl</result>
+			<result name="viewExperienceDetail">experience_detail.ftl</result>
 		</action>
 	</package>
 </struts>

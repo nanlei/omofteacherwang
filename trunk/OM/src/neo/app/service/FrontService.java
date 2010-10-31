@@ -258,10 +258,66 @@ public class FrontService extends BaseService {
 		return map;
 	}
 
+	/**
+	 * 得到初中学习列表
+	 */
 	private static final String SQL_GET_JUNIOR_STUDY_LIST="select om_junior.id, om_junior.title, om_junior.content, om_junior.postTime, " +
 			"om_teacher.realName as teacherName from om_junior join om_teacher on om_junior.teacherId = om_teacher.id";
 	public PagingList getJuniorStudyList() {
 		return getPagingList(SQL_GET_JUNIOR_STUDY_LIST);
+	}
+
+	/**
+	 * 从数据库里取得奥数教育心得内容，将experienceMap作为各个信息的容器
+	 */
+	public Map getExperienceMap() {
+		HashMap map = new HashMap();
+		PagingList experienceList = getExperienceList();
+		map.put("experienceList", experienceList);
+		List experienceDivision = getExperienceDivision();
+		map.put("experienceDivision", experienceDivision);
+		return map;
+	}
+
+	/**
+	 * 得到所有奥数教育心得资料
+	 */
+	private static final String SQL_GET_EXPERIENCE_LIST="select om_experience.id, om_experience.title, " +
+	"om_experience.updateTime, om_experience.clickTimes, om_experience_division.name as divisionName " +
+	"from om_experience join om_experience_division on " +
+	"om_experience.expDivId = om_experience_division.id order by om_experience.updateTime DESC";
+	private PagingList getExperienceList() {
+		return getPagingList(SQL_GET_EXPERIENCE_LIST);
+	}
+
+	/**
+	 * 依据单位ID得到指定奥数教育心得信息
+	 */
+	private static final String SQL_GET_EXPERIENCE_DETAIL="select om_experience.id, om_experience.title, om_experience.content, " +
+	"om_experience.updateTime, om_experience.clickTimes, om_experience_division.name as divisionName " +
+	"from om_experience join om_experience_division on " +
+	"om_experience.expDivId = om_experience_division.id where om_experience.id=? order by om_experience.updateTime DESC";
+	public List getExperienceDetial(String id) {
+		return jt.queryForList(SQL_GET_EXPERIENCE_DETAIL,id);
+	}
+
+	/**
+	 * 奥数教育心得分类
+	 */
+	private static final String SQL_GET_EXPERIENCE_DIVISION="select id, name from om_experience_division";
+	public List getExperienceDivision() {
+		return jt.queryForList(SQL_GET_EXPERIENCE_DIVISION);
+	}
+
+	/**
+	 * 依据单位项目ID得到指定奥数教育心得某一类的信息
+	 */
+	private static final String SQL_GET_EXPERIENCE_DIVED_LIST="select om_experience.id, om_experience.title, " +
+	"om_experience.updateTime, om_experience_division.name as divisionName, om_experience.clickTimes " +
+	"from om_experience join om_experience_division on " +
+	"om_experience.expDivId = om_experience_division.id where om_experience_division.id=? order by om_experience.updateTime DESC";
+	public PagingList getExperienceDivedList(String id) {
+		return getPagingList(SQL_GET_EXPERIENCE_DIVED_LIST, new Object[]{id});
 	}
 
 
