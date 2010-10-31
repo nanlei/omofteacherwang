@@ -32,7 +32,7 @@
       </div>
       <div class="topbox last">
         <h2>学生登录</h2>
-        <form action="studentLogin.action" method="post">
+        <form action="/om/front/studentLogin.action" method="post">
           <fieldset>
             <legend>Pupils Login Form</legend>
             <label for="pupilname">用户名:
@@ -158,11 +158,11 @@
         
         <li>
           <div class="imgholder">
-          	<a href="${base}/front/Anonym!viewExperienceConsulting.action">
+          	<a href="${base}/front/Anonym!viewExperience.action">
           		<img src="${base}/images/experience.png" alt="" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Anonym!viewExperienceConsulting.action">奥数教育心得</a></strong></p>
+          <p><strong><a href="${base}/front/Anonym!viewExperience.action">奥数教育心得</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         
