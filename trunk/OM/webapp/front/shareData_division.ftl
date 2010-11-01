@@ -133,7 +133,7 @@
            			<td>${list.teacherName?default('-')?html}</td>
             		<td>${list.postTime?date}</td>
             		<td>${list.downloadTimes?default('-')?html}/td>
-            		<td><a href="${base}${list.url}">下载</a></td>
+            		<td><a href="${base}${list.url}" onClick="addDataDownloadTimes(${list.id}>下载</a></td>
           		</tr>
          	</#list>
   		</#if>
@@ -142,7 +142,7 @@
       
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging shareDataDivedList/></td>
+			<@p.paging shareDataDivedList/>
 		</tr>
 	  </table>
       
@@ -208,4 +208,14 @@
   </div>
 </div>
 <#-- /CopyRight-->
+<script type="text/javascript">
+	function addDataDownloadTimes(divId){
+		$.ajax({
+	   	 	type: "POST",
+	   		url: "${base}/Anonym!addDataDownloadTimes.action",
+	   		data: { id:divId }
+		});
+	}
+	
+</script>
 </@p.page>

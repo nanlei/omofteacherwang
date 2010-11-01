@@ -140,7 +140,7 @@
       </table>
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging experienceDivedList/></td>
+			<@p.paging experienceDivedList/>
 		</tr>
 	  </table>
     </div>

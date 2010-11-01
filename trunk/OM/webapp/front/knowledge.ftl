@@ -136,7 +136,7 @@
       </table>
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging knowledgeMap.knowLedgeList/></td>
+			<@p.paging knowledgeMap.knowLedgeList/>
 		</tr>
 	  </table>
     </div>

@@ -32,7 +32,7 @@ public class FrontService extends BaseService {
 	 * 按更新时间的降序顺序得到STATE=1的公告内容
 	 */
 	private static final String SQL_GET_NOTICE="select id, title, content, pic, updateTime, state " +
-			"from om_homePage where state=1 order by updateTime DESC limit 0,4";
+			"from om_homePage where state=1 order by updateTime DESC limit 0,5";
 	public List getNotice(){
 		return jt.queryForList(SQL_GET_NOTICE);
 	}
@@ -85,6 +85,14 @@ public class FrontService extends BaseService {
 	"join om_teacher on om_data.teacherId = om_teacher.id where om_data_division.id=? order by om_data.postTime DESC";
 	public PagingList getShareDataDivedList(String id) {
 		return getPagingList(SQL_GET_SHARE_DATA_DIVISION_BY_ID, new Object[]{id});
+	}
+	
+	/**
+	 * 依据ID对奥数分享资料下载数+1
+	 */
+	private static final String SQL_ADD_DATA_DLT="update om_data set downloadTimes=downloadTimes+1 where id=?";
+	public void addDataDownloadTimes(String id) {
+		jt.update(SQL_ADD_DATA_DLT,id);
 	}
 
 	/**
@@ -297,8 +305,18 @@ public class FrontService extends BaseService {
 	"om_experience.updateTime, om_experience.clickTimes, om_experience_division.name as divisionName " +
 	"from om_experience join om_experience_division on " +
 	"om_experience.expDivId = om_experience_division.id where om_experience.id=? order by om_experience.updateTime DESC";
+
 	public List getExperienceDetial(String id) {
+		
 		return jt.queryForList(SQL_GET_EXPERIENCE_DETAIL,id);
+	}
+	
+	/**
+	 * 依据ID更新点击次数
+	 */
+	private static final String SQL_EXP_CLICKTIMES_ADD="update om_experience set clickTimes=clickTimes+1 where id=?";
+	public void addExpClickTimes(String id) {
+		jt.update(SQL_EXP_CLICKTIMES_ADD,id);
 	}
 
 	/**
@@ -319,6 +337,10 @@ public class FrontService extends BaseService {
 	public PagingList getExperienceDivedList(String id) {
 		return getPagingList(SQL_GET_EXPERIENCE_DIVED_LIST, new Object[]{id});
 	}
+
+	
+
+	
 
 
 
