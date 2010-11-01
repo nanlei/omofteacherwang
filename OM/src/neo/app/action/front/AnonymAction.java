@@ -93,7 +93,9 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 * 奥数教育心得-具体项信息
 	 */
 	public String viewExperienceDetail() throws Exception{
+		getServMgr().getFrontService().addExpClickTimes(id);
 		experienceDetial=getServMgr().getFrontService().getExperienceDetial(id);
+		
 		return "viewExperienceDetail";
 	}
 	
@@ -123,6 +125,14 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		divisionList=getServMgr().getFrontService().getShareDivision();
 		shareDataDivedList=getServMgr().getFrontService().getShareDataDivedList(id);
 		return "viewShareDivision";
+	}
+	
+	/**
+	 * 奥数资料下载次数+1
+	 */
+	public String addDataDownloadTimes() throws Exception{
+		getServMgr().getFrontService().addDataDownloadTimes(id);
+		return null;
 	}
 	
 	

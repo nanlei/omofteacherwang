@@ -136,7 +136,7 @@
       </table>
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging methodMap.methodList/></td>
+			<@p.paging methodMap.methodList/>
 		</tr>
 	  </table>
     </div>

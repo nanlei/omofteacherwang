@@ -136,7 +136,7 @@
       </table>
       <table align="center" width="100%">
 		<tr>
-			<td align="right"><@p.paging experienceMap.experienceList/></td>
+			<@p.paging experienceMap.experienceList/>
 		</tr>
 	  </table>
     </div>
