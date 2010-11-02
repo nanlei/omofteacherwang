@@ -46,7 +46,7 @@ public class UserAction extends BaseAction {
 	public String memberLogin() {
 		System.out.print("!!!!!!+^*^&^%&%^%");
 		try {
-			
+
 			Map dbUser = getServMgr().getUserService().getUserByUserName(
 					userName);
 			String md5Pwd = CommonUtil.getMD5ofStr(password);
@@ -92,5 +92,4 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	
 }

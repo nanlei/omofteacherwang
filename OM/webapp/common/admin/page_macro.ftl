@@ -137,19 +137,19 @@ if (selNum != -1) {
 <#else>
     <#if (pageNum !=1)>
       <#if (pageNum != pageCount )>
-	         <span>当前显示${((pageNum -1) * pageSize +1)}-${pageNum * pageSize}条/ ${rowCount} 条记录</span>
+	         <span>当前显示${((pageNum -1) * pageSize +1)}-${pageNum * pageSize}条 / ${rowCount} 条记录</span>
 	  <#else>
 	         <#if ((pageNum -1) * pageSize +1)=(rowCount)>
-	              <span>当前显示 第${rowCount}条/ 共${rowCount} 条记录</span>
+	              <span>当前显示 第${rowCount}条 / 共${rowCount} 条记录</span>
 	         <#else>     
-	              <span>当前显示${((pageNum -1) * pageSize +1)}-${rowCount}条/ ${rowCount} 条记录</span>
+	              <span>当前显示${((pageNum -1) * pageSize +1)}-${rowCount}条 / ${rowCount} 条记录</span>
 	         </#if>     
 	  </#if>
 	<#else>
 	  <#if (pageNum != pageCount )>
-	         <span>当前显示1-${pageSize}条/ ${rowCount} 条记录</span>
+	         <span>当前显示1-${pageSize}条 / ${rowCount} 条记录</span>
 	  <#else> 
-	         <span>当前显示1-${rowCount}条/ ${rowCount} 条记录</span>       
+	         <span>当前显示1-${rowCount}条 / ${rowCount} 条记录</span>       
 	  </#if>        
 	</#if>
 	<ol class="pagerpro">

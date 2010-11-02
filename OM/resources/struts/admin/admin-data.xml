@@ -3,7 +3,30 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<package name="admin-data" extends="app-default" namespace="/admin/data"></package>
+	<package name="admin-data" extends="app-default" namespace="/admin/data">
+		<action name="list" class="neo.app.action.admin.DataAction"
+			method="list">
+			<result name="list">data_list.ftl</result>
+		</action>
+		<action name="addData" class="neo.app.action.admin.DataAction"
+			method="addData">
+			<interceptor-ref name="fileUploadStack" />
+		</action>
+		<action name="preUpdate" class="neo.app.action.admin.DataAction"
+			method="preUpdate">
+			<result name="preUpdate">data_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.DataAction"
+			method="update">
+			<interceptor-ref name="fileUploadStack" />
+		</action>
+		<action name="delete" class="neo.app.action.admin.DataAction"
+			method="delete" />
+		<action name="search" class="neo.app.action.admin.DataAction"
+			method="search">
+			<result name="search">data_list.ftl</result>
+		</action>
+	</package>
 
 	<package name="admin-data-category" extends="app-default"
 		namespace="/admin/data/category">
