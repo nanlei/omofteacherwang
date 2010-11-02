@@ -27,11 +27,14 @@ public class LoginInterceptor implements Interceptor {
 	public String intercept(ActionInvocation invocation) throws Exception {
 		Action action = (Action) invocation.getAction();
 		String actionName = invocation.getInvocationContext().getName();
-		//这里要求实现了Anonymous接口的Action以及固定的login和logoutAction可以跳过登录拦截
-		if (action instanceof Anonymous || "login".equals(actionName) || "logout".equals(actionName)) {
+		// 这里要求实现了Anonymous接口的Action以及固定的login和logoutAction可以跳过登录拦截
+		if (action instanceof Anonymous || "login".equals(actionName)
+				|| "logout".equals(actionName)
+				|| "studentLogin".equals(actionName)) {
 			return invocation.invoke();
 		} else {
-			if (ActionContext.getContext().getSession().get(Constants.LOGIN_USER) != null) {
+			if (ActionContext.getContext().getSession().get(
+					Constants.LOGIN_USER) != null) {
 				return invocation.invoke();
 			}
 		}
