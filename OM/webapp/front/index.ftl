@@ -10,7 +10,7 @@
       </div>
       <div class="topbox">
         <h2>教师登录</h2>
-        <form action="teacherLogin.action" method="post">
+        <form action="${base}/admin/login.action" method="post">
           <fieldset>
             <legend>Teachers Login Form</legend>
             <label for="teachername">用户名:
@@ -32,7 +32,7 @@
       </div>
       <div class="topbox last">
         <h2>学生登录</h2>
-        <form action="/om/front/studentLogin.action" method="post">
+        <form action="${base}/studentLogin.action" method="post">
           <fieldset>
             <legend>Pupils Login Form</legend>
             <label for="pupilname">用户名:
@@ -93,7 +93,7 @@
     	<div class="featured_box"><a href="#"><img src="${base}/${list.pic}" alt="" /></a>
       		<div class="floater">
        	 		<h2>${list.title?default('-')?html}</h2>
-        		<p>${cutText("${list.content}",260,"......")}</p>
+        		<p>${cutText(list.content?replace("\r\n",""),160,"......")}</p>
         		<p class="readmore"><a href="${base}/front/Anonym!viewNotice.action?id=${list.id}" target="_black">更多信息 &raquo;</a></p>
       		</div>
     	</div>

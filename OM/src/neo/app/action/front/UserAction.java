@@ -43,8 +43,10 @@ public class UserAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String frontLogin() {
+	public String memberLogin() {
+		System.out.print("!!!!!!+^*^&^%&%^%");
 		try {
+			
 			Map dbUser = getServMgr().getUserService().getUserByUserName(
 					userName);
 			String md5Pwd = CommonUtil.getMD5ofStr(password);
@@ -83,7 +85,7 @@ public class UserAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String adminLogout() throws Exception {
+	public String memberLogout() throws Exception {
 		getSession().remove(Constants.LOGIN_USER);
 		getSession().remove(Constants.ORIGINAL_URL);
 		getSession().clear();
