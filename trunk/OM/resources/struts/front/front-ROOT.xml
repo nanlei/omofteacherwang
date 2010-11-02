@@ -4,25 +4,26 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="front-ROOT" extends="app-default" namespace="/">
-		<!-- 前台首页（包含登陆） -->
-		<action name="frontIndex" class="neo.core.common.CommonAnonymousAction">
-			<result>index.ftl</result>
+		<!-- 前台非登陆首页 -->
+		<action name="index" class="neo.core.common.CommonAnonymousAction">
+			<result type="redirect">front/Anonym!viewIndex.action</result>
 		</action>
 		<!-- 前台首页（包含登陆） -->
 		<action name="studentLogin" class="neo.app.action.front.UserAction"
-			method="frontLogin">
+			method="memberLogin">
 			<result type="redirect">${indexUrl}</result>
-			<result name="homepage" type="redirect">frontIndex.action</result>
-			<result name="error">index.ftl</result>
+			<result name="homepage" type="redirect">memberIndex.action</result>
+			<result name="error">index.html</result>
 		</action>
 		<!-- 前台登出，退出系统 -->
-		<action name="frontLogout" class="neo.app.action.front.UserAction"
-			method="frontLogout">
-			<result>index.ftl</result>	
+		<action name="memberLogout" class="neo.app.action.front.UserAction"
+			method="memberLogout">
+			<result>index.html</result>	
 		</action>
-		<!-- 前台首页 -->
-		<action name="frontIndex" class="neo.core.common.CommonBaseAction">
-			<result>index.ftl</result>
+		<!-- 登录前台首页 -->
+		<action name="memberIndex" class="neo.core.common.CommonBaseAction">
+			<result type="redirect">front/Member!viewIndex.action</result>
 		</action>
+	
 	</package>
 </struts>
