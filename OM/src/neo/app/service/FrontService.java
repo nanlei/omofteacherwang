@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -17,6 +18,24 @@ import neo.core.util.MapUtil;
 
 public class FrontService extends BaseService {
 
+	private static final String SQL_GET_STUDENT_BY_USERNAME = "select * from om_student where USERNAME=?";
+
+	/**
+	 * 根据用户名获取用户信息，用于登录
+	 * 
+	 * @param userName
+	 * @return
+	 */
+	public Map getUserByUserName(String userName) {
+		try {
+			Map user = jt.queryForMap(SQL_GET_STUDENT_BY_USERNAME,
+					new Object[] { userName });
+			return user;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+	
 	/**
 	 * 从数据库里取得主页要显示的内容，将IndexMap作为各个信息的容器
 	 */
@@ -337,6 +356,8 @@ public class FrontService extends BaseService {
 	public PagingList getExperienceDivedList(String id) {
 		return getPagingList(SQL_GET_EXPERIENCE_DIVED_LIST, new Object[]{id});
 	}
+
+	
 
 	
 
