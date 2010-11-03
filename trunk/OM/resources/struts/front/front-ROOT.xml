@@ -16,7 +16,7 @@
 			<result name="error">index.html</result>
 		</action>
 		<!-- 前台登出，退出系统 -->
-		<action name="memberLogout" class="neo.app.action.front.UserAction"
+		<action name="studentLogout" class="neo.app.action.front.UserAction"
 			method="memberLogout">
 			<result>index.html</result>	
 		</action>

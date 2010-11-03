@@ -44,11 +44,9 @@ public class UserAction extends BaseAction {
 	 * @return
 	 */
 	public String memberLogin() {
-		System.out.print("!!!!!!+^*^&^%&%^%");
 		try {
 
-			Map dbUser = getServMgr().getUserService().getUserByUserName(
-					userName);
+			Map dbUser = getServMgr().getFrontService().getUserByUserName(userName);
 			String md5Pwd = CommonUtil.getMD5ofStr(password);
 			// 验证登录信息
 			if (dbUser != null
