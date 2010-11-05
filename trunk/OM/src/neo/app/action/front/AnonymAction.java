@@ -241,7 +241,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	public String checkMemberExist() throws Exception {
 		boolean status = true;
 		String userName = MapUtil.getStringFromMap(getParameters(), "userName");
-		if (getServMgr().getFrontService().checkMemberExist(userName)>0) {
+		if (userName!="" & getServMgr().getFrontService().checkMemberExist(userName)==0) {
 			status = true;
 		} else {
 			status = false;
