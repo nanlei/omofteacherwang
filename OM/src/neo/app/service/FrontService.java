@@ -14,6 +14,7 @@ import org.springframework.jdbc.support.KeyHolder;
 
 
 import neo.core.common.PagingList;
+import neo.core.util.CommonUtil;
 import neo.core.util.MapUtil;
 
 public class FrontService extends BaseService {
@@ -355,6 +356,25 @@ public class FrontService extends BaseService {
 	"om_experience.expDivId = om_experience_division.id where om_experience_division.id=? order by om_experience.updateTime DESC";
 	public PagingList getExperienceDivedList(String id) {
 		return getPagingList(SQL_GET_EXPERIENCE_DIVED_LIST, new Object[]{id});
+	}
+
+	/**
+	 * 依据传入的用户名检查是否存在同名用户
+	 */
+	private static final String SQL_CHECK_MEMBER_EXIST="select count(*) from om_student where userName=?";
+	public int checkMemberExist(String userName) {
+		return jt.queryForInt(SQL_CHECK_MEMBER_EXIST, userName);
+	}
+
+	/**
+	 * 添加学生用户
+	 */
+	private static final String SQL_ADD_MEMBER="insert into om_student(id, userName, realName, password, email, mobile, registerTime, onlineTimes) " +
+			"valuse(null,?,?,?,?,?,?,0)";
+	public int addMember(Map parameters) {
+		Object[] params = MapUtil.getObjectArrayFromMap(parameters, "userName, realName, password, email, mobile, time");
+		String md5Pwd = CommonUtil.getMD5ofStr((String) params[2]);
+		return jt.update(SQL_ADD_MEMBER, params[0], params[1], md5Pwd, params[3], params[4], params[5]);
 	}
 
 	

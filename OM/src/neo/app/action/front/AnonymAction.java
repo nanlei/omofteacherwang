@@ -6,10 +6,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.ServletActionContext;
+import org.json.simple.JSONObject;
+
 import neo.app.action.BaseAction;
 import neo.core.common.Anonymous;
 import neo.core.common.PagingList;
 import neo.core.util.MapUtil;
+import neo.core.util.json.JsonView;
 
 public class AnonymAction extends BaseAction implements Anonymous {
 	//获取客户端浏览器语言，用户请求action和系统时间
@@ -40,6 +43,9 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private Map experienceMap;
 	private PagingList experienceDivedList;
 	private List experienceDetial;
+	
+	// AJAX请求返回内容
+	private JsonView json;
 	
 
 	/**
@@ -223,11 +229,64 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	
 
 	/**
-	 * 后台跳转
+	 * 用户注册
 	 */
-	public String manage() throws Exception {
-		return "manage";
+	public String memberRegister() throws Exception {
+		return "memberRegister";
 	}
+	
+	/**
+	 * 检查用户名是否存在
+	 */
+	public String checkMemberExist() throws Exception {
+		boolean status = true;
+		String userName = MapUtil.getStringFromMap(getParameters(), "userName");
+		if (getServMgr().getFrontService().checkMemberExist(userName)>0) {
+			status = true;
+		} else {
+			status = false;
+		}
+		JSONObject result = new JSONObject();
+		result.put("status", status);
+		json = new JsonView(result);
+		return SUCCESS;
+	}
+	
+	
+	/**
+	 * 检查两次输入密码是否匹配
+	 */
+	public String checkPassword() throws Exception {
+		boolean status = true;
+		String pwd1 = MapUtil.getStringFromMap(getParameters(), "pwd1");
+		String pwd2 = MapUtil.getStringFromMap(getParameters(), "pwd2");
+		if (pwd1.equals(pwd2)& pwd1!="" & pwd2!="") {
+			status = true;
+		} else {
+			status = false;
+		}
+		JSONObject result = new JSONObject();
+		result.put("status", status);
+		json = new JsonView(result);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 添加用户
+	 */
+	public String addMember() throws Exception {
+		boolean status = true;
+		if (getServMgr().getFrontService().addMember(getParameters())==1) {
+			status = true;
+		} else {
+			status = false;
+		}
+		JSONObject result = new JSONObject();
+		result.put("status", status);
+		json = new JsonView(result);
+		return SUCCESS;
+	}
+	
 
 	/**
 	 * 获得浏览器语言类型
@@ -356,6 +415,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public List getExperienceDetial() {
 		return experienceDetial;
+	}
+	
+	public JsonView getJson() {
+		return json;
 	}
 
 
