@@ -276,8 +276,9 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 */
 	public String addMember() throws Exception {
 		boolean status = true;
-		System.out.print("返回值------------"+getServMgr().getFrontService().addMember(getParameters()));
-		if (getServMgr().getFrontService().addMember(getParameters())==1) {
+		int checkResult;
+		checkResult=getServMgr().getFrontService().addMember(getParameters());
+		if (checkResult==1) {
 			status = true;
 		} else {
 			status = false;
