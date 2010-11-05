@@ -10,10 +10,10 @@
 	   		success: function(data){
 	   			if(data.status){
 	   				flag_now=true;
-	   				$("#tipUserName").html("<font color=\"red\"> &#187; 当前用户名已被注册</font>");
+	   				$("#tipUserName").html("<font color=\"green\"> &#187; 当前用户名可用</font>");
 	   			}else{
 	   				flag_now=false;
-	   				$("#tipUserName").html("<font color=\"green\"> &#187; 当前用户名可用</font>");
+	   				$("#tipUserName").html("<font color=\"red\"> &#187; 当前用户名已被注册（或为空）</font>");
 	   			}
 	   		},
 	   		error:function(xmlHttpRequest,status,exception){
@@ -52,8 +52,7 @@
 		var pwd2=$("#pwd2").val();
 		var realName=$("#realName").val();
 		var email=$("#email").val();
-		var mobile=$("mobile").val();
-		
+		var mobile=$("#mobile").val();
 		if(userName==""){
 			$("#tipUserName").html("<font color=\"red\"> &#187; 请输入用户名</font>");
 			$("#tipUserName").focus();
@@ -77,7 +76,7 @@
 			$.ajax({
 	   		 	type: "POST",
 	   			url: "${base}/front/addMember.action",
-	   			data: { userName: userName, password: pwd2, realName: realName, email: email, mobile: mobile, time: new Date().getTime() },
+	   			data: { userName: userName, password: pwd2, realName: realName, email: email, mobile: mobile},
 	   			success: function(data){
 	   				if(data.status){
 	   					alert("恭喜您，注册成功！");
@@ -163,17 +162,17 @@
   		<table width="100%" align="center">
   		<form onsubmit="return validateForm(this)">
           <p>
-            <input type="text" name="userName" id="userName" size="22" onBlur="checkMemberExist()" emptyInfo="请输入用户名" maxLen="15" lengthInfo="用户名不得大于15个英文字符"/>
+            <input type="text" id="userName" size="22" onBlur="checkMemberExist()" emptyInfo="请输入用户名" maxLen="15" lengthInfo="用户名不得大于15个英文字符"/>
             <label for="name"><small>请输入用户名 (必填)</small></label>
             <label for="name"><strong><span id="tipUserName"></strong></label>
           </p>
           <p>
-            <input type="password" name="userpass1" id="pwd1" size="22" onBlur="checkPwd()" emptyInfo="请输入密码" maxLen="32" lengthInfo="密码不得大于32个英文字符"/>
+            <input type="password"  id="pwd1" size="22" onBlur="checkPwd()" emptyInfo="请输入密码" maxLen="32" lengthInfo="密码不得大于32个英文字符"/>
             <label for="name"><small>请输入密码 (必填)</small></label>
             <label for="name"><small><strong><span id="tipPwd1"></strong></small></label>
           </p>
           <p>
-            <input type="password" name="userpass2" id="pwd2" size="22" onBlur="checkPwd()" emptyInfo="请再次输入密码" maxLen="32" lengthInfo="密码不得大于32个英文字符"/>
+            <input type="password" id="pwd2" size="22" onBlur="checkPwd()" emptyInfo="请再次输入密码" maxLen="32" lengthInfo="密码不得大于32个英文字符"/>
             <label for="name"><small>请再次输入密码 (必填)</small></label>
             <label for="name"><small><strong><span id="tipPwd2"></strong></small></label>
           </p>
@@ -183,17 +182,17 @@
             <label for="name"><small><span id="tipRealName"></small></label>
           </p>
           <p>
-            <input type="text" name="email" id="email" size="22" emptyInfo="请输入您的E-mail地址" maxLen="50" lengthInfo="E-mail地址不得大于50个英文字符"/>
+            <input type="text" id="email" size="22" emptyInfo="请输入您的E-mail地址" maxLen="50" lengthInfo="E-mail地址不得大于50个英文字符"/>
             <label for="name"><small>请输入您的E-mail地址 (必填)</small></label>
             <label for="name"><small><span id="tipEmail"></small></label>
           </p>
           <p>
-            <input type="text" name="mobile" id="mobile"  value="" size="22" />
+            <input type="text" id="mobile"  value="" size="22" />
             <label for="name"><small>请输入您联系电话 (选填)</small></label>
             <label for="name"><small><span id="tipMoblie"></small></label>
           </p>
           <p>
-            <input name="submit" type="submit" id="submit" value="注册" />
+            <input name="submit" type="submit" id="submit" value="注册" onclick="addMember()" />
             &nbsp;
             <input name="reset" type="reset" id="reset" tabindex="5" value="重置" />
           </p>

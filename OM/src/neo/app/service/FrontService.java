@@ -370,11 +370,11 @@ public class FrontService extends BaseService {
 	 * 添加学生用户
 	 */
 	private static final String SQL_ADD_MEMBER="insert into om_student(id, userName, realName, password, email, mobile, registerTime, onlineTimes) " +
-			"valuse(null,?,?,?,?,?,?,0)";
+			"values(null, ?, ?, ?, ?, ?, now(), 0)";
 	public int addMember(Map parameters) {
-		Object[] params = MapUtil.getObjectArrayFromMap(parameters, "userName, realName, password, email, mobile, time");
+		Object[] params = MapUtil.getObjectArrayFromMap(parameters, "userName, realName, password, email, mobile");
 		String md5Pwd = CommonUtil.getMD5ofStr((String) params[2]);
-		return jt.update(SQL_ADD_MEMBER, params[0], params[1], md5Pwd, params[3], params[4], params[5]);
+		return jt.update(SQL_ADD_MEMBER, params[0], params[1], md5Pwd, params[3], params[4]);
 	}
 
 	
