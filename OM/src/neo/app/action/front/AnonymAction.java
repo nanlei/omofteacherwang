@@ -9,6 +9,7 @@ import org.apache.struts2.ServletActionContext;
 import neo.app.action.BaseAction;
 import neo.core.common.Anonymous;
 import neo.core.common.PagingList;
+import neo.core.util.MapUtil;
 
 public class AnonymAction extends BaseAction implements Anonymous {
 	//获取客户端浏览器语言，用户请求action和系统时间
@@ -131,7 +132,8 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 * 奥数资料下载次数+1
 	 */
 	public String addDataDownloadTimes() throws Exception{
-		getServMgr().getFrontService().addDataDownloadTimes(id);
+		String divId = MapUtil.getStringFromMap(getParameters(), "divId");
+		getServMgr().getFrontService().addDataDownloadTimes(divId);
 		return null;
 	}
 	
