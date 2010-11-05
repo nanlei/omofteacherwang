@@ -21,6 +21,31 @@
 			<result name="viewExperience">experience.ftl</result>
 			<result name="viewExperienceDivision">experience_division.ftl</result>
 			<result name="viewExperienceDetail">experience_detail.ftl</result>
+			<result name="memberRegister">member_register.ftl</result>
 		</action>
+		
+		<action name="checkMemberExist" class="neo.app.action.front.AnonymAction"
+			method="checkMemberExist">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
+		</action>
+		
+		<action name="checkPassword" class="neo.app.action.front.AnonymAction"
+			method="checkPassword">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
+		</action>
+		
+		<action name="addMember" class="neo.app.action.front.AnonymAction"
+			method="addMember">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
+		</action>
+		
+		
+		
 	</package>
 </struts>

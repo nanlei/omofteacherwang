@@ -52,7 +52,7 @@
 <div class="wrapper col3">
   <div id="container">
     <div id="content">
-      <h1>&lt;h1&gt; to &lt;h6&gt; - 小升初的重要性</h1>
+      <h1>小升初的重要性</h1>
       <img class="imgr" src="${base}/images/primary.png" alt="" width="125" height="125" />
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括右侧图片；</p>
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；</p>

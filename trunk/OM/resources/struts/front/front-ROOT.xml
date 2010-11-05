@@ -15,6 +15,13 @@
 			<result name="homepage" type="redirect">memberIndex.action</result>
 			<result name="error">index.html</result>
 		</action>
+		<!-- 前台首页（用户注册后跳转） -->
+		<action name="loginForWard" class="neo.app.action.front.UserAction" 
+			method="loginForWard">
+			<result type="redirect">${indexUrl}</result>
+			<result name="homepage" type="redirect">memberIndex.action</result>
+			<result name="error">index.html</result>
+		</action>
 		<!-- 前台登出，退出系统 -->
 		<action name="studentLogout" class="neo.app.action.front.UserAction"
 			method="memberLogout">

@@ -64,7 +64,7 @@
       <div class="topbox">
         <h2>王炳禹奥数在线</h2>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎各位同学、家长、学者、专家们加入王炳禹奥数在线。这里是奥数展翅腾飞的平台，这里是奥数解密宇宙的起点，这里是奥数思维无边的海洋。让我让为构建一个奥数的世界，一起学习，一起进步。这里的资源都是免费开放给所有用户的，共享一个平台、共享一个奥数，您还在犹豫什么？</p>
-        <p class="readmore"><a href="#">注册用户 &raquo;</a></p>
+        <p class="readmore"><a href="${base}/front/Anonym!memberRegister.action">注册用户 &raquo;</a></p>
       </div>
       <div class="topbox">
         <h2>教师登录</h2>

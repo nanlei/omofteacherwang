@@ -6,6 +6,7 @@ import neo.app.action.BaseAction;
 import neo.core.Constants;
 import neo.core.common.PagingList;
 import neo.core.util.CommonUtil;
+import neo.core.util.MapUtil;
 
 public class UserAction extends BaseAction {
 
@@ -77,6 +78,47 @@ public class UserAction extends BaseAction {
 		}
 		return ERROR;
 	}
+	
+	/**
+	 * 前台登录的方法
+	 * 
+	 * @return
+	 */
+	public String loginForWard() {
+		try {
+			String userName = MapUtil.getStringFromMap(getParameters(), "userName");
+			String password = MapUtil.getStringFromMap(getParameters(), "password");
+			Map dbUser = getServMgr().getFrontService().getUserByUserName(userName);
+			String md5Pwd = CommonUtil.getMD5ofStr(password);
+			// 验证登录信息
+			if (dbUser != null
+					&& md5Pwd.equals((String) dbUser.get("PASSWORD"))) {
+				indexUrl = (String) getSession().remove(Constants.ORIGINAL_URL);
+				// 清除原始的session信息
+				getSession().clear();
+				getSession().put(Constants.LOGIN_USER, dbUser);
+				// 未记录该地址则转向首页
+				if (indexUrl == null) {
+					return "homepage";
+				}
+				return SUCCESS;
+			}
+			// 以下是登录不成功的情况
+			if (dbUser == null) {
+				errorInfo = NOT_EXISTS;
+				return ERROR;
+			}
+			if (!md5Pwd.equals((String) dbUser.get("PASSWORD"))) {
+				errorInfo = WRONG_PASS;
+				return ERROR;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			errorInfo = LOGIN_ERROR;
+			return ERROR;
+		}
+		return ERROR;
+	}
 
 	/**
 	 * 退出系统
@@ -89,5 +131,7 @@ public class UserAction extends BaseAction {
 		getSession().clear();
 		return SUCCESS;
 	}
+	
+
 
 }
