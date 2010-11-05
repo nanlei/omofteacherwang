@@ -1,5 +1,14 @@
 <@p.page>
-
+<script type="text/javascript">
+	function addDataDownloadTimes(divId){
+		$.ajax({
+	   	 	type: "POST",
+	   		url: "${base}/front/Anonym!addDataDownloadTimes.action",
+	   		data: { divId:divId }
+		});
+	}
+	
+</script>
 <#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
@@ -84,8 +93,8 @@
            			<td>${list.divisionName?default('-')?html}</td>
            			<td>${list.teacherName?default('-')?html}</td>
             		<td>${list.postTime?date}</td>
-            		<td>${list.downloadTimes?default('-')?html}/td>
-            		<td><a href="${base}${list.url}" onClick="addDataDownloadTimes(${list.id}>下载</a></td>
+            		<td>${list.downloadTimes?default('-')?html}</td>
+            		<td><a href="${base}${list.url}" onClick="addDataDownloadTimes(${list.id}">下载</a></td>
           		</tr>
          	</#list>
   		</#if>
@@ -148,14 +157,5 @@
   </div>
 </div>
 
-<script type="text/javascript">
-	function addDataDownloadTimes(divId){
-		$.ajax({
-	   	 	type: "POST",
-	   		url: "${base}/Anonym!addDataDownloadTimes.action",
-	   		data: { id:divId }
-		});
-	}
-	
-</script>
+
 </@p.page>
