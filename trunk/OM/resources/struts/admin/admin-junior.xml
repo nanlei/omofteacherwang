@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="admin-junior" extends="app-default" namespace="/admin/junior">
+		<action name="list" class="neo.app.action.admin.JuniorAction"
+			method="list">
+			<result name="list">junior_list.ftl</result>
+		</action>
+		<action name="addJunior" class="neo.app.action.admin.JuniorAction"
+			method="addJunior" />
+		<action name="preUpdate" class="neo.app.action.admin.JuniorAction"
+			method="preUpdate">
+			<result name="preUpdate">junior_info.ftl</result>
+		</action>
+		<action name="update" class="neo.app.action.admin.JuniorAction"
+			method="update" />
+		<action name="delete" class="neo.app.action.admin.JuniorAction"
+			method="delete" />
+	</package>
+</struts>

@@ -17,6 +17,7 @@ var treeMenu = [
 	{ level:2, name:"信息管理", ico:"${base}/images/tico_way.gif", link:"${base}/admin/experience/list.action"},
 	{ level:1, name:"奥数方法认识", ico:"${base}/images/tico_way.gif", link:"${base}/admin/method/list.action"},
 	{ level:1, name:"小升初咨询", ico:"${base}/images/tico_way.gif", link:"${base}/admin/primary/list.action"},
+	{ level:1, name:"初中学习", ico:"${base}/images/tico_way.gif", link:"${base}/admin/junior/list.action"},
 	{ level:1, name:"关于工作室", ico:"${base}/images/tico_way.gif", link:"${base}/admin/about/index.action"}
 ];
 </script>
