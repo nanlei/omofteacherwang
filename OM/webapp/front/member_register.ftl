@@ -80,8 +80,10 @@
 	   			data: { userName: userName, password: pwd2, realName: realName, email: email, mobile: mobile},
 	   			success: function(data){
 	   				if(data.status){
+	   					
 	   					alert("恭喜您，注册成功！");
-	   					window.location.href="${base}/front/Anonym!viewIndex.action";
+	   					
+	   					forward(userName, pwd2)
 	   				}else{
 	   					alert("对不起，注册失败！");
 	   				}
@@ -97,6 +99,18 @@
 			alert("有输入项不正确，请重新输入");
 		}
 	}
+
+
+	function forward(userName, pwd2){
+		var userName=userName;
+		var password=pwd2;
+		$.ajax({
+	   	 	type: "POST",
+	  		url: "${base}/loginForWard.action",
+	   		data: { userName: userName, password: password },
+		});
+	}
+
 
 </script>
 <#-- 导航链接-->
@@ -153,8 +167,8 @@
   <div id="container">
  	<h1>注册会员</h1>
   	<div id="respond">
-  		<form>
-  		<table width="100%" align="center">
+  		
+  		
           <p>
             <input type="text" id="userName" size="22" onBlur="checkMemberExist()"/>
             <label for="name"><small>请输入用户名 (必填)</small></label>
@@ -186,15 +200,26 @@
             <label for="name"><small><span id="tipMoblie"></span></small></label>
           </p>
           <p>
-            <input name="submit" type="submit" id="submit" value="注册" onclick="addMember()" />
+            <input  type="submit" id="submit" value="注册" onclick="addMember()" />
             &nbsp;
-            <input name="reset" type="reset" id="reset" tabindex="5" value="重置" />
+            <input  type="reset" id="reset" tabindex="5" value="重置" />
           </p>
-        <table>
-        </form>
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        <br class="clear" />
+        
   	</div>
   </div>
 </div>
+
 <#-- /用户注册-->
 
 </@p.page>
