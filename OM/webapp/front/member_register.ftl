@@ -74,7 +74,6 @@
 			$("#tipEmail").html("<font color=\"red\"> &#187; 请输入您的E-mail地址</font>");
 			$("#tipEmail").focus();
 		} else if(pwd1==pwd2 && flag_user && flag_pwd){
-			alert(flag_now);
 			$.ajax({
 	   		 	type: "POST",
 	   			url: "${base}/front/addMember.action",
@@ -82,7 +81,7 @@
 	   			success: function(data){
 	   				if(data.status){
 	   					alert("恭喜您，注册成功！");
-	   					//forward(userName, pwd2);
+	   					forward(userName, pwd2);
 	   				}else{
 	   					alert("对不起，注册失败！");
 	   				}
@@ -92,20 +91,22 @@
 	   				alert("请求失败，请检查网络连接");
 	   			}
 			});
+	   		flag_user=false;
+	   		flag_pwd=false;
 		} else {
 			alert("有输入项不正确，请重新输入");
 		}
 	}
 	
-	//function forward(userName, pwd2){
-	//	var userName=userName;
-	//	var password=pwd2;
-	//	$.ajax({
-	//   	 	type: "POST",
-	 //  		url: "${base}/loginForWard.action",
-	//   		data: { userName: userName, password: password },
-	//	});
-	//}
+	function forward(userName, pwd2){
+		var userName=userName;
+		var password=pwd2;
+		$.ajax({
+	   	 	type: "POST",
+	   		url: "${base}/loginForWard.action",
+	  		data: { userName: userName, password: password }
+		});
+	}
 </script>
 <#-- 导航链接-->
 <div class="wrapper col1">
@@ -160,31 +161,31 @@
 <div class="wrapper col3">
   <div id="container">
  	<h1>注册会员</h1>
-  	<div id="respond">	
+  	<div id="respond">
+  		<form>
   		<table width="100%" align="center">
-  		<form onsubmit="return validateForm(this)">
           <p>
-            <input type="text" id="userName" size="22" onBlur="checkMemberExist()" emptyInfo="请输入用户名" maxLen="15" lengthInfo="用户名不得大于15个英文字符"/>
+            <input type="text" id="userName" size="22" onBlur="checkMemberExist()"/>
             <label for="name"><small>请输入用户名 (必填)</small></label>
             <label for="name"><strong><span id="tipUserName"></span></strong></label>
           </p>
           <p>
-            <input type="password"  id="pwd1" size="22" onBlur="checkPwd()" emptyInfo="请输入密码" maxLen="32" lengthInfo="密码不得大于32个英文字符"/>
+            <input type="password"  id="pwd1" size="22" onBlur="checkPwd()"/>
             <label for="name"><small>请输入密码 (必填)</small></label>
             <label for="name"><small><strong><span id="tipPwd1"></span></strong></small></label>
           </p>
           <p>
-            <input type="password" id="pwd2" size="22" onBlur="checkPwd()" emptyInfo="请再次输入密码" maxLen="32" lengthInfo="密码不得大于32个英文字符"/>
+            <input type="password" id="pwd2" size="22" onBlur="checkPwd()"/>
             <label for="name"><small>请再次输入密码 (必填)</small></label>
             <label for="name"><small><strong><span id="tipPwd2"></span></strong></small></label>
           </p>
           <p>
-            <input type="text" id="realName" size="22" emptyInfo="请输入您的真实姓名" maxLen="15" lengthInfo="真实姓名不得大于7中文字符或15个英文字符"/>
+            <input type="text" id="realName" size="22"/>
             <label for="name"><small>请输入您的真实姓名 (必填)</small></label>
             <label for="name"><small><span id="tipRealName"></span></small></label>
           </p>
           <p>
-            <input type="text" id="email" size="22" emptyInfo="请输入您的E-mail地址" maxLen="50" lengthInfo="E-mail地址不得大于50个英文字符"/>
+            <input type="text" id="email" size="22"/>
             <label for="name"><small>请输入您的E-mail地址 (必填)</small></label>
             <label for="name"><small><span id="tipEmail"></span></small></label>
           </p>
@@ -198,8 +199,8 @@
             &nbsp;
             <input name="reset" type="reset" id="reset" tabindex="5" value="重置" />
           </p>
-        </form>
         <table>
+        </form>
   	</div>
   </div>
 </div>
