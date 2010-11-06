@@ -43,9 +43,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private Map experienceMap;
 	private PagingList experienceDivedList;
 	private List experienceDetial;
-	
 	// AJAX请求返回内容
 	private JsonView json;
+	// 关于我们
+	private List aboutUs;
 	
 
 	/**
@@ -226,7 +227,13 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return "viewJuniorStudy";
 	}
 	
-	
+	/**
+	 * 关于我们
+	 */
+	public String aboutUs() throws Exception{
+		aboutUs=getServMgr().getFrontService().getAboutUs();
+		return "aboutUs";
+	}
 
 	/**
 	 * 用户注册
@@ -421,6 +428,10 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	
 	public JsonView getJson() {
 		return json;
+	}
+
+	public List getAboutUs() {
+		return aboutUs;
 	}
 
 
