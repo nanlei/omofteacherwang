@@ -81,7 +81,7 @@
 	   			success: function(data){
 	   				if(data.status){
 	   					alert("恭喜您，注册成功！");
-	   					forward(userName, pwd2);
+	   					window.location.href="${base}/front/Anonym!viewIndex.action";
 	   				}else{
 	   					alert("对不起，注册失败！");
 	   				}
@@ -97,16 +97,7 @@
 			alert("有输入项不正确，请重新输入");
 		}
 	}
-	
-	function forward(userName, pwd2){
-		var userName=userName;
-		var password=pwd2;
-		$.ajax({
-	   	 	type: "POST",
-	   		url: "${base}/loginForWard.action",
-	  		data: { userName: userName, password: password }
-		});
-	}
+
 </script>
 <#-- 导航链接-->
 <div class="wrapper col1">
