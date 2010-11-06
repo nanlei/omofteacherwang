@@ -97,4 +97,5 @@
 	<#assign count=count+1 />
 	</#list>
 </table>
+<div align="right"><@admin.paging dataList/></div>
 </@admin.page>
