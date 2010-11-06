@@ -40,6 +40,9 @@ public class MemberAction extends BaseAction {
 	private Map experienceMap;
 	private PagingList experienceDivedList;
 	private List experienceDetial;
+	// 关于我们
+	private List aboutUs;
+
 	
 
 	/**
@@ -219,7 +222,13 @@ public class MemberAction extends BaseAction {
 		return "viewJuniorStudy";
 	}
 	
-	
+	/**
+	 * 关于我们
+	 */
+	public String aboutUs() throws Exception{
+		aboutUs=getServMgr().getFrontService().getAboutUs();
+		return "aboutUs";
+	}
 
 	/**
 	 * 后台跳转
@@ -355,6 +364,10 @@ public class MemberAction extends BaseAction {
 
 	public List getExperienceDetial() {
 		return experienceDetial;
+	}
+	
+	public List getAboutUs() {
+		return aboutUs;
 	}
 
 }

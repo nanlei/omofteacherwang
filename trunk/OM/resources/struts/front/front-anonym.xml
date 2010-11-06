@@ -22,6 +22,8 @@
 			<result name="viewExperienceDivision">experience_division.ftl</result>
 			<result name="viewExperienceDetail">experience_detail.ftl</result>
 			<result name="memberRegister">member_register.ftl</result>
+			<result name="aboutUs">about_us.ftl</result>
+			
 		</action>
 		
 		<action name="checkMemberExist" class="neo.app.action.front.AnonymAction"

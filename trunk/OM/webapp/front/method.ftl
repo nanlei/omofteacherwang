@@ -14,7 +14,7 @@
         <li><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
-        <li class="last"><a href="#">联系我们</a></li>
+        <li class="last"><a href="${base}/front/Member!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
     <#else>
@@ -24,7 +24,7 @@
         <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
-        <li class="last"><a href="#">联系我们</a></li>
+        <<li class="last"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
     </#if>

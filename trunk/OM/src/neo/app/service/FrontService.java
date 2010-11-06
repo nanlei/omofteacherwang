@@ -377,6 +377,14 @@ public class FrontService extends BaseService {
 		return jt.update(SQL_ADD_MEMBER, params[0], params[1], md5Pwd, params[3], params[4]);
 	}
 
+	/**
+	 * 关于我们
+	 */
+	private static final String SQL_GET_ABOUT_US="select * from om_about";
+	public List getAboutUs() {
+		return jt.queryForList(SQL_GET_ABOUT_US);
+	}
+
 	
 
 	

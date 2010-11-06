@@ -10,8 +10,8 @@
     <#if loginUser?exists>
     <div id="topnav">
       <ul>
-        <li><a href="${base}/front/Member!viewIndex.action">主页</a></li>
-        <li class="active"><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
+        <li class="active"><a href="${base}/front/Member!viewIndex.action">主页</a></li>
+        <li><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
         <li class="last"><a href="${base}/front/Member!aboutUs.action">关于我们</a></li>
@@ -21,10 +21,10 @@
     <div id="topnav">
       <ul>
         <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
-        <li class="active"><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
         <li><a href="#">学生讨论区</a></li>
-        <li class="last"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
+        <li class="active"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
     </#if>
@@ -39,36 +39,28 @@
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
       <#if loginUser?exists>
-      	<li class="last"><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
+      	<li><a href="${base}/front/Member!viewIndex.action">主页</a></li>
       <#else>
-      	<li class="last"><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
+      	<li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
       </#if>
       <li>&#187;</li>
-      <li class="last"><a href="#">评测详细信息</a></li>
+      <li class="last"><a href="#">关于我们</a></li>
     </ul>
   </div>
 </div>
 <#-- /当前位置-->
-<#-- 全知识点评测详细内容-->
+<#-- 公告详细内容-->
 <div class="wrapper col3">
   <div id="container">
-  		<#if knowledgeDetial?has_content>
-			<#list knowledgeDetial as list>
-				<h1>${list.divisionName?default('-')?html} - ${list.grade?default('-')?html}</h1>
-				<#if list.url?has_content>
-					<a href="${base}${list.url}">下载附件</a></td>
-				</#if>
-				<#break>
-			</#list>
-  		</#if>
-	<br class="clear" />
-  	<#if knowledgeDetial?has_content>
-		<#list knowledgeDetial as list>
-    		<p>${list.content?default('-')}</p>
+  	<#if aboutUs?has_content>
+		<#list aboutUs as list>
+    		<h1>${list.title?default('-')?html} - ${list.updateTime?date}</h1>
+    		
+    		<p>${list.content?default('-')?html}</p>
 		</#list>
   	</#if>
   </div>
 </div>
-<#-- /全知识点评测详细内容-->
+<#-- /公告详细内容-->
 
 </@p.page>
