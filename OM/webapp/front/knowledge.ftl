@@ -1,5 +1,5 @@
+<#include "../common/front/config.ftl">
 <@p.page>
-
 <#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
@@ -13,7 +13,7 @@
         <li><a href="${base}/front/Member!viewIndex.action">主页</a></li>
         <li class="active"><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
-        <li><a href="#">学生讨论区</a></li>
+        <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
         <li class="last"><a href="${base}/front/Member!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
@@ -23,7 +23,7 @@
         <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
         <li class="active"><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
-        <li><a href="#">学生讨论区</a></li>
+        <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
         <li class="last"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
@@ -51,10 +51,10 @@
   <div id="container">
     <div id="content">
       <h1>小学奥数知识体系大纲</h1>
-      <img class="imgr" src="${base}/images/Mathematics_right.png" alt="" width="125" height="125" />
+      <img class="imgr" src="${base}/images/mathematics_right.png" alt="" width="125" height="125" />
       <p>小学奥数知识体系大纲</p>
       <p>结合小学课本各年级学校应掌握数学知识，在此基础上相应拓展，利于学生接受。</p>
-      <img class="imgl" src="${base}/images/Mathematics_left.png" alt="" width="125" height="125" />
+      <img class="imgl" src="${base}/images/mathematics_left.png" alt="" width="125" height="125" />
       <p>3~5年级是学习奥数核心时段，在此时间内有效掌握各知识板块基础方法。</p>
       <p>6年级综合提高，备战各校小升初考试。</p>
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片</p>
