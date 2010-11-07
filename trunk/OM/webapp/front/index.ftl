@@ -1,5 +1,5 @@
+<#include "../common/front/config.ftl">
 <@p.page>
-
 <#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
@@ -13,7 +13,7 @@
         <li class="active"><a href="${base}/front/Member!viewIndex.action">主页</a></li>
         <li><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
-        <li><a href="#">学生讨论区</a></li>
+        <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
         <li class="last"><a href="${base}/front/Member!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
@@ -23,7 +23,7 @@
         <li class="active"><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
         <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
         <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
-        <li><a href="#">学生讨论区</a></li>
+        <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
         <li class="last"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
@@ -38,7 +38,7 @@
   <div id="featured_slide">
   	<#if indexMap.notice?has_content>
 		<#list indexMap.notice as list>
-    	<div class="featured_box"><a href="#"><img src="${base}/${list.pic}" alt="" /></a>
+    	<div class="featured_box"><a href="#"><img src="${base}${list.pic}" alt="" /></a>
       		<div class="floater">
        	 		<h2>${list.title?default('-')?html}</h2>
         		<p>${cutText(list.content?replace("\r\n",""),160,"......")}</p>
@@ -105,7 +105,7 @@
           <li class="last">
             <h2>初中学习</h2>
             <div class="imgholder">
-            	<a href="${base}/front/Anonym!viewJuniorStudy.action.action">
+            	<a href="${base}/front/Anonym!viewJuniorStudy.action">
             		<img src="${base}/images/junior_study_index.png" alt="" />
             	</a>
             </div>

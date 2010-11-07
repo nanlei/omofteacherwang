@@ -4,6 +4,7 @@
 	 "common_title" : "OM系统",
 	 "default_title" : "前台页面",
 	 "manage_path" : "/front",
+	 "om_forum" : "http://mingxi.no-ip.biz:8081/omforum",
 	 "css_path" : ["/css/featured_slide.css",
 	 			   "/css/forms.css",
 	 			   "/css/layout.css",
