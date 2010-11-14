@@ -46,8 +46,6 @@
 				<param name="jsonObjName">json</param>
 			</result>
 		</action>
-		
-		
-		
+
 	</package>
 </struts>
