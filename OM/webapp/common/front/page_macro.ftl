@@ -209,6 +209,16 @@
 </table>
 </#macro>
 
+<#-- 信息 -->
+<#macro nameSpace flag>
+	<#if flag==true>
+		Member
+	<#else>	
+		Anonym
+	</#if>
+	
+</#macro>
+
 <#-- CKEditor编辑器 -->
 <#macro ckeditor id upload=true>
 ${importJS("/components/ckeditor/ckeditor.js")}

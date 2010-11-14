@@ -7,27 +7,22 @@
       <h1><a href="#">王炳禹奥数在线</a></h1>
       <p>让奥数成为训练思维的利器！</p>
     </div>
-    <#if loginUser?exists>
     <div id="topnav">
       <ul>
-        <li class="active"><a href="${base}/front/Member!viewIndex.action">主页</a></li>
-        <li><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
-        <li><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
-        <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
-        <li class="last"><a href="${base}/front/Member!aboutUs.action">关于我们</a></li>
+        <li class="active"><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewIndex.action">主页</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">小升初咨询</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewMethod.action">奥数方法认知</a></li>
+        <li class="last"><a href="${base}/front/<@p.nameSpace loginUser?exists />!shareData.action">奥数资料分享</a></li>
       </ul>
-    </div>
-    <#else>
-    <div id="topnav">
+      <br class="clear" />
       <ul>
-        <li class="active"><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
-        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
-        <li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperience.action">授课教育心得</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">初中学习</a></li>
         <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
-        <li class="last"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
+        <li class="last"><a href="${base}/front/<@p.nameSpace loginUser?exists />!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
-    </#if>
     <br class="clear" />
   </div>
 </div>
@@ -42,11 +37,7 @@
       		<div class="floater">
        	 		<h2>${list.title?default('-')?html}</h2>
         		<p>${cutText(list.content?replace("\r\n",""),160,"......")}</p>
-        		<#if loginUser?exists>
-        			<p class="readmore"><a href="${base}/front/Member!viewNotice.action?id=${list.id}" target="_black">更多信息 &raquo;</a></p>
-      			<#else>
-        			<p class="readmore"><a href="${base}/front/Anonym!viewNotice.action?id=${list.id}" target="_black">更多信息 &raquo;</a></p>
-      			</#if>
+        		<p class="readmore"><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewNotice.action?id=${list.id}" target="_black">更多信息 &raquo;</a></p>
       		</div>
     	</div>
     	</#list>
@@ -60,24 +51,23 @@
     <div class="fl_left">
       <div class="column2">
         <ul>
-        <#if loginUser?exists>
           <li>
             <h2>小升初咨询</h2>
             <div class="imgholder">
-            	<a href="${base}/front/Member!viewPrimaryConsulting.action">
+            	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">
             		<img src="${base}/images/primary_consulting.png" alt="" />
             	</a>
             </div>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p class="readmore">
-            	<a href="${base}/front/Member!viewPrimaryConsulting.action">更多信息 &raquo;</a>
+            	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">更多信息 &raquo;</a>
             </p>
           </li>
           <li class="last">
             <h2>初中学习</h2>
             <div class="imgholder">
-            	<a href="${base}/front/Member!viewJuniorStudy.action">
+            	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">
             		<img src="${base}/images/junior_study_index.png" alt="" />
             	</a>
             </div>
@@ -85,38 +75,9 @@
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             <p class="readmore">
-            	<a href="${base}/front/Member!viewJuniorStudy.action">更多信息 &raquo;</a>
+            	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">更多信息 &raquo;</a>
             </p>
           </li>	  
-        <#else>
-          <li>
-            <h2>小升初咨询</h2>
-            <div class="imgholder">
-            	<a href="${base}/front/Anonym!viewPrimaryConsulting.action">
-            		<img src="${base}/images/primary_consulting.png" alt="" />
-            	</a>
-            </div>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p class="readmore">
-            	<a href="${base}/front/Anonym!viewPrimaryConsulting.action">更多信息 &raquo;</a>
-            </p>
-          </li>
-          <li class="last">
-            <h2>初中学习</h2>
-            <div class="imgholder">
-            	<a href="${base}/front/Anonym!viewJuniorStudy.action">
-            		<img src="${base}/images/junior_study_index.png" alt="" />
-            	</a>
-            </div>
-            <p></p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p class="readmore">
-            	<a href="${base}/front/Anonym!viewJuniorStudy.action">更多信息 &raquo;</a>
-            </p>
-          </li>		
-        </#if> 
         </ul>
         <br class="clear" />
       </div>
@@ -127,141 +88,74 @@
         <p>……</p>
       </div>
     </div>
-    <#if loginUser?exists>
+	<#-- 项目列表-->
     <div class="fl_right">
       <h2>项目列表</h2>
       <ul>
         <li>
           <div class="imgholder">
-          	<a href="${base}/front/Member!viewKnowledge.action">
+          	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewKnowledge.action">
           		<img src="${base}/images/knowledge.png" alt="全知识点评测" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></strong></p>
+          <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewKnowledge.action">全知识点评测</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         
         <li>
           <div class="imgholder">
-          	<a href="${base}/front/Member!viewMethod.action">
+          	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewMethod.action">
           		<img src="${base}/images/method.png" alt="" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Member!viewMethod.action">奥数方法认识</a></strong></p>
+          <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewMethod.action">奥数方法认识</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         
         <li>
           <div class="imgholder">
-          	<a href="${base}/front/Member!viewExperience.action">
+          	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperience.action">
           		<img src="${base}/images/experience.png" alt="" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Member!viewExperience.action">奥数教育心得</a></strong></p>
+          <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperience.action">奥数教育心得</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         
         <li>
           <div class="imgholder">
-          	<a href="${base}/front/Member!shareData.action">
+          	<a href="${base}/front/<@p.nameSpace loginUser?exists />!shareData.action">
           		<img src="${base}/images/share.png" alt="奥数资料分享" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Member!shareData.action">奥数资料分享</a></strong></p>
+          <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!shareData.action">奥数资料分享</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         
         <li class="last">
           <div class="imgholder">
-          	<a href="${base}/front/Member!viewPrimaryConsulting.action">
+          	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">
           		<img src="${base}/images/question.png" alt="" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Member!viewPrimaryConsulting.action">小升初咨询</a></strong></p>
+          <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">小升初咨询</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
         
         <li class="last">
           <div class="imgholder">
-          	<a href="${base}/front/Member!viewJuniorStudy.action">
+          	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">
           		<img src="${base}/images/study.png" alt="" />
           	</a>
           </div>
-          <p><strong><a href="${base}/front/Member!viewJuniorStudy.action">初中学习</a></strong></p>
+          <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">初中学习</a></strong></p>
           <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
         </li>
       </ul>
     </div>
     <br class="clear" />
   	</div>
-    <#else>
-    <div class="fl_right">
-      <h2>项目列表</h2>
-      <ul>
-        <li>
-          <div class="imgholder">
-          	<a href="${base}/front/Anonym!viewKnowledge.action">
-          		<img src="${base}/images/knowledge.png" alt="全知识点评测" />
-          	</a>
-          </div>
-          <p><strong><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
-        </li>
-        
-        <li>
-          <div class="imgholder">
-          	<a href="${base}/front/Anonym!viewMethod.action">
-          		<img src="${base}/images/method.png" alt="" />
-          	</a>
-          </div>
-          <p><strong><a href="${base}/front/Anonym!viewMethod.action">奥数方法认识</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
-        </li>
-        
-        <li>
-          <div class="imgholder">
-          	<a href="${base}/front/Anonym!viewExperience.action">
-          		<img src="${base}/images/experience.png" alt="" />
-          	</a>
-          </div>
-          <p><strong><a href="${base}/front/Anonym!viewExperience.action">奥数教育心得</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
-        </li>
-        
-        <li>
-          <div class="imgholder">
-          	<a href="${base}/front/Anonym!shareData.action">
-          		<img src="${base}/images/share.png" alt="奥数资料分享" />
-          	</a>
-          </div>
-          <p><strong><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
-        </li>
-        
-        <li class="last">
-          <div class="imgholder">
-          	<a href="${base}/front/Anonym!viewPrimaryConsulting.action">
-          		<img src="${base}/images/question.png" alt="" />
-          	</a>
-          </div>
-          <p><strong><a href="${base}/front/Anonym!viewPrimaryConsulting.action">小升初咨询</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
-        </li>
-        
-        <li class="last">
-          <div class="imgholder">
-          	<a href="${base}/front/Anonym!viewJuniorStudy.action">
-          		<img src="${base}/images/study.png" alt="" />
-          	</a>
-          </div>
-          <p><strong><a href="${base}/front/Anonym!viewJuniorStudy.action">初中学习</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
-        </li>
-      </ul>
-    </div>
-    <br class="clear" />
-  </div>
-  </#if> 
+    <#-- /项目列表-->
 </div>
 <#-- /项目链接-->
 </@p.page>

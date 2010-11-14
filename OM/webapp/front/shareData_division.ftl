@@ -17,27 +17,22 @@
       <h1><a href="#">王炳禹奥数在线</a></h1>
       <p>让奥数成为训练思维的利器！</p>
     </div>
-    <#if loginUser?exists>
     <div id="topnav">
       <ul>
-        <li><a href="${base}/front/Member!viewIndex.action">主页</a></li>
-        <li><a href="${base}/front/Member!viewKnowledge.action">全知识点评测</a></li>
-        <li class="active"><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
-        <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
-        <li class="last"><a href="${base}/front/Member!aboutUs.action">关于我们</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewIndex.action">主页</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewKnowledge.action">全知识点评测</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">小升初咨询</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewMethod.action">奥数方法认知</a></li>
+        <li  class="active"><a href="${base}/front/<@p.nameSpace loginUser?exists />!shareData.action">奥数资料分享</a></li>
       </ul>
-    </div>
-    <#else>
-    <div id="topnav">
+      <br class="clear" />
       <ul>
-        <li><a href="${base}/front/Anonym!viewIndex.action">主页</a></li>
-        <li><a href="${base}/front/Anonym!viewKnowledge.action">全知识点评测</a></li>
-        <li class="active"><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperience.action">授课教育心得</a></li>
+        <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">初中学习</a></li>
         <li><a href="${macro_config.om_forum}" target="_black">学生讨论区</a></li>
-        <li class="last"><a href="${base}/front/Anonym!aboutUs.action">关于我们</a></li>
+        <li class="last"><a href="${base}/front/<@p.nameSpace loginUser?exists />!aboutUs.action">关于我们</a></li>
       </ul>
     </div>
-    </#if>
     <br class="clear" />
   </div>
 </div>
@@ -48,11 +43,7 @@
     <ul>
       <li class="first">您的当前位置</li>
       <li>&#187;</li>
-      <#if loginUser?exists>
-      	<li><a href="${base}/front/Member!shareData.action">奥数资料分享</a></li>
-      <#else>
-      	<li><a href="${base}/front/Anonym!shareData.action">奥数资料分享</a></li>
-      </#if>
+      <li><a href="${base}/front/<@p.nameSpace loginUser?exists />!shareData.action">奥数资料分享</a></li>
       <li>&#187;</li>
       <li class="last"><a href="#">分类信息</a></li>
     </ul>
@@ -117,11 +108,7 @@
         <ul>
         <#if divisionList?has_content>
 			<#list divisionList as list>
-				<#if loginUser?exists>
-					<li><a href="${base}/front/Member!viewShareDivision.action?id=${list.id}">${list.name?default('-')?html}</a></li>
-				<#else>
-          			<li><a href="${base}/front/Anonym!viewShareDivision.action?id=${list.id}">${list.name?default('-')?html}</a></li>
-         		</#if>
+				<li><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewShareDivision.action?id=${list.id}">${list.name?default('-')?html}</a></li>
          	</#list>
   		</#if>
         </ul>
