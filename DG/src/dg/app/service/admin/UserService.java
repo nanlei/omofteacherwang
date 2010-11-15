@@ -14,7 +14,7 @@ import dg.app.service.BaseService;
  */
 public class UserService extends BaseService {
 	// 根据用户名获取用户信息
-	private static final String SQL_GET_TEACHER_BY_USERNAME = "select * from om_teacher where USERNAME=?";
+	private static final String SQL_GET_TEACHER_BY_USERNAME = "select * from dg_admin where USERNAME=?";
 
 	/**
 	 * 根据用户名获取用户信息，用于登录
@@ -24,8 +24,7 @@ public class UserService extends BaseService {
 	 */
 	public Map getUserByUserName(String userName) {
 		try {
-			Map user = jt.queryForMap(SQL_GET_TEACHER_BY_USERNAME,
-					new Object[] { userName });
+			Map user = jt.queryForMap(SQL_GET_TEACHER_BY_USERNAME, userName);
 			return user;
 		} catch (EmptyResultDataAccessException e) {
 			return null;

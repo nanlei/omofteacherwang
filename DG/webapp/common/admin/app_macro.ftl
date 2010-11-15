@@ -4,7 +4,7 @@
 <table cellspacing="0" cellpadding="0" border="0" class="navtab" width="100%">
 	<tr>
 		<td rowspan="2" class="tdnormal" width="380">
-		<font size="5px">OM后台管理系统</font>
+		<font size="5px">代购网后台管理系统</font>
 		</td>
 		<td colspan="5">&nbsp;</td>
 		<td style="text-align:right;padding-right:10px">

@@ -11,7 +11,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.spri
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 	<!-- User Service -->
-	<bean id="userService" class="dg.app.service.admin.UserService"
+	<bean id="adminUserService" class="dg.app.service.admin.UserService"
 		parent="baseService" />
 
 	<!-- Admin Service Manager -->
