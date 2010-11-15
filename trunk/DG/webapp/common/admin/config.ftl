@@ -1,7 +1,7 @@
 <#-- macro 参数配置 -->
 <#assign macro_config = {
 	 "charset" : "utf-8",
-	 "common_title" : "OM系统",
+	 "common_title" : "代购网",
 	 "default_title" : "后台管理",
 	 "manage_path" : "/manage",
 	 "css_path" : ["/css/default.css"],

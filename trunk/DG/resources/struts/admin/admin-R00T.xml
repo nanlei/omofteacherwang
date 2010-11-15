@@ -8,5 +8,24 @@
 		<action name="index" class="dg.core.common.CommonAnonymousAction">
 			<result>login.ftl</result>
 		</action>
+		<!-- 后台登录 -->
+		<action name="login" class="dg.app.action.admin.AdminUserAction"
+			method="login">
+			<result type="redirect">${indexUrl}</result>
+			<result name="homepage" type="redirect">home.action</result>
+			<result name="error">login.ftl</result>
+		</action>
+		<!-- 后台首页 -->
+		<action name="home" class="dg.core.common.CommonBaseAction">
+			<result>index.ftl</result>
+		</action>
+		<!-- 管理导航树 -->
+		<action name="tree" class="dg.core.common.CommonBaseAction">
+			<result>tree.ftl</result>
+		</action>
+		<!-- 后台首页主区 -->
+		<action name="mainpage" class="dg.core.common.CommonBaseAction">
+			<result>mainpage.ftl</result>
+		</action>
 	</package>
 </struts>
