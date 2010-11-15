@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="admin-demo" extends="app-default" namespace="/admin/demo">
+		<action name="index" class="dg.core.common.CommonBaseAction">
+			<result>index.ftl</result>
+		</action>
+		<action name="getItem" class="dg.app.action.admin.taobao.TaobaoAction"
+			method="getItem">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
+		</action>
+	</package>
+</struts>
