@@ -42,8 +42,10 @@ public class MemberAction extends BaseAction {
 	private List experienceDetial;
 	// 关于我们
 	private List aboutUs;
-
 	
+	private String checkCode;
+
+
 
 	/**
 	 * 网站首页
@@ -153,6 +155,7 @@ public class MemberAction extends BaseAction {
 	 */
 	public String viewPrimaryConsulting() throws Exception{
 		primaryConsultingMap=getServMgr().getFrontService().getPriConMap();
+		checkCode=getServMgr().getFrontService().createCode();
 		return "viewPrimaryConsulting";
 	}
 	
@@ -370,4 +373,12 @@ public class MemberAction extends BaseAction {
 		return aboutUs;
 	}
 
+
+	public String getCheckCode() {
+		return checkCode;
+	}
+
+	public void setCheckCode(String checkCode) {
+		this.checkCode = checkCode;
+	}
 }

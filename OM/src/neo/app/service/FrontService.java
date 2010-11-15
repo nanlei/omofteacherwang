@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -383,6 +384,19 @@ public class FrontService extends BaseService {
 	private static final String SQL_GET_ABOUT_US="select * from om_about";
 	public List getAboutUs() {
 		return jt.queryForList(SQL_GET_ABOUT_US);
+	}
+
+	/**
+	 * 创建验证码
+	 */
+	public String createCode() {
+		Random random = new Random(); 
+		StringBuffer checkCode = new StringBuffer();
+		for (int i=0; i<4; i++){
+			String ranNum = String.valueOf(random.nextInt(10));
+			checkCode.append(ranNum);
+		}
+		return checkCode.toString();
 	}
 
 	

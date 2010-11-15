@@ -1,6 +1,17 @@
 <#include "../common/front/config.ftl">
 <@p.page>
-
+<script type="text/javascript">
+	function validateCode(code){
+		var ramCode=$("#checkCode").val();
+		var validateCode=code;
+		if(ramCode==validateCode){
+			$("#codeValidateInfo").html("<font color=\"green\"> &#187; 验证码正确</font>");
+		}else{
+			$("#codeValidateInfo").html("<font color=\"red\"> &#187; 验证码错误</font>");
+			$("#checkCode").focus();
+		}
+	}
+</script>
 <#-- 导航链接-->
 <div class="wrapper col1">
   <div id="header">
@@ -135,6 +146,20 @@
           <p>
             <textarea name="postContent" id="content" cols="100%" rows="5" emptyInfo="请输入内容" maxLen="1000" lengthInfo="内容不得大于500个汉字"></textarea>
             <label for="comment" style="display:none;"><small>咨询内容 (必填)</small></label>
+          </p>
+          <p>
+            <input type="text" id="checkCode"  value="" size="22" onBlur="validateCode(${checkCode})" emptyInfo="验证码" maxLen="4" lengthInfo="错误输入"/>
+            <label for="name">
+            	<strong>
+            		[
+            		<font size="2" color="red">
+            			<span id="ramCode">${checkCode}</span>
+            			
+            		</font>
+            		]
+            	</strong>
+            	<strong><small> <span id="codeValidateInfo">验证码 (必填)</span></small></strong>
+            </label>
           </p>
           <p>
           	<#if loginUser?exists>
