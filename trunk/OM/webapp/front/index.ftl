@@ -59,7 +59,7 @@
             	</a>
             </div>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
+
             <p class="readmore">
             	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">更多信息 &raquo;</a>
             </p>
@@ -73,7 +73,7 @@
             </div>
             <p></p>
             <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
+            
             <p class="readmore">
             	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">更多信息 &raquo;</a>
             </p>
@@ -87,6 +87,7 @@
         <p>自幼学习奥数，多次在全国联赛及各大杯赛中获一等奖。以竞赛优异成绩考入 北京西城实验中学 全国理科实验班。之后保送至北京大学，获理学、经济学双学位。自龙校成立，王炳禹老师就参与至龙校教学活动中，第一批培养出的孩子多数已被各重点校接收录取。王炳禹老师现担任龙校教学总监，全面负责龙校教学工作。其理念在于传授学生们解题的思想及方法，对题目的掌握要从“怎么做”深入到“怎么想”，主动培养学生思考分析问题的能力。</p>
         <p>……</p>
       </div>
+      
     </div>
 	<#-- 项目列表-->
     <div class="fl_right">
@@ -154,7 +155,7 @@
       </ul>
     </div>
     <br class="clear" />
-  	</div>
+  </div>
     <#-- /项目列表-->
 </div>
 <#-- /项目链接-->

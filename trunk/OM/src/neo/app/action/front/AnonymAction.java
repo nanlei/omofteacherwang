@@ -47,6 +47,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	private JsonView json;
 	// 关于我们
 	private List aboutUs;
+	private String checkCode;
 	
 
 	/**
@@ -158,6 +159,7 @@ public class AnonymAction extends BaseAction implements Anonymous {
 	 */
 	public String viewPrimaryConsulting() throws Exception{
 		primaryConsultingMap=getServMgr().getFrontService().getPriConMap();
+		checkCode=getServMgr().getFrontService().createCode();
 		return "viewPrimaryConsulting";
 	}
 	
@@ -432,6 +434,14 @@ public class AnonymAction extends BaseAction implements Anonymous {
 
 	public List getAboutUs() {
 		return aboutUs;
+	}
+
+	public String getCheckCode() {
+		return checkCode;
+	}
+
+	public void setCheckCode(String checkCode) {
+		this.checkCode = checkCode;
 	}
 
 
