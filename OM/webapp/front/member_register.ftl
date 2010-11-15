@@ -223,7 +223,7 @@
           		<p>
             		<input type="text" id="" size="22" />
             		<label for="name">
-            			<font size="3">请输入用户名 (必填)</font>
+            			<font size="3">待定 (必填)</font>
             		</label>
            	 		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -232,7 +232,7 @@
           		<p>
             		<input type="password"  id="" size="22" />
             		<label for="name">
-            			<font size="3">请输入密码 (必填)</font>
+            			<font size="3">待定 (必填)</font>
            		 	</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -241,7 +241,7 @@
           		<p>
             		<input type="password" id="" size="22"  />
             		<label for="name">
-            			<font size="3">请再次输入密码 (必填)</font>
+            			<font size="3">待定 (必填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -250,7 +250,7 @@
           		<p>
             		<input type="text" id="" size="22"/>
             		<label for="name">
-            			<font size="3">请输入您的真实姓名 (必填)</font>
+            			<font size="3">待定 (必填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -259,7 +259,7 @@
           		<p>
             		<input type="text" id="" size="22"/>
             		<label for="name">
-            			<font size="3">请输入您的E-mail地址 (必填)</font>
+            			<font size="3">待定 (必填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -268,7 +268,7 @@
           		<p>
             		<input type="text" id=""  value="" size="22" />
             		<label for="name">
-            			<font size="3">请输入您联系电话 (选填)</font>
+            			<font size="3">待定 (选填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
