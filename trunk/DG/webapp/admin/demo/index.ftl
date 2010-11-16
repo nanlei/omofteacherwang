@@ -9,6 +9,7 @@ function getItem(){
 		alert("请输入商品ID");
 		document.taobaoForm.taobaoId.focus();
 	}else{
+		alert("请求已经提交，请等待返回结果");
 		$.ajax({
 	   	 	type: "POST",
 	   		url: "${base}/admin/demo/getItem.action",
@@ -25,6 +26,7 @@ function getItem(){
 	   				$("#itemPic").attr('src',data.item.pic_url);
 	   				$("#num_iid").attr('value',data.item.num_iid);	   				
 	   				$("#item").attr('style','display:block');
+	   				//$("#item").toggle();
 	   			}else{
 	   				alert("无法获取该商品的信息，请您检查ID输入是否正确");
 	   			}
@@ -61,7 +63,7 @@ function getItem(){
 </table>
 </form>
 </div>
-<div id="item" style="display:block;">
+<div id="item" style="display:none;">
 <form name="itemForm" action="confirm.action" method="post" onsubmit="return validateForm(this)">
 <input type="hidden" id="num_iid" name="num_iid">
 <table class="default" width="100%">
@@ -118,7 +120,7 @@ function getItem(){
 	</tr>
 	<tr>
 		<td>备用商品地址</td>
-		<td><input type="text" name="backupItem" size="55" emptyInfo="请填写备用商品地址"></td>
+		<td><input type="text" name="backupURL" size="55" emptyInfo="请填写备用商品地址"></td>
 	</tr>
 	<tr>
 		<td>您的备注</td>

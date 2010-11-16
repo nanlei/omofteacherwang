@@ -13,6 +13,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.spri
 	<!-- User Service -->
 	<bean id="adminUserService" class="dg.app.service.admin.UserService"
 		parent="baseService" />
+	<!-- Order Service -->
+	<bean id="adminOrderService" class="dg.app.service.admin.OrderService"
+		parent="baseService" />
 
 	<!-- Admin Service Manager -->
 	<bean id="adminServiceManager" class="dg.app.service.AdminServiceManager" />
