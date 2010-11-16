@@ -160,9 +160,6 @@ public class MapUtil {
 	}
 
 	/**
-	 * 将数据库查询出来的Map\list\String转换为JSON格式字符串
-	 */
-	/**
 	 * 将数据库查询出来的List（List里是Map）转换为JSON格式字符串
 	 */
 	public static String getJsonString(List srcList) {
