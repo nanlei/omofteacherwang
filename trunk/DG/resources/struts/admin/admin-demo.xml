@@ -13,5 +13,9 @@
 				<param name="jsonObjName">json</param>
 			</result>
 		</action>
+		<action name="confirm" class="dg.app.action.admin.taobao.TaobaoAction"
+			method="confirm">
+			<result name="confirm">confirm.ftl</result>
+		</action>
 	</package>
 </struts>
