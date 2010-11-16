@@ -17,6 +17,9 @@ public class Order {
 	private String fee;// 运费
 	private String charge;// 手续费
 	private double total;// 商品总价
+	private String url;// 商品URL
+	private String backupURL;// 备用URL
+	private String remark;// 用户备注
 
 	public String getNum_iid() {
 		return num_iid;
@@ -80,6 +83,30 @@ public class Order {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getBackupURL() {
+		return backupURL;
+	}
+
+	public void setBackupURL(String backupURL) {
+		this.backupURL = backupURL;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 }

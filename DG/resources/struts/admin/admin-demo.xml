@@ -17,5 +17,11 @@
 			method="confirm">
 			<result name="confirm">confirm.ftl</result>
 		</action>
+		<action name="submit" class="dg.app.action.admin.taobao.TaobaoAction"
+			method="submit" />
+		<action name="order" class="dg.app.action.admin.OrderAction"
+			method="order">
+			<result name="order">order_list.ftl</result>
+		</action>
 	</package>
 </struts>

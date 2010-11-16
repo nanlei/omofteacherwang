@@ -12,6 +12,8 @@ import dg.app.bean.Order;
 import dg.app.bean.taobao.Item;
 import dg.app.bean.taobao.Location;
 import dg.app.bean.taobao.Response;
+import dg.core.util.CalendarUtil;
+import dg.core.util.CharacterUtil;
 import dg.core.util.MapUtil;
 import dg.core.util.json.JsonView;
 import dg.core.util.taobao.GetResult;
@@ -85,7 +87,8 @@ public class TaobaoAction extends BaseAction {
 	public String confirm() throws Exception {
 		String num_iid = MapUtil.getStringFromMap(getParameters(), "num_iid");
 		// 获取的商品ID和需要的字段
-		String resultXML = GetResult.getResult("title,price,express_fee", num_iid);
+		String resultXML = GetResult.getResult(
+				"detail_url,title,price,express_fee", num_iid);
 		// XStream解析XML
 		XStream xstream = new XStream(new DomDriver());
 		xstream.alias("item_get_response", Response.class);
@@ -102,6 +105,12 @@ public class TaobaoAction extends BaseAction {
 			order = new Order();
 			order.setNum_iid(num_iid);
 			order.setTitle(item.getTitle());
+			order.setUrl(item.getDetail_url());
+			order.setBackupURL(MapUtil.getStringFromMap(getParameters(),
+					"backupURL"));
+			order
+					.setRemark(MapUtil.getStringFromMap(getParameters(),
+							"remark"));
 			String count = MapUtil.getStringFromMap(getParameters(), "count");
 			String price = item.getPrice();
 			String fee = MapUtil.getStringFromMap(getParameters(), "fee");
@@ -121,5 +130,31 @@ public class TaobaoAction extends BaseAction {
 			order.setTotal(total);
 			return "confirm";
 		}
+	}
+
+	/**
+	 * 提交订单
+	 * 
+	 * @return
+	 */
+	public String submit() {
+		String userId = getLoginUserId();
+		String ip = getIP();
+		String orderNo = CalendarUtil.getCurrentTime()
+				+ CharacterUtil.getRandomString2(3).toUpperCase();
+		System.out.println(orderNo);
+		try {
+			getAdminServMgr().getAdminOrderService().addOrder(getParameters(),
+					orderNo, userId, ip);
+			addMessage("下单成功，订单号：" + orderNo);
+			addMessage("订单号是跟踪服务的唯一凭据，您可以在订购记录中查看详情");
+			addRedirURL("返回", "index.action");
+		} catch (Exception e) {
+			e.printStackTrace();
+			setResult(ERROR);
+			addMessage("下单失败，请返回重新提交");
+			addRedirURL("返回", "index.action");
+		}
+		return EXECUTE_RESULT;
 	}
 }
