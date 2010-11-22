@@ -25,8 +25,9 @@ import org.apache.http.util.EntityUtils;
  */
 public class GetResult {
 	// 需要的常量参数
-	private static final String URL = "http://gw.api.taobao.com/router/rest";//正式环境
-	//private static final String URL = "http://gw.api.tbsandbox.com/router/rest";//测试环境
+	private static final String URL = "http://gw.api.taobao.com/router/rest";// 正式环境
+	// private static final String URL =
+	// "http://gw.api.tbsandbox.com/router/rest";//测试环境
 	private static final String APP_KEY = "12147025";
 	private static final String APP_SECRET = "74c43a5b07e8662b22488c5f94e32d43";
 	private static final String FORMAT = "xml";
@@ -58,9 +59,11 @@ public class GetResult {
 		params.add(new BasicNameValuePair("timestamp", timestamp));
 		params.add(new BasicNameValuePair("partner_id", "911"));
 		params.add(new BasicNameValuePair("v", VERSION));
-		params.add(new BasicNameValuePair("sign", SignatureGenerator
-				.getMD5Signature(getParams(timestamp, fields, num_iid),
-						APP_SECRET)));
+		// params.add(new BasicNameValuePair("sign", SignatureGenerator
+		// .getMD5Signature(getParams(timestamp, fields, num_iid),
+		// APP_SECRET)));
+		String sign = getSignature(fields, num_iid);
+		params.add(new BasicNameValuePair("sign", sign));
 		try {
 			post.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 			HttpResponse response = client.execute(post);
@@ -75,7 +78,13 @@ public class GetResult {
 		} finally {
 			client.getConnectionManager().shutdown();
 		}
-		return content;
+		return content + sign;
+	}
+
+	public static String getSignature(String fields, String num_iid) {
+		String timestamp = getFullTime();
+		return SignatureGenerator.getMD5Signature(getParams(timestamp, fields,
+				num_iid), APP_SECRET);
 	}
 
 	/**
