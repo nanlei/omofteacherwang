@@ -159,4 +159,37 @@
     <#-- /项目列表-->
 </div>
 <#-- /项目链接-->
+<#-- 相册-->
+<div class="wrapper col6">
+	<div id="homecontent">
+		<div id="gallery_section">
+    		<div class="gallery_area">
+        	<h2>学生成绩展示</h2>
+            	<a href="${base}/images/templatemo_big_1.jpg" rel="lightbox-gallery" title="Flower">
+                	<img alt="Flower" src="${base}/images/templatemo_thumb_1.jpg" />
+                </a>
+                <a href="${base}/images/templatemo_big_2.jpg" rel="lightbox-gallery" title="Rose">
+                	<img alt="Rose" src="${base}/images/templatemo_thumb_2.jpg" />
+                </a>
+                <a href="${base}/images/templatemo_big_3.jpg" rel="lightbox-gallery" title="Butterfly">
+               		<img alt="Butterfly" src="${base}/images/templatemo_thumb_3.jpg" />
+                </a>
+                <a href="${base}/images/templatemo_big_4.jpg" rel="lightbox-gallery" title="Twin Flower">
+                	<img alt="Twin Flower" src="${base}/images/templatemo_thumb_4.jpg" />
+                </a>
+                <a href="${base}/images/templatemo_big_2.jpg" rel="lightbox-gallery" title="Reflection">
+                	<img alt="Reflection" src="${base}/images/templatemo_thumb_2.jpg" />
+                </a>  
+				<a href="${base}/images/templatemo_big_3.jpg" rel="lightbox-gallery" title="Reflection">
+                	<img alt="Reflection" src="${base}/images/templatemo_thumb_3.jpg" />
+                </a> <a href="${base}/images/templatemo_big_1.jpg" rel="lightbox-gallery" title="Reflection">
+                	<img alt="Reflection" src="${base}/images/templatemo_thumb_1.jpg" />
+                </a> 
+                            
+         	</div>
+		</div><!-- End Of Right Bottom Section -->
+        <br class="clear" />
+    </div>
+</div>
+<#-- /相册-->
 </@p.page>

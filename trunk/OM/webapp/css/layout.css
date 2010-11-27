@@ -72,6 +72,9 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 .col5, .col5 a{color:#666666; background-color:#1B1B1B;}
 
+.col6{color:#666666; background-color:#FFFFFF;}
+.col6 a{color:#02ACEE; background-color:#FFFFFF;}
+
 /* ----------------------------------------------Generalise-------------------------------------*/
 
 #header, #topbar, #topnav, #breadcrumb, #homecontent, #container, #footer, #copyright{
@@ -214,6 +217,22 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	height:80px;
 	margin:0 10px 0 0;
 	}
+	
+#homecontent .gallery_section {
+	width:800;
+	}
+
+#homecontent .gallery_section .gallery_area {
+	margin: 0px;
+}
+
+.gallery_area img {
+	
+	display:block;
+	float:left;
+	margin: 0px 0px 10px 15px;
+	padding: 0;
+}	
 
 /* ----------------------------------------------Content-------------------------------------*/
 
