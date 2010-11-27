@@ -82,9 +82,9 @@
 	   			success: function(data){
 	   				if(data.status){
 	   					
-	   					alert("恭喜您，注册成功！即将跳转到主页，请您登陆！");
+	   					alert("恭喜您，注册成功！即将跳转到主页");
 	   					forward(userName, pwd2);
-	   					window.location.href="${base}/front/Anonym!viewIndex.action";
+	   					window.location.href="${base}/front/Member!viewIndex.action";
 	   				}else{
 	   					alert("对不起，注册失败！");
 	   				}
