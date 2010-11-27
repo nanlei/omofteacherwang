@@ -397,6 +397,22 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	margin:0 10px 10px 0;
 	padding:4px;
 	}
+	
+#content .gallery_section {
+	width:300;
+	}
+
+#content .gallery_section .gallery_area {
+	margin: 0px;
+}
+
+.gallery_area img {
+	
+	display:block;
+	float:left;
+	margin: 0px 10px 10px 0px;
+	padding: 0;
+}	
 
 /* ----------------------------------------------Footer-------------------------------------*/
 

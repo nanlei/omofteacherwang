@@ -39,7 +39,7 @@
 	   				$("#tipPwd2").html("<font color=\"green\"> &#187; 两次密码输入匹配</font>");
 	   			}else{
 	   				flag_pwd=false;
-	   				$("#tipPwd2").html("<font color=\"red\"> &#187; 两次密码输入不匹配（或为空）</font>");
+	   				$("#tipPwd2").html("<font color=\"red\"> &#187; 两次密码输入不匹配</font>");
 	   			}
 	   		},
 	   		error:function(xmlHttpRequest,status,exception){
