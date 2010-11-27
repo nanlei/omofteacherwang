@@ -14,10 +14,10 @@
 	 			   "/slimbox/slimbox2.css"],
 	 "js_path" : ["/js/common.js",
 	 			  "/js/jquery-1.4.1.min.js",
-	 			  "/slimbox/slimbox2.js",
 	 			  "/js/jquery.slidepanel.setup.js",
 	 			  "/js/jquery.cycle.min.js",
-	 			  "/js/jquery.cycle.setup.js"
+	 			  "/js/jquery.cycle.setup.js",
+	 			  "/slimbox/slimbox2.js"
 	 			  ]
 }>
 
