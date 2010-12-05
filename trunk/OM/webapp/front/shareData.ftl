@@ -26,15 +26,15 @@
 
 <div class="wrapper col3">
   <div id="container">
-  <div id="content">
+  	<div id="content">
       <h1>小学奥数知识体系大纲</h1>
       <img class="imgl" src="${base}/images/share_left.png" alt="" width="125" height="125" />
       <p>3~5年级是学习奥数核心时段，在此时间内有效掌握各知识板块基础方法。</p>
       <p>6年级综合提高，备战各校小升初考试。</p>
       <p>此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片；此处由王老师写内容，不提供后台功能，在开发时写在页面，请王老师编写一段600字以内的简介，包括两侧图片</p>
- 	<br class="clear" />      
-  	<#-- 资料下载-->
-    <div id="content">
+ 	  <br class="clear" />      
+  	  <#-- 资料下载-->
+    
       <h5>最近上传共享文件 - 所有分类</h5>
       <table summary="Summary Here" cellpadding="0" cellspacing="0">
         <thead>
@@ -69,7 +69,7 @@
 		</tr>
 	  </table>
     </div>
-</div>
+
     <#-- /资料下载-->
     <div id="column">
       <#-- 资料下载分类-->

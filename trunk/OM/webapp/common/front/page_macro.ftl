@@ -223,9 +223,9 @@
 <#-- 信息 -->
 <#macro nameSpace flag>
 	<#if flag==true>
-		Member
+Member
 	<#else>	
-		Anonym
+Anonym
 	</#if>
 	
 </#macro>
