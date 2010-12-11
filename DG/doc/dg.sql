@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
@@ -35,7 +35,7 @@ CREATE TABLE `dg_admin` (
 -- ----------------------------
 -- Records of dg_admin
 -- ----------------------------
-INSERT INTO `dg_admin` VALUES ('1', 'admin', '202CB962AC59075B964B07152D234B70', 'nanlei', 'nanlei1987@gmail.com', '0411', '2010-11-15 22:00:41', '127.0.0.1', '1');
+INSERT INTO `dg_admin` VALUES ('1', 'admin', '202CB962AC59075B964B07152D234B70', 'xxx', 'xxx', '10000', '2010-11-15 22:00:41', '127.0.0.1', '1');
 
 -- ----------------------------
 -- Table structure for `dg_order`
@@ -90,4 +90,4 @@ CREATE TABLE `dg_user` (
 -- ----------------------------
 -- Records of dg_user
 -- ----------------------------
-INSERT INTO `dg_user` VALUES ('1', 'nanlei', '202CB962AC59075B964B07152D234B70', 'nanlei', 'nanlei1987@gmail.com', '0411', '2010-11-16 15:04:03', '127.0.0.1');
+INSERT INTO `dg_user` VALUES ('1', 'xxx', '202CB962AC59075B964B07152D234B70', 'xxx', 'xxx', '10000', '2010-11-16 15:04:03', '127.0.0.1');
