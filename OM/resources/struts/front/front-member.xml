@@ -23,5 +23,12 @@
 			<result name="viewExperienceDivision">experience_division.ftl</result>
 			<result name="viewExperienceDetail">experience_detail.ftl</result>
 		</action>
+		
+		<action name="addVote" class="neo.app.action.front.MemberAction"
+			method="addVote">
+			<result name="success" type="jsonView">
+				<param name="jsonObjName">json</param>
+			</result>
+		</action>
 	</package>
 </struts>

@@ -34,8 +34,7 @@
             		<img src="${base}/images/primary_consulting.png" alt="" />
             	</a>
             </div>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
-
+            
             <p class="readmore">
             	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">更多信息 &raquo;</a>
             </p>
@@ -48,7 +47,6 @@
             	</a>
             </div>
             <p></p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et feugiat. Adipisciniap ellentum leo ut consequam.</p>
             
             <p class="readmore">
             	<a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">更多信息 &raquo;</a>

@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
+import org.json.simple.JSONObject;
 
 import neo.app.action.BaseAction;
 import neo.core.common.PagingList;
+import neo.core.util.MapUtil;
+import neo.core.util.json.JsonView;
 
 public class MemberAction extends BaseAction {
 	//获取客户端浏览器语言，用户请求action和系统时间
@@ -44,8 +47,11 @@ public class MemberAction extends BaseAction {
 	private List aboutUs;
 	
 	private String checkCode;
+	// AJAX请求返回内容
+	private JsonView json;
 
 
+	
 
 	/**
 	 * 网站首页
@@ -159,6 +165,23 @@ public class MemberAction extends BaseAction {
 		return "viewPrimaryConsulting";
 	}
 	
+	
+	public String addVote() throws Exception{
+		boolean status = true;
+		String postId = MapUtil.getStringFromMap(getParameters(), "postId");
+		String voteType = MapUtil.getStringFromMap(getParameters(), "voteType");
+		if (getServMgr().getFrontService().getVoteAlrdy(postId, getLoginUserId()) ) {
+			getServMgr().getFrontService().addVote(postId, voteType);
+			getServMgr().getFrontService().addVoteAlrdy(postId, getLoginUserId(), voteType);
+			status = true;
+		} else {
+			status = false;
+		}
+		JSONObject result = new JSONObject();
+		result.put("status", status);
+		json = new JsonView(result);
+		return SUCCESS;
+	}
 	/**
 	 * 小升初咨询-发帖
 	 */
@@ -380,5 +403,13 @@ public class MemberAction extends BaseAction {
 
 	public void setCheckCode(String checkCode) {
 		this.checkCode = checkCode;
+	}
+	
+	public JsonView getJson() {
+		return json;
+	}
+
+	public void setJson(JsonView json) {
+		this.json = json;
 	}
 }

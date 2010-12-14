@@ -163,6 +163,8 @@ public class AnonymAction extends BaseAction implements Anonymous {
 		return "viewPrimaryConsulting";
 	}
 	
+	
+	
 	/**
 	 * 小升初咨询-发帖
 	 */
