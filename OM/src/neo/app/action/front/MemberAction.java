@@ -167,16 +167,15 @@ public class MemberAction extends BaseAction {
 	
 	
 	public String addVote() throws Exception{
-		boolean status = true;
+		boolean status = false;
 		String postId = MapUtil.getStringFromMap(getParameters(), "postId");
 		String voteType = MapUtil.getStringFromMap(getParameters(), "voteType");
-		if (getServMgr().getFrontService().getVoteAlrdy(postId, getLoginUserId()) ) {
+		if (getServMgr().getFrontService().getVoteAlrdy(postId, getLoginUserId())) {
 			getServMgr().getFrontService().addVote(postId, voteType);
 			getServMgr().getFrontService().addVoteAlrdy(postId, getLoginUserId(), voteType);
 			status = true;
-		} else {
-			status = false;
 		}
+		System.out.println(status);
 		JSONObject result = new JSONObject();
 		result.put("status", status);
 		json = new JsonView(result);
