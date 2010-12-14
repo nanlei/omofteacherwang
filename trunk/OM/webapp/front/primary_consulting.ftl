@@ -29,7 +29,6 @@
 	   			}
 	   		},
 	   		error:function(xmlHttpRequest,status,exception){
-				flag_user=false;
 	   			alert("请求失败，请检查网络连接");
 	   		}
 		});
