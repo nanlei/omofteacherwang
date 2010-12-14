@@ -56,16 +56,17 @@
       	  
       </div>
       <div class="topbox">
-        
+      	<p>&nbsp;&nbsp;&nbsp;&nbsp;针对用户的程序模块将在后续版本中出现。（包括：用户个人信息管理系统，作业系统，好友系统等等。用户的所需就是我们开发的动力，您的所想就是我们创新的源泉）敬请期待！</p>  
       </div>
       <div class="topbox last">
+      	<p>系统功能：</p>
       	<a href="${base}/studentLogout.action">退出系统 &raquo;</a> 
       </div>
       <br class="clear" />
     </div>
     <div id="loginpanel">
       <ul>
-        <li class="left">欢迎&nbsp;<strong>${loginUser.REALNAME?html}</strong> &raquo;</li>
+        <li class="left">欢迎&nbsp;<strong><font color="yellow">${loginUser.REALNAME?html}</font></strong> &raquo;</li>
         <li class="right" id="toggle"><a id="slideit" href="#slidepanel">展开面板</a><a id="closeit" style="display: none;" href="#slidepanel">关闭面板</a></li>
       </ul>
     </div>
@@ -148,8 +149,8 @@
 <#-- CopyRight-->
 <div class="wrapper col5">
   <div id="copyright">
-    <p class="fl_left">Copyright &copy; 2010 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Design by <strong><a href="#" title="开发者">Sarin Nan Lei & Tony Shen Mai Han</a></strong></p>
+    <p class="fl_left">王炳禹奥数在线 Copyright &copy;  2010 - 2012 All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">软件开发公司 <strong><a href="#" title="开发公司">CMOS (Singapore) Pte Ltd</a></strong></p>
     <br class="clear" />
   </div>
 </div>
@@ -276,8 +277,9 @@ ${importJS("/components/calendar/lang/calendar-zh-utf8.js")}
 	<div class="wrapper col1">
   		<div id="header">
     		<div id="logo">
-      		<h1><a href="#">王炳禹奥数在线</a></h1>
-      		<p>让奥数成为训练思维的利器！</p>
+      		<h1><a href="#"><strong><font color="yellow">王炳禹奥数在线</font></strong></a></h1>
+      		<br/>
+      		<p><font color="white">--让奥数成为训练思维的利器！</font></p>
     	</div>
     	<div id="topnav">
       	<ul>

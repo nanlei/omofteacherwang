@@ -86,7 +86,6 @@ public class UserAction extends BaseAction {
 	 */
 	public String loginForWard() {
 		try {
-			System.out.println("fsdffgfsgggsg32432ffsa");
 			String userName = MapUtil.getStringFromMap(getParameters(), "userName");
 			String password = MapUtil.getStringFromMap(getParameters(), "password");
 			Map dbUser = getServMgr().getFrontService().getUserByUserName(userName);

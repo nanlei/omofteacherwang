@@ -8,8 +8,31 @@
 			$("#codeValidateInfo").html("<font color=\"green\"> &#187; 验证码正确</font>");
 		}else{
 			$("#codeValidateInfo").html("<font color=\"red\"> &#187; 验证码错误</font>");
-			$("#checkCode").focus();
+			
 		}
+	}
+	
+	function errorPost(){
+		alert("游客不可以投票！");
+	}
+	
+	function addVote(postId, voteType){
+		$.ajax({
+	   	 	type: "POST",
+	   		url: "${base}/front/addVote.action",
+	   		data: { postId:postId, voteType: voteType},
+	   		success: function(data){
+	   			if(data.status){
+	   				alert("投票成功，谢谢您！");
+	   			}else{
+	   				alert("投票失败，请勿重复投票");
+	   			}
+	   		},
+	   		error:function(xmlHttpRequest,status,exception){
+				flag_user=false;
+	   			alert("请求失败，请检查网络连接");
+	   		}
+		});
 	}
 </script>
 <#-- 导航链接-->
@@ -54,15 +77,64 @@
             				<a href="#">${list.postTime?default('-')?datetime}</a>
             			</div>
             			<p>${list.postContent?default('-')?html}</p>
-          	
-          				<td align="center" width="80px" style="padding-top:5px">
+          				
+          				<tr align="center" width="80px" style="padding-top:5px">
+          					<td>
           					<#assign getPostCount=servMgr.frontService.getPostCountById('${list.id}')?default("")/>
           					<a href="#" style="cursor:pointer" onclick="$('#page_explain${list.id}').toggle();this.blur();return false;">
           						<#if getPostCount?has_content>
           							看看其他用户的评论 (共 ${getPostCount?html}  条评论)
   								</#if>
           					</a>
-          				</td>
+          					
+          					</td>
+          					<#if loginUser?exists>
+    							&nbsp;&nbsp;&nbsp;&nbsp;
+          						<td width="25">
+          							<a href="" onClick="addVote(${list.id} , '1')">
+          								<font color="green">可信(${list.vote1?default('0')?html})</font>
+          							</a>
+          						</td>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<td width="25">
+									<a href="" onClick="addVote(${list.id} , '2')">
+										<font color="red">不可信(${list.vote2?default('0')?html})</font>
+									</a>
+								</td>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<td width="25">
+									<a href="" onClick="addVote(${list.id} , '3')">
+										<font color="blue">不关心(${list.vote3?default('0')?html})</font>
+									</a>
+								</td>
+    						<#else>
+    							&nbsp;&nbsp;&nbsp;&nbsp;
+          						<td width="25">
+          							<a href="" onClick="errorPost()">
+          							<font color="green">可信(${list.vote1?default('0')?html})</font>
+          							</a>
+          						</td>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<td width="25">
+									<a href="" onClick="errorPost()">
+										<font color="red">不可信(${list.vote2?default('0')?html})</font>
+									</a>
+								</td>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<td width="25">
+									<a href="" onClick="errorPost()">
+										<font color="blue">不关心(${list.vote3?default('0')?html})</font>
+									</a>
+								</td>
+    						</#if>
+          					
+		
+          				</tr>
+          				
+							
+						
+          				
+          				
           				<table width="100%" border="0" cellpadding="0" cellspacing="0" id="page_explain${list.id}" style="display:none">
 							<tr>
 								<td>
@@ -158,6 +230,7 @@
         <p>自幼学习奥数，多次在全国联赛及各大杯赛中获一等奖。以竞赛优异成绩考入 北京西城实验中学 全国理科实验班。之后保送至北京大学，获理学、经济学双学位。自龙校成立，王炳禹老师就参与至龙校教学活动中，第一批培养出的孩子多数已被各重点校接收录取。王炳禹老师现担任龙校教学总监，全面负责龙校教学工作。其理念在于传授学生们解题的思想及方法，对题目的掌握要从“怎么做”深入到“怎么想”，主动培养学生思考分析问题的能力。</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
+      <!--
       <div id="featured">
         <ul>
           <li>
@@ -179,6 +252,7 @@
         <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
         <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
       </div>
+      -->
     </div>
     <div class="clear"></div>
   </div>

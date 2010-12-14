@@ -399,6 +399,45 @@ public class FrontService extends BaseService {
 		return checkCode.toString();
 	}
 
+	/**
+	 * POST_VOTE
+	 */
+	private static final String SQL_POST_ADD_GOOD="update om_primary_consulting set vote1=vote1+1 where id=?";
+	private static final String SQL_POST_ADD_BAD="update om_primary_consulting set vote2=vote2+1 where id=?";
+	private static final String SQL_POST_ADD_NONE="update om_primary_consulting set vote3=vote3+1 where id=?";
+	public void addVote(String postId, String voteType) {
+		if(voteType.equals("1")){
+			jt.update(SQL_POST_ADD_GOOD,postId);
+		}
+		if(voteType.equals("2")){
+			jt.update(SQL_POST_ADD_BAD,postId);
+		}
+		if(voteType.equals("3")){
+			jt.update(SQL_POST_ADD_NONE,postId);
+		}
+		
+		
+	}
+
+	private static final String SQL_GET_VOTE_ALRDY="select count(*) from om_vote_validate where postId=? and studentId=?";
+	public boolean getVoteAlrdy(String postId, String loginUserId) {
+		if(jt.queryForInt(SQL_GET_VOTE_ALRDY, postId, loginUserId)==1){
+			return false;
+		}
+		else{
+			return true;
+		}
+			
+	}
+
+	private static final String SQL_ADD_VOTE_ALRDY="insert into om_vote_validate(id, postId, studentId, voteTime, voteType) " +
+			"values(null, ?, ?, now(), ?)";
+	public void addVoteAlrdy(String postId, String loginUserId, String voteType) {
+		jt.update(SQL_ADD_VOTE_ALRDY, postId, loginUserId, voteType );
+	}
+
+
+
 	
 
 	
