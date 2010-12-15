@@ -165,7 +165,9 @@ public class MemberAction extends BaseAction {
 		return "viewPrimaryConsulting";
 	}
 	
-	
+	/**
+	 * 主页-小升初咨询-对PSOT投票
+	 */
 	public String addVote() throws Exception{
 		boolean status = false;
 		String postId = MapUtil.getStringFromMap(getParameters(), "postId");
@@ -175,7 +177,6 @@ public class MemberAction extends BaseAction {
 			getServMgr().getFrontService().addVoteAlrdy(postId, getLoginUserId(), voteType);
 			status = true;
 		}
-		System.out.println(status);
 		JSONObject result = new JSONObject();
 		result.put("status", status);
 		json = new JsonView(result);
