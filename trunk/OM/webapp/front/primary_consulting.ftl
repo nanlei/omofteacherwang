@@ -16,16 +16,31 @@
 		alert("游客不可以投票！");
 	}
 	
-	function addVote(postId, voteType){
+	function addVote(postId, voteType, voteCount){
+		var postId=postId;
+		var voteType=voteType;
+		var voteCount=voteCount;
+		
 		$.ajax({
 	   	 	type: "POST",
 	   		url: "${base}/front/addVote.action",
 	   		data: { postId:postId, voteType: voteType},
 	   		success: function(data){
 	   			if(data.status){
-	   				alert("投票成功，谢谢您！");
+	   			
+	   				if(voteType==1){
+						$('#good'+postId).html(voteCount+1);
+					}
+					if(voteType==2){
+						$('#bad'+postId).html(voteCount+1);
+					}
+					if(voteType==3){
+						$('#none'+postId).html(voteCount+1);
+					}
+	   			
+	   				$('#status'+postId).html("<font color=\"green\">您已投票，谢谢</font>");
 	   			}else{
-	   				alert("投票失败，请勿重复投票");
+	   				$('#status'+postId).html("<font color=\"red\">请勿重复投票</font>");
 	   			}
 	   		},
 	   		error:function(xmlHttpRequest,status,exception){
@@ -89,39 +104,45 @@
           					</td>
           					<#if loginUser?exists>
     							&nbsp;&nbsp;&nbsp;&nbsp;
-          						<td width="25">
-          							<a href="" onClick="addVote(${list.id} , '1')">
-          								<font color="green">可信(${list.vote1?default('0')?html})</font>
+          						<td  width="25">
+          							<a style="cursor:pointer"  onClick="addVote(${list.id} , '1' , ${list.vote1?default('0')})">
+          								<font color="green">可信(<span id="good${list.id}">${list.vote1?default('0')?html}</span>)</font>
           							</a>
           						</td>
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<td width="25">
-									<a href="" onClick="addVote(${list.id} , '2')">
-										<font color="red">不可信(${list.vote2?default('0')?html})</font>
+									<a style="cursor:pointer" onClick="addVote(${list.id} , '2' , ${list.vote2?default('0')})">
+										<font color="red">不可信(<span id="bad${list.id}">${list.vote2?default('0')?html}</span>)</font>
 									</a>
 								</td>
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<td width="25">
-									<a href="" onClick="addVote(${list.id} , '3')">
-										<font color="blue">不关心(${list.vote3?default('0')?html})</font>
+									<a style="cursor:pointer" onClick="addVote(${list.id} , '3' , ${list.vote3?default('0')} )">
+										<font color="blue">不关心(<span id="none${list.id}">${list.vote3?default('0')?html}</span>)</font>
 									</a>
+								</td>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<td width="25">
+									
+										<span id="status${list.id}"></span>
+									
 								</td>
     						<#else>
     							&nbsp;&nbsp;&nbsp;&nbsp;
           						<td width="25">
-          							<a href="" onClick="errorPost()">
+          							<a style="cursor:pointer" onClick="errorPost()">
           							<font color="green">可信(${list.vote1?default('0')?html})</font>
           							</a>
           						</td>
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<td width="25">
-									<a href="" onClick="errorPost()">
+									<a style="cursor:pointer" onClick="errorPost()">
 										<font color="red">不可信(${list.vote2?default('0')?html})</font>
 									</a>
 								</td>
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<td width="25">
-									<a href="" onClick="errorPost()">
+									<a style="cursor:pointer" onClick="errorPost()">
 										<font color="blue">不关心(${list.vote3?default('0')?html})</font>
 									</a>
 								</td>

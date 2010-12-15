@@ -419,6 +419,9 @@ public class FrontService extends BaseService {
 		
 	}
 
+	/**
+	 * GET_VOTE_ALRDY
+	 */
 	private static final String SQL_GET_VOTE_ALRDY="select count(*) from om_vote_validate where postId=? and studentId=?";
 	public boolean getVoteAlrdy(String postId, String loginUserId) {
 		if(jt.queryForInt(SQL_GET_VOTE_ALRDY, postId, loginUserId)==1){
@@ -430,6 +433,9 @@ public class FrontService extends BaseService {
 			
 	}
 
+	/**
+	 * ADD_POST_VOTE_ALRDY
+	 */
 	private static final String SQL_ADD_VOTE_ALRDY="insert into om_vote_validate(id, postId, studentId, voteTime, voteType) " +
 			"values(null, ?, ?, now(), ?)";
 	public void addVoteAlrdy(String postId, String loginUserId, String voteType) {
