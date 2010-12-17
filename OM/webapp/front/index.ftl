@@ -9,7 +9,7 @@
   <div id="featured_slide">
   	<#if indexMap.notice?has_content>
 		<#list indexMap.notice as list>
-    	<div class="featured_box"><a href="#"><img src="${base}${list.pic}" alt="" /></a>
+    	<div class="featured_box"><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewNotice.action?id=${list.id}" target="_black"><img src="${base}${list.pic}" alt="" /></a>
       		<div class="floater">
        	 		<h2>${list.title?default('-')?html}</h2>
         		<p>${cutText(list.content?replace("\r\n",""),160,"......")}</p>

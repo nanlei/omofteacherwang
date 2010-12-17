@@ -223,7 +223,7 @@
           		<p>
             		<input type="text" id="" size="22" />
             		<label for="name">
-            			<font size="3">待定 (必填)</font>
+            			<font size="3">待定 (选填)</font>
             		</label>
            	 		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -232,7 +232,7 @@
           		<p>
             		<input type="password"  id="" size="22" />
             		<label for="name">
-            			<font size="3">待定 (必填)</font>
+            			<font size="3">待定 (选填)</font>
            		 	</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -241,7 +241,7 @@
           		<p>
             		<input type="password" id="" size="22"  />
             		<label for="name">
-            			<font size="3">待定 (必填)</font>
+            			<font size="3">待定 (选填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -250,7 +250,7 @@
           		<p>
             		<input type="text" id="" size="22"/>
             		<label for="name">
-            			<font size="3">待定 (必填)</font>
+            			<font size="3">待定 (选填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -259,7 +259,7 @@
           		<p>
             		<input type="text" id="" size="22"/>
             		<label for="name">
-            			<font size="3">待定 (必填)</font>
+            			<font size="3">待定 (选填)</font>
             		</label>
             		<label for="name">
             			<strong><font size="3"><span id=""></span></font></strong>
@@ -286,7 +286,7 @@
       <div class="holder">
         <h2 class="title"><img src="${base}/images/wby_small.png" alt="" />王炳禹老师简介</h2>
         <p>自幼学习奥数，多次在全国联赛及各大杯赛中获一等奖。以竞赛优异成绩考入 北京西城实验中学 全国理科实验班。之后保送至北京大学，获理学、经济学双学位。自龙校成立，王炳禹老师就参与至龙校教学活动中，第一批培养出的孩子多数已被各重点校接收录取。王炳禹老师现担任龙校教学总监，全面负责龙校教学工作。其理念在于传授学生们解题的思想及方法，对题目的掌握要从“怎么做”深入到“怎么想”，主动培养学生思考分析问题的能力。</p>
-        <p class="readmore"><a href="#">更多信息 &raquo;</a></p>
+        <p class="readmore"><a href="${base}/front/<@p.nameSpace loginUser?exists />!aboutUs.action" target="_black">更多信息 &raquo;</a></p>
       </div>
       <!--
       <div id="featured">

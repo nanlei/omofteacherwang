@@ -83,6 +83,6 @@ if (navTD) {
 <#-- Footer -->
 <#macro footer>
 <tr>
-	<td height="18px" align="center" style="padding-right:10px;font-size:12px">Ver 0.1 Copyright &#169; All Rights Reserved,Powered By NanLei & ShenMaihan</td>
+	<td height="18px" align="center" style="padding-right:10px;font-size:12px">Ver 0.1 王炳禹奥数在线 Copyright &copy;  2010 - 2012 All Rights Reserved - 软件开发公司: CMOS (Singapore) Pte Ltd</td>
 </tr>
 </#macro>
