@@ -1,5 +1,14 @@
 <#include "../common/front/config.ftl">
 <@p.page>
+<script type="text/javascript">
+	function addViewTimes(divId){
+	
+		var viewCount=document.getElementById('lastestCount'+divId).value;
+		viewCount++;
+		$('#viewTimes'+divId).html(viewCount);
+		document.getElementById('lastestCount'+divId).value=viewCount;
+	}
+</script>
 <#-- 导航链接-->
 <@p.getCurrentPage currentPage="viewExperience" />
 <#-- /导航链接-->
@@ -49,8 +58,9 @@
             			<td>${list.title?default('-')?html}</td>
             			<td>${list.divisionName?default('-')?html}</td>
             			<td>${list.updateTime?date}</td>
-            			<td>${list.clickTimes?default('0')?html}</td>
-            			<td><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperienceDetail.action?id=${list.Id}" target="_black">查看</a></td>	
+            			<td><span id="viewTimes${list.id}">${list.clickTimes?default('0')?html}</span></td>
+            			<td><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperienceDetail.action?id=${list.Id}" onClick="addViewTimes(${list.id})" target="_black">查看</a></td>	
+          				<input type="hidden" id="lastestCount${list.id}" value="${list.clickTimes?default('0')?html}" />
           			</tr>
         		</tbody>
         	</#list>
