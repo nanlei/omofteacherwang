@@ -14,6 +14,9 @@
 <head profile="http://gmpg.org/xfn/11">
 	<#assign s=JspTaglibs["/WEB-INF/struts-tags.tld"]><#-- Struts2标签库定义 -->
 	<title>${macro_config.common_title} - ${title?html}</title>
+	<meta name="keywords" content="清华附中奥数教学系统, 在线教学系统, 成都市西莫尔斯科技有限公司, 申脉汗" />		
+	<meta name="description" content="清华附中奥数教学系统  | 成都市西莫尔斯科技有限公司" />
+	
 	<#list macro_config.css_path as css><#-- 系统CSS加载 -->
 		<link href="${base}${css}" rel="stylesheet" type="text/css">
 	</#list>
