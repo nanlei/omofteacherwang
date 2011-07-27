@@ -90,7 +90,7 @@
             			<div class="submitdate">
             				<a href="#">${list.postTime?default('-')?datetime}</a>
             			</div>
-            			<p>${list.postContent?default('-')?html}</p>
+            			<p>${list.postContent?default('-')}</p>
           				
           				<tr align="center" width="80px" style="padding-top:5px">
           					<td>

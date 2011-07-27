@@ -78,7 +78,7 @@
 			$.ajax({
 	   		 	type: "POST",
 	   			url: "${base}/front/addMember.action",
-	   			data: { userName: userName, password: pwd2, realName: realName, email: email, mobile: mobile},
+	   			data: { userName: userName, passWord: pwd2, realName: realName, email: email, mobile: mobile},
 	   			success: function(data){
 	   				if(data.status){
 	   					

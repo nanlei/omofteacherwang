@@ -150,7 +150,7 @@
 <div class="wrapper col5">
   <div id="copyright">
     <p class="fl_left">王炳禹奥数在线 Copyright &copy;  2010 - 2012 All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">软件开发公司 <strong><a href="#" title="开发公司">CMOS (Singapore) Pte Ltd</a></strong></p>
+    <p class="fl_right">软件开发公司 <strong><a href="#" title="开发公司">成都市西莫尔斯科技有限公司</a></strong></p>
     <br class="clear" />
   </div>
 </div>

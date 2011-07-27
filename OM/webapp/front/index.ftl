@@ -67,29 +67,19 @@
 		<div id="gallery_section">
     		<div class="gallery_area">
         	<h2>学生成绩展示</h2>
-            	<a href="${base}/images/templatemo_big_1.jpg" rel="lightbox-gallery" title="Flower">
-                	<img alt="Flower" src="${base}/images/templatemo_thumb_1.jpg" />
+            	<a href="${base}/images/1.jpg" rel="lightbox-gallery" title="Flower">
+                	<img alt="Flower" src="${base}/images/1.jpg" />
                 </a>
-                <a href="${base}/images/templatemo_big_2.jpg" rel="lightbox-gallery" title="Rose">
-                	<img alt="Rose" src="${base}/images/templatemo_thumb_2.jpg" />
+                <a href="${base}/images/2.jpg" rel="lightbox-gallery" title="Rose">
+                	<img alt="Rose" src="${base}/images/2.jpg" />
                 </a>
-                <a href="${base}/images/templatemo_big_3.jpg" rel="lightbox-gallery" title="Butterfly">
-               		<img alt="Butterfly" src="${base}/images/templatemo_thumb_3.jpg" />
+                <a href="${base}/images/3.jpg" rel="lightbox-gallery" title="Butterfly">
+               		<img alt="Butterfly" src="${base}/images/3.jpg" />
                 </a>
-                <a href="${base}/images/templatemo_big_4.jpg" rel="lightbox-gallery" title="Twin Flower">
-                	<img alt="Twin Flower" src="${base}/images/templatemo_thumb_4.jpg" />
+                <a href="${base}/images/4.jpg" rel="lightbox-gallery" title="Twin Flower">
+                	<img alt="Twin Flower" src="${base}/images/4.jpg" />
                 </a>
-                <a href="${base}/images/templatemo_big_2.jpg" rel="lightbox-gallery" title="Reflection">
-                	<img alt="Reflection" src="${base}/images/templatemo_thumb_2.jpg" />
-                </a>  
-				<a href="${base}/images/templatemo_big_3.jpg" rel="lightbox-gallery" title="Reflection">
-                	<img alt="Reflection" src="${base}/images/templatemo_thumb_3.jpg" />
-                </a> <a href="${base}/images/templatemo_big_1.jpg" rel="lightbox-gallery" title="Reflection">
-                	<img alt="Reflection" src="${base}/images/templatemo_thumb_1.jpg" />
-                </a> 
-                <a href="${base}/images/templatemo_big_4.jpg" rel="lightbox-gallery" title="Flower">
-                	<img alt="Flower" src="${base}/images/templatemo_thumb_4.jpg" />
-                </a>          
+                      
          	</div>
 		</div><!-- End Of Right Bottom Section -->
         <br class="clear" />
@@ -108,7 +98,8 @@
           	</a>
           </div>
           <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewKnowledge.action">全知识点评测</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
+          <p>知识要点及辅导知识点将在在此板块中定期更新</p>
+          <p>-王炳禹老师</p>
         </li>
         
         <li>
@@ -118,7 +109,8 @@
           	</a>
           </div>
           <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewMethod.action">奥数方法认识</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
+          <p>最新的解题方法，最新的解题思路将定期在此板块中更新</p>
+          <p>-王炳禹老师，李岩老师</p>
         </li>
         
         <li>
@@ -128,7 +120,8 @@
           	</a>
           </div>
           <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewExperience.action">奥数教育心得</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
+          <p>此板块将分享各位同学及老师的心得体会</p>
+          <p>-王炳禹老师，朱骏老师</p>
         </li>
         
         <li>
@@ -138,7 +131,8 @@
           	</a>
           </div>
           <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!shareData.action">奥数资料分享</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
+          <p>所有奥数资料将在此版块中定期更新</p>
+          <p>-王炳禹老师，朱骏老师，李岩老师，时堪老师</p>
         </li>
         
         <li class="last">
@@ -148,7 +142,8 @@
           	</a>
           </div>
           <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewPrimaryConsulting.action">小升初咨询</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
+          <p>此版块提供小升初的咨询与回答，您的任何问题都将会得到老师们的答复</p>
+          <p>-王炳禹老师，朱骏老师，李岩老师，时堪老师</p>
         </li>
         
         <li class="last">
@@ -158,7 +153,8 @@
           	</a>
           </div>
           <p><strong><a href="${base}/front/<@p.nameSpace loginUser?exists />!viewJuniorStudy.action">初中学习</a></strong></p>
-          <p>此处写各项目简介，不提供后台功能，在开发时写在页面，请王老师编写一段100字以内的简介，包括左侧图片</p>
+          <p>此版块将呈现初中的学习生活给大家，供大家分享讨论</p>
+          <p>-王炳禹老师，朱骏老师，李岩老师，时堪老师</p>
         </li>
       </ul>
     </div>
