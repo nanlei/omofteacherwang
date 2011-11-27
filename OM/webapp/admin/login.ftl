@@ -41,7 +41,7 @@ table.default td {
 		</tr>
 		<tr>
 		  <td class="item" align="right">密　码:</td>
-		  <td><input type="password" name="password" style="width:100px" emptyInfo="请输入密码。" value="123"></td>
+		  <td><input type="password" name="password" style="width:100px" emptyInfo="请输入密码。" value="admin"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"></td>

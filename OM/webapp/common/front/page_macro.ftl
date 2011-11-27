@@ -35,17 +35,7 @@
 	</#if>
 	<meta http-equiv="Content-type" content="text/html; charset=${macro_config.charset}">
 	<meta http-equiv="imagetoolbar" content="no" />
-	<script type="text/javascript">
-  		var _gaq = _gaq || [];
-  		_gaq.push(['_setAccount', 'UA-19935766-1']);
- 		_gaq.push(['_trackPageview']);
-
-  		(function() {
-    		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   		 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  		})();
-	</script>
+	
 	${head}
 </head>
 <#if request.servletPath?starts_with(macro_config.manage_path)>
@@ -87,10 +77,10 @@
           <fieldset>
             <legend>Teachers Login Form</legend>
             <label for="teachername">用户名:
-              <input type="text" name="userName" id="teachername" value=""  emptyInfo="请输入用户名" maxLen="15" lengthInfo="长度应小于15个字符" />
+              <input type="text" name="userName" id="teachername" value="admin"  emptyInfo="请输入用户名" maxLen="15" lengthInfo="长度应小于15个字符" />
             </label>
             <label for="teacherpass">密码:
-              <input type="password" name="password" id="teacherpass" value="" emptyInfo="请输入密码" maxLen="32" lengthInfo="长度应小于32个字符" />
+              <input type="password" name="password" id="teacherpass" value="admin" emptyInfo="请输入密码" maxLen="32" lengthInfo="长度应小于32个字符" />
             </label>
             <label for="teacherremember">
               <input class="checkbox" type="checkbox" name="teacherremember" id="teacherremember" checked="checked" />
